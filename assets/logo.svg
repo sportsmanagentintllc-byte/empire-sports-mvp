@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
-  <rect width="120" height="120" rx="18" fill="#0b2545"/>
-  <g fill="#fff" transform="translate(18,18)">
-    <path d="M16 8h8v44h-8zM36 8h8v44h-8zM56 8h8v44h-8z" opacity="0.95"/>
-  </g>
-</svg>
+<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><rect width='120' height='120' rx='18' fill='#0b2545'/><g fill='#fff' transform='translate(18,18)'><path d='M16 8h8v44h-8zM36 8h8v44h-8zM56 8h8v44h-8z' opacity='0.95'/></g></svg>
