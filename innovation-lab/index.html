@@ -1,87 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Innovation Lab — Sports Systems Experiment</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A personal innovation lab documenting an early-stage exploration in sports systems, digital platforms, and inclusive entrepreneurship.">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Empire Sports — Innovation Lab</title>
+  <meta name="description" content="A structured innovation log documenting an early-stage sports systems experiment (MVP, hypotheses, milestones, evidence)."/>
   <style>
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: #fafafa;
-      color: #1a1a1a;
-      line-height: 1.7;
-      margin: 0;
-      padding: 0;
+    :root{
+      --bg:#0b1020; --card:#0f1724; --stroke:rgba(255,255,255,.09);
+      --text:rgba(255,255,255,.92); --muted:rgba(255,255,255,.70);
+      --faint:rgba(255,255,255,.52); --accent:#f2c14e;
     }
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 48px 24px;
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background: radial-gradient(900px 500px at 10% 0%, rgba(242,193,78,.18), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(80,160,255,.14), transparent 60%),
+                  linear-gradient(180deg,#070a14,#0b1020);
+      color:var(--text); line-height:1.65;
     }
-    h1, h2 {
-      font-weight: normal;
+    .wrap{max-width:980px;margin:0 auto;padding:44px 18px 70px}
+    .top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+    .brand{font-weight:800;letter-spacing:.2px}
+    .pill{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:10px 12px;border:1px solid var(--stroke);border-radius:999px;
+      background:rgba(255,255,255,.04);color:var(--muted);font-size:13px
     }
-    h1 {
-      font-size: 32px;
-      margin-bottom: 12px;
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(242,193,78,.14)}
+    h1{margin:14px 0 8px;font-size:36px;letter-spacing:-.6px;line-height:1.12}
+    .sub{margin:0;color:var(--muted);max-width:78ch}
+    .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:22px}
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));
+      border:1px solid var(--stroke);border-radius:16px;padding:18px 18px;
+      box-shadow:0 22px 70px rgba(0,0,0,.35)
     }
-    h2 {
-      font-size: 22px;
-      margin-top: 40px;
-    }
-    p {
-      margin: 16px 0;
-    }
-    .meta {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 32px;
-    }
-    footer {
-      margin-top: 64px;
-      font-size: 13px;
-      color: #777;
-      border-top: 1px solid #e0e0e0;
-      padding-top: 24px;
-    }
+    h2{font-size:14px;text-transform:uppercase;letter-spacing:.16em;color:var(--faint);margin:0 0 10px}
+    .lead{font-size:16px;margin:0 0 10px}
+    .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
+    .kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+    .kpi div{padding:12px;border:1px solid var(--stroke);border-radius:12px;background:rgba(255,255,255,.03)}
+    .kpi strong{display:block;font-size:18px;color:var(--text)}
+    .kpi span{font-size:12px;color:var(--faint)}
+    a{color:rgba(255,255,255,.92);text-decoration:none;border-bottom:1px dashed rgba(242,193,78,.5)}
+    a:hover{opacity:.92}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+    .hr{height:1px;background:rgba(255,255,255,.08);margin:14px 0}
+    .log{margin:0;padding-left:18px;color:var(--muted)}
+    .tag{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);color:var(--muted)}
+    @media (max-width:900px){ .grid{grid-template-columns:1fr} h1{font-size:30px} }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Innovation Lab: Exploring Sports Systems & Digital Platforms</h1>
-    <div class="meta">
-      Personal documentation • Early-stage experiment • Learning-in-progress
+  <div class="wrap">
+    <div class="top">
+      <div class="pill"><span class="dot"></span> Innovation Lab • structured log • prototype stage</div>
+      <div class="pill">Owner: <span class="mono">Sports Management International LLC</span></div>
     </div>
 
-    <h2>Context</h2>
-    <p>
-      Through personal observation and lived experience, I have become increasingly aware of how fragmented sports development systems can be, particularly in emerging contexts. While individual success stories exist, systemic structures that support transparency, continuity, and equitable access remain limited.
+    <h1>Empire Sports — Innovation Lab</h1>
+    <p class="sub">
+      A working log that documents an early stage experiment to improve sports development pathways through better systems design,
+      digital infrastructure, and stakeholder coordination. This is intentionally a prototype, evaluated by evidence, not hype.
     </p>
 
-    <h2>Personal Motivation</h2>
-    <p>
-      My academic background in information technology, combined with long-standing engagement with sports education and scouting, has led me to question how digital platforms and organizational design might contribute to more coherent and inclusive sports pathways.
-    </p>
+    <div class="grid">
+      <div class="card">
+        <h2>Thesis</h2>
+        <p class="lead">
+          Talent is not the problem. The missing piece is an ecosystem that makes discovery, learning, and opportunity <em>structured</em>,
+          <em>verifiable</em>, and <em>repeatable</em>.
+        </p>
 
-    <h2>The Experiment</h2>
-    <p>
-      This project is an early-stage exploration of how a lightweight digital ecosystem could support talent discovery, education, and coordination among athletes, scouts, and institutions. It is intentionally kept at a prototype level and serves as a practical learning tool rather than a finished venture.
-    </p>
+        <div class="hr"></div>
 
-    <h2>What I Do Not Know Yet</h2>
-    <p>
-      At this stage, many questions remain unresolved, particularly around sustainable business models, governance structures, ethical considerations, and long-term scalability. These gaps represent areas where structured academic training and interdisciplinary perspectives are essential.
-    </p>
+        <h2>Problem</h2>
+        <ul class="list">
+          <li>Fragmented scouting pipelines and inconsistent evaluation standards.</li>
+          <li>Limited access to credible mentorship, courses, and verified pathways.</li>
+          <li>Low trust: players struggle to prove identity, performance, and progression.</li>
+        </ul>
 
-    <h2>Why a Master’s in Innovation & Entrepreneurship</h2>
-    <p>
-      I see this project as a living laboratory through which I can apply, test, and critically examine innovation frameworks, entrepreneurial theory, and systems thinking. A Master’s program focused on innovation and entrepreneurship—particularly within a Scandinavian academic context—offers the environment needed to rigorously refine both my thinking and this experiment.
-    </p>
+        <div class="hr"></div>
 
-    <footer>
-      This page is intentionally minimal and reflective in nature. It documents an ongoing learning process rather than a completed outcome.
-    </footer>
+        <h2>Hypothesis</h2>
+        <p class="lead" style="color:rgba(255,255,255,.82)">
+          If we offer a free, structured submission and learning pathway, we can earn trust quickly,
+          build a credible talent database, and later monetize premium reports, partnerships, and marketplace services.
+        </p>
+
+        <div class="kpi">
+          <div><strong>North Star</strong><span>Verified pathways → real opportunities</span></div>
+          <div><strong>Phase</strong><span>0→1 MVP validation</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Artifacts (live)</h2>
+        <p class="lead">Two public facing assets currently live:</p>
+        <ul class="list">
+          <li><a href="https://sportsmanagentintllc-byte.github.io/empire-sports-mvp/" target="_blank">MVP Platform (User-facing)</a></li>
+          <li><a href="https://sportsmanagentintllc-byte.github.io/empire-sports-investor-hub/" target="_blank">Investor Hub</a></li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2>30-day experiment design</h2>
+        <ul class="list">
+          <li><span class="tag">Acquire</span> Collect first 50 athlete submissions (free).</li>
+          <li><span class="tag">Validate</span> Run 10 structured evaluation reports (manual).</li>
+          <li><span class="tag">Learn</span> Identify top 3 bottlenecks in the pipeline.</li>
+          <li><span class="tag">Refine</span> Improve submission flow and course offering.</li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2>Metrics to track</h2>
+        <ul class="list">
+          <li>Submissions/week</li>
+          <li>Completion rate (form → submit)</li>
+          <li>Report requests</li>
+          <li>Course preview clicks</li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2>Changelog</h2>
+        <ul class="log">
+          <li><span class="mono">v0.1</span> — MVP + Investor Hub deployed on GitHub Pages.</li>
+          <li><span class="mono">v0.2</span> — Innovation Lab created as a structured evidence log.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h2>Why a Master’s in Innovation & Entrepreneurship (Sweden)</h2>
+      <p class="lead" style="color:rgba(255,255,255,.82)">
+        This project is a living laboratory to apply and test innovation frameworks, venture design, governance models,
+        and ethical system building. The goal is not to “pitch” but to learn rigorously, validate assumptions, and build responsibly.
+      </p>
+      <p class="sub" style="margin-top:10px">
+        Note: This page is intentionally concise. It exists to demonstrate seriousness through structure, artifacts, and an experiment plan.
+      </p>
+    </div>
   </div>
 </body>
 </html>
