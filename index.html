@@ -1,156 +1,1728 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Empire Sports — MVP</title>
-<meta name="description" content="Empire Sports — talent discovery, verification, and community for athletes."/>
-<link rel="icon" href="assets/icons/favicon.svg" />
-<link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Empire Sports — Discover African Talent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold: #D4A017;
+    --gold-light: #F0C040;
+    --gold-dim: #8A6610;
+    --red: #C0392B;
+    --red-bright: #E74C3C;
+    --green: #1A6B3A;
+    --green-bright: #27AE60;
+    --black: #0A0A0A;
+    --black-2: #111111;
+    --black-3: #1A1A1A;
+    --black-4: #222222;
+    --white: #F5F0E8;
+    --white-dim: #B8B0A0;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-condensed: 'Barlow Condensed', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 64px;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,160,23,0.15);
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo .empire { color: var(--gold); }
+  .nav-logo .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); display: inline-block; margin: 0 2px 2px; }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--font-condensed);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--black);
+    font-family: var(--font-condensed);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-condensed);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 8vw, 108px);
+    line-height: 0.92;
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+  }
+
+  .hero-headline .line-gold { color: var(--gold); }
+  .hero-headline .line-red { color: var(--red-bright); }
+  .hero-headline .line-green { color: var(--green-bright); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--white-dim);
+    max-width: 420px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+    border-left: 3px solid var(--gold);
+    padding-left: 20px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    font-family: var(--font-condensed);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-condensed);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: 1px solid rgba(245,240,232,0.3);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+  }
+
+  .stat-item { display: flex; flex-direction: column; }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 36px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--font-condensed);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    margin-top: 4px;
+  }
+
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-visual {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Pan-African geometric background */
+  .pan-african-grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    opacity: 0.07;
+  }
+
+  .pan-african-grid div:nth-child(1),
+  .pan-african-grid div:nth-child(5),
+  .pan-african-grid div:nth-child(9) { background: var(--gold); }
+  .pan-african-grid div:nth-child(2),
+  .pan-african-grid div:nth-child(6) { background: var(--red); }
+  .pan-african-grid div:nth-child(3),
+  .pan-african-grid div:nth-child(4) { background: var(--green); }
+
+  .hero-card {
+    position: relative;
+    z-index: 2;
+    width: 320px;
+    background: var(--black-3);
+    border: 1px solid rgba(212,160,23,0.3);
+    padding: 32px;
+    transform: rotate(2deg);
+    box-shadow: 20px 20px 0 var(--gold-dim), -4px -4px 0 var(--red);
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: rotate(2deg) translateY(0); }
+    50% { transform: rotate(2deg) translateY(-10px); }
+  }
+
+  .hero-card-badge {
+    font-family: var(--font-condensed);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--green-bright);
+    padding: 4px 10px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .hero-card-sport {
+    font-family: var(--font-display);
+    font-size: 48px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .hero-card-name {
+    font-family: var(--font-condensed);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .hero-card-detail {
+    font-size: 13px;
+    color: var(--white-dim);
+    margin-bottom: 24px;
+  }
+
+  .hero-card-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .hero-card-stat { text-align: center; }
+
+  .hero-card-stat-val {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .hero-card-stat-key {
+    font-family: var(--font-condensed);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    margin-top: 4px;
+  }
+
+  /* Stripe accent behind hero */
+  .hero-stripe {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    display: flex;
+  }
+
+  .hero-stripe span { flex: 1; }
+  .hero-stripe span:nth-child(1) { background: var(--red); }
+  .hero-stripe span:nth-child(2) { background: var(--gold); }
+  .hero-stripe span:nth-child(3) { background: var(--green); }
+
+  /* ── PROOF BAR ── */
+  .proof-bar {
+    background: var(--gold);
+    padding: 20px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .proof-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .proof-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .proof-text { display: flex; flex-direction: column; }
+
+  .proof-val {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--black);
+    line-height: 1;
+  }
+
+  .proof-desc {
+    font-family: var(--font-condensed);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(10,10,10,0.65);
+  }
+
+  .proof-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(10,10,10,0.2);
+  }
+
+  /* ── HOW IT WORKS ── */
+  #how {
+    padding: 120px 60px;
+    background: var(--black-2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #how::before {
+    content: 'HOW';
+    position: absolute;
+    right: -20px;
+    top: 40px;
+    font-family: var(--font-display);
+    font-size: 200px;
+    color: rgba(212,160,23,0.04);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .section-label {
+    font-family: var(--font-condensed);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.95;
+    margin-bottom: 64px;
+    max-width: 600px;
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .step {
+    background: var(--black-3);
+    padding: 40px 36px;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .step:hover { background: var(--black-4); }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 80px;
+    line-height: 1;
+    color: rgba(212,160,23,0.12);
+    position: absolute;
+    top: 20px;
+    right: 24px;
+  }
+
+  .step-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-icon-inner {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .step:nth-child(1) .step-icon-inner { background: var(--red); }
+  .step:nth-child(2) .step-icon-inner { background: var(--gold); }
+  .step:nth-child(3) .step-icon-inner { background: var(--green); }
+
+  .step-title {
+    font-family: var(--font-condensed);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-desc {
+    font-size: 15px;
+    color: var(--white-dim);
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-tag {
+    margin-top: 24px;
+    display: inline-block;
+    font-family: var(--font-condensed);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step:nth-child(1) .step-tag { background: rgba(192,57,43,0.15); color: var(--red-bright); }
+  .step:nth-child(2) .step-tag { background: rgba(212,160,23,0.15); color: var(--gold-light); }
+  .step:nth-child(3) .step-tag { background: rgba(26,107,58,0.15); color: var(--green-bright); }
+
+  /* ── SUBMIT ── */
+  #discover {
+    padding: 120px 60px;
+    background: var(--black);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .submit-left {}
+
+  .submit-form-block {
+    background: var(--black-3);
+    border: 1px solid rgba(212,160,23,0.2);
+    padding: 48px;
+    position: relative;
+  }
+
+  .submit-form-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold), var(--green));
+  }
+
+  .form-title {
+    font-family: var(--font-display);
+    font-size: 36px;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .form-sub {
+    font-size: 14px;
+    color: var(--white-dim);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .form-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .form-opt {
+    background: var(--black-4);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 20px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+  }
+
+  .form-opt:hover {
+    border-color: var(--gold);
+    background: rgba(212,160,23,0.06);
+  }
+
+  .form-opt-icon { font-size: 24px; }
+
+  .form-opt-label {
+    font-family: var(--font-condensed);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .form-opt-desc {
+    font-size: 12px;
+    color: var(--white-dim);
+    line-height: 1.4;
+  }
+
+  .form-cta {
+    display: block;
+    width: 100%;
+    background: var(--gold);
+    color: var(--black);
+    font-family: var(--font-condensed);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 18px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 16px;
+  }
+
+  .form-cta:hover { background: var(--gold-light); }
+
+  .form-note {
+    font-size: 12px;
+    color: var(--white-dim);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .form-note a { color: var(--gold); text-decoration: none; }
+
+  /* Submit right — regions */
+  .regions-block {}
+
+  .regions-title {
+    font-family: var(--font-display);
+    font-size: 48px;
+    line-height: 0.95;
+    margin-bottom: 12px;
+  }
+
+  .regions-title em { font-style: normal; color: var(--gold); }
+
+  .regions-sub {
+    font-size: 16px;
+    color: var(--white-dim);
+    margin-bottom: 48px;
+    max-width: 420px;
+    line-height: 1.7;
+  }
+
+  .region-list { display: flex; flex-direction: column; gap: 2px; }
+
+  .region-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    background: var(--black-3);
+    transition: background 0.2s;
+    cursor: default;
+  }
+
+  .region-item:hover { background: var(--black-4); }
+
+  .region-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .region-dot.west { background: var(--gold); }
+  .region-dot.east { background: var(--green-bright); }
+  .region-dot.south { background: var(--red-bright); }
+  .region-dot.north { background: var(--white-dim); }
+
+  .region-name {
+    font-family: var(--font-condensed);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    flex: 1;
+  }
+
+  .region-countries {
+    font-size: 12px;
+    color: var(--white-dim);
+  }
+
+  .region-status {
+    font-family: var(--font-condensed);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+  }
+
+  .region-status.active {
+    background: rgba(39,174,96,0.15);
+    color: var(--green-bright);
+  }
+
+  .region-status.soon {
+    background: rgba(212,160,23,0.1);
+    color: var(--gold);
+  }
+
+  /* ── DISCOVER ── */
+  #profiles {
+    padding: 120px 60px;
+    background: var(--black-2);
+  }
+
+  .discover-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 64px;
+  }
+
+  .discover-coming {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .profile-placeholder {
+    background: var(--black-3);
+    padding: 40px 32px;
+    border: 1px solid rgba(212,160,23,0.08);
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .profile-placeholder::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .profile-placeholder:nth-child(1)::after { background: var(--gold); }
+  .profile-placeholder:nth-child(2)::after { background: var(--red); }
+  .profile-placeholder:nth-child(3)::after { background: var(--green); }
+
+  .profile-ghost {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--black-4);
+    border: 2px dashed rgba(212,160,23,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .profile-sport-tag {
+    font-family: var(--font-condensed);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--black);
+    padding: 4px 12px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .profile-placeholder:nth-child(1) .profile-sport-tag { background: var(--gold); }
+  .profile-placeholder:nth-child(2) .profile-sport-tag { background: var(--red-bright); }
+  .profile-placeholder:nth-child(3) .profile-sport-tag { background: var(--green-bright); }
+
+  .profile-placeholder-name {
+    font-family: var(--font-condensed);
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(245,240,232,0.2);
+    margin-bottom: 8px;
+  }
+
+  .profile-placeholder-detail {
+    font-size: 13px;
+    color: rgba(245,240,232,0.1);
+    margin-bottom: 24px;
+  }
+
+  .profile-unlock {
+    font-family: var(--font-condensed);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .profile-unlock::before {
+    content: '🔒';
+    font-size: 14px;
+  }
+
+  .profiles-cta-block {
+    margin-top: 48px;
+    background: var(--black-3);
+    border: 1px solid rgba(212,160,23,0.15);
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .profiles-cta-text {
+    max-width: 480px;
+  }
+
+  .profiles-cta-title {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .profiles-cta-sub {
+    font-size: 15px;
+    color: var(--white-dim);
+    line-height: 1.6;
+  }
+
+  /* ── ACADEMY ── */
+  #academy {
+    padding: 120px 60px;
+    background: var(--black);
+  }
+
+  .academy-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .academy-left {}
+
+  .academy-modules {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .module-item {
+    background: var(--black-3);
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: default;
+    transition: background 0.2s;
+    border-left: 3px solid transparent;
+  }
+
+  .module-item:hover {
+    background: var(--black-4);
+    border-left-color: var(--gold);
+  }
+
+  .module-item.locked { opacity: 0.45; }
+
+  .module-num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--gold);
+    line-height: 1;
+    width: 36px;
+    flex-shrink: 0;
+  }
+
+  .module-item.locked .module-num { color: var(--white-dim); }
+
+  .module-info { flex: 1; }
+
+  .module-title {
+    font-family: var(--font-condensed);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .module-sub {
+    font-size: 13px;
+    color: var(--white-dim);
+  }
+
+  .module-badge {
+    font-family: var(--font-condensed);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+  }
+
+  .module-badge.free { background: rgba(39,174,96,0.15); color: var(--green-bright); }
+  .module-badge.soon { background: rgba(212,160,23,0.1); color: var(--gold); }
+
+  /* ── FUNDING ── */
+  #wallet {
+    padding: 120px 60px;
+    background: var(--black-2);
+  }
+
+  .funding-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 64px;
+  }
+
+  .funding-card {
+    background: var(--black-3);
+    padding: 40px 36px;
+    position: relative;
+  }
+
+  .funding-card.featured {
+    background: var(--gold);
+  }
+
+  .funding-card-tag {
+    font-family: var(--font-condensed);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 4px 12px;
+  }
+
+  .funding-card:not(.featured) .funding-card-tag {
+    background: rgba(212,160,23,0.1);
+    color: var(--gold);
+  }
+
+  .funding-card.featured .funding-card-tag {
+    background: var(--black);
+    color: var(--gold);
+  }
+
+  .funding-card-title {
+    font-family: var(--font-display);
+    font-size: 32px;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+
+  .funding-card:not(.featured) .funding-card-title { color: var(--white); }
+  .funding-card.featured .funding-card-title { color: var(--black); }
+
+  .funding-card-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .funding-card:not(.featured) .funding-card-desc { color: var(--white-dim); }
+  .funding-card.featured .funding-card-desc { color: rgba(10,10,10,0.7); }
+
+  .funding-card-status {
+    font-family: var(--font-condensed);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .funding-card:not(.featured) .funding-card-status { color: var(--white-dim); }
+  .funding-card.featured .funding-card-status { color: var(--black); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(212,160,23,0.1);
+    padding: 60px;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand {}
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  .footer-tagline {
+    font-size: 14px;
+    color: var(--white-dim);
+    max-width: 280px;
+    line-height: 1.6;
+  }
+
+  .footer-links-col {}
+
+  .footer-col-title {
+    font-family: var(--font-condensed);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .footer-link-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-link-list a {
+    font-size: 14px;
+    color: var(--white-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-link-list a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-copy {
+    font-size: 13px;
+    color: var(--white-dim);
+  }
+
+  .footer-pan-stripe {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .stripe-pill {
+    width: 24px;
+    height: 6px;
+    border-radius: 3px;
+  }
+
+  .stripe-pill.r { background: var(--red); }
+  .stripe-pill.g { background: var(--gold); }
+  .stripe-pill.gr { background: var(--green); }
+
+  /* WAITLIST MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal-box {
+    background: var(--black-3);
+    border: 1px solid rgba(212,160,23,0.3);
+    padding: 48px;
+    max-width: 480px;
+    width: 90%;
+    position: relative;
+  }
+
+  .modal-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold), var(--green));
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--white-dim);
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .modal-title {
+    font-family: var(--font-display);
+    font-size: 36px;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .modal-sub {
+    font-size: 14px;
+    color: var(--white-dim);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .modal-input {
+    width: 100%;
+    background: var(--black-4);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 15px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .modal-input:focus { border-color: var(--gold); }
+  .modal-input::placeholder { color: rgba(255,255,255,0.25); }
+
+  .modal-select {
+    width: 100%;
+    background: var(--black-4);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 15px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+  }
+
+  .modal-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--black);
+    font-family: var(--font-condensed);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .modal-submit:hover { background: var(--gold-light); }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+
+    #home {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+
+    .hero-left { padding: 60px 24px 40px; }
+
+    .hero-right {
+      padding: 40px 24px;
+      min-height: 300px;
+    }
+
+    .hero-card { width: 260px; }
+
+    .hero-stats { gap: 24px; }
+
+    .proof-bar { padding: 20px 24px; justify-content: center; }
+    .proof-divider { display: none; }
+
+    #how { padding: 80px 24px; }
+    .steps-grid { grid-template-columns: 1fr; }
+
+    #discover { padding: 80px 24px; grid-template-columns: 1fr; gap: 48px; }
+
+    #profiles { padding: 80px 24px; }
+    .discover-coming { grid-template-columns: 1fr; }
+    .profiles-cta-block { flex-direction: column; gap: 24px; }
+
+    #academy { padding: 80px 24px; }
+    .academy-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    #wallet { padding: 80px 24px; }
+    .funding-grid { grid-template-columns: 1fr; }
+
+    footer { padding: 48px 24px; }
+    .footer-inner { flex-direction: column; gap: 40px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+    .discover-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+  }
+</style>
 </head>
 <body>
-<header class="nav">
-  <div class="container">
-    <div class="brand">Empire Sports</div>
-    <nav class="menu">
-      <a href="#home">Home</a>
-      <a href="#discover">Discover</a>
-      <a href="#academy">Academy</a>
-      <a href="#wallet">Funding</a>
-      <a id="joinBtn" class="cta">Join Waitlist</a>
-    </nav>
-  </div>
-</header>
 
-<section id="home" class="hero">
-  <div class="container hero-grid">
-    <div class="hero-left">
-      <h1>Build talent by design — not by luck.</h1>
-      <p class="lead">Free scouting submissions and a structured pathway for athletes across Africa and the rest of the world.</p>
-      <p class="small">Prototype build — early stage validation. Reviews are currently manual.</p>
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <span class="empire">EMPIRE</span>&nbsp;SPORTS<span class="dot"></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#discover">Submit</a></li>
+    <li><a href="#profiles">Discover</a></li>
+    <li><a href="#academy">Academy</a></li>
+    <li><a href="#wallet">Funding</a></li>
+  </ul>
+  <a href="https://forms.gle/T9VdxW8iqfC3cAFz7" target="_blank" class="nav-cta">Submit Clip</a>
+</nav>
 
-      <div class="buttons">
-        <a href="#discover" class="btn btn-primary">Submit a Clip</a>
-        <a id="howBtn" class="btn btn-outline">How it works</a>
+<!-- HERO -->
+<section id="home">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Pan-African Sports Infrastructure</p>
+    <h1 class="hero-headline">
+      <span class="line-gold">BUILT</span><br>
+      <span>FOR THE</span><br>
+      <span class="line-red">ONES</span><br>
+      <span class="line-green">OVERLOOKED</span>
+    </h1>
+    <p class="hero-sub">
+      A structured pathway for African athletes across every sport — free scouting submissions, expert evaluation, and a direct line to global opportunities.
+    </p>
+    <div class="hero-actions">
+      <a href="https://forms.gle/T9VdxW8iqfC3cAFz7" target="_blank" class="btn-primary">Submit Your Clip — Free</a>
+      <a href="#how" class="btn-secondary">See How It Works</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number">54</span>
+        <span class="stat-label">African nations</span>
       </div>
-
-      <div class="kpis">
-        <div><strong>Free</strong><span>Submission (MVP)</span></div>
-        <div><strong>Manual</strong><span>Review workflow</span></div>
-        <div><strong>Coming</strong><span>Education + funding</span></div>
+      <div class="stat-item">
+        <span class="stat-number">300M+</span>
+        <span class="stat-label">Youth athletes</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">0</span>
+        <span class="stat-label">Cost to submit</span>
       </div>
     </div>
+  </div>
+  <div class="hero-right">
+    <div class="pan-african-grid">
+      <div></div><div></div><div></div>
+      <div></div><div></div><div></div>
+      <div></div><div></div><div></div>
+    </div>
+    <div class="hero-card">
+      <span class="hero-card-badge">⚽ Verified Profile</span>
+      <div class="hero-card-sport">09</div>
+      <div class="hero-card-name">Next African Star</div>
+      <div class="hero-card-detail">Forward · Lagos, Nigeria · Age 18</div>
+      <div class="hero-card-stats">
+        <div class="hero-card-stat">
+          <div class="hero-card-stat-val">94</div>
+          <div class="hero-card-stat-key">Speed</div>
+        </div>
+        <div class="hero-card-stat">
+          <div class="hero-card-stat-val">87</div>
+          <div class="hero-card-stat-key">Technical</div>
+        </div>
+        <div class="hero-card-stat">
+          <div class="hero-card-stat-val">A+</div>
+          <div class="hero-card-stat-key">Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stripe">
+    <span></span><span></span><span></span>
+  </div>
+</section>
 
-    <div class="hero-right card">
-      <h3>Submit a short clip — get a free report</h3>
-      <p class="lead">This is an early MVP. Reviews are currently manual.</p>
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-item">
+    <div class="proof-icon">🌍</div>
+    <div class="proof-text">
+      <span class="proof-val">Pan-African</span>
+      <span class="proof-desc">Coverage across all regions</span>
+    </div>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <div class="proof-icon">✅</div>
+    <div class="proof-text">
+      <span class="proof-val">FIFA Qualified</span>
+      <span class="proof-desc">Agent exam trained & in process</span>
+    </div>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <div class="proof-icon">🎯</div>
+    <div class="proof-text">
+      <span class="proof-val">Free Submissions</span>
+      <span class="proof-desc">No cost barrier for athletes</span>
+    </div>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <div class="proof-icon">⚡</div>
+    <div class="proof-text">
+      <span class="proof-val">All Sports</span>
+      <span class="proof-desc">Football first, expanding fast</span>
+    </div>
+  </div>
+</div>
 
-      <div class="icon-row">
-        <a class="icon-btn" href="https://forms.gle/T9VdxW8iqfC3cAFz7" target="_blank" rel="noopener">
-          <img src="assets/icons/upload.svg" alt="upload"/> Upload
+<!-- HOW IT WORKS -->
+<section id="how">
+  <p class="section-label">The process</p>
+  <h2 class="section-title">HOW <em>TALENT</em><br>GETS FOUND</h2>
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-icon"><div class="step-icon-inner">📹</div></div>
+      <div class="step-title">Submit Your Clip</div>
+      <p class="step-desc">Any athlete from any African nation can submit a short video clip for free. No agent needed. No fees. Just your talent and a phone camera.</p>
+      <span class="step-tag">Always Free</span>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-icon"><div class="step-icon-inner">🔍</div></div>
+      <div class="step-title">Expert Evaluation</div>
+      <p class="step-desc">Every submission is reviewed by our scouting team — trained in FIFA agent methodology. You receive a real written evaluation, not an algorithm score.</p>
+      <span class="step-tag">Human-reviewed</span>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-icon"><div class="step-icon-inner">🚀</div></div>
+      <div class="step-title">Get Connected</div>
+      <p class="step-desc">Verified athletes are listed on our platform, visible to scouts, clubs, and academies worldwide. Your profile becomes your passport to global sport.</p>
+      <span class="step-tag">Coming Soon</span>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMIT / REGIONS -->
+<section id="discover">
+  <div class="submit-left">
+    <p class="section-label">Submit</p>
+    <h2 class="section-title" style="font-size: clamp(32px,4vw,56px); margin-bottom: 40px;">YOUR<br><em>MOMENT</em><br>STARTS HERE</h2>
+    <div class="submit-form-block">
+      <div class="form-title">Free Submission</div>
+      <p class="form-sub">Submit a short highlight clip and receive a written scouting report. No cost. No middleman. Just honest evaluation.</p>
+      <div class="form-options">
+        <a href="https://forms.gle/T9VdxW8iqfC3cAFz7" target="_blank" class="form-opt">
+          <span class="form-opt-icon">📤</span>
+          <span class="form-opt-label">Upload Clip</span>
+          <span class="form-opt-desc">Submit via form</span>
         </a>
-        <button type="button" class="icon-btn" data-action="camera">
-          <img src="assets/icons/camera.svg" alt="camera"/> Record
-        </button>
-        <button type="button" class="icon-btn" data-action="help">
-          <img src="assets/icons/help.svg" alt="help"/> Tips
-        </button>
+        <div class="form-opt" onclick="openModal()">
+          <span class="form-opt-icon">🔔</span>
+          <span class="form-opt-label">Join Waitlist</span>
+          <span class="form-opt-desc">Get notified first</span>
+        </div>
       </div>
-
-      <a class="btn btn-primary" href="https://forms.gle/T9VdxW8iqfC3cAFz7" target="_blank" rel="noopener">
-        Open Submission Form (Free)
-      </a>
-
-      <p class="small">Submissions go to our official inbox: sportsmanagentintllc@gmail.com</p>
-      <p class="small">
-        <a href="innovation-lab/" style="border-bottom:1px dashed rgba(255,255,255,.35);color:#cfe9ff;text-decoration:none;">
-          Read the Innovation Lab notes →
-        </a>
-      </p>
+      <a href="https://forms.gle/T9VdxW8iqfC3cAFz7" target="_blank" class="form-cta">Open Submission Form →</a>
+      <p class="form-note">Submissions reviewed manually by our scouting team.<br>Reports sent to: <a href="mailto:sportsmanagentintllc@gmail.com">sportsmanagentintllc@gmail.com</a></p>
     </div>
   </div>
-</section>
-
-<section id="discover" class="section">
-  <div class="container">
-    <h2>Discover Talent</h2>
-    <p class="lead">This section will display verified profiles after submissions are reviewed.</p>
-
-    <div class="card" style="padding:16px">
-      <h4 style="margin:0 0 6px">Coming Soon: Verified Athlete Profiles</h4>
-      <p class="small" style="margin:0">
-        For privacy and accuracy, we do not display sample or fabricated athlete profiles.
-        Profiles will appear only after real submissions are reviewed and approved.
-      </p>
-      <div style="margin-top:12px">
-        <a class="btn btn-outline" href="https://forms.gle/T9VdxW8iqfC3cAFz7" target="_blank" rel="noopener">Submit a Clip</a>
-        <button class="btn btn-primary" id="notifyBtn" type="button">Notify me when profiles launch</button>
+  <div class="regions-block">
+    <p class="section-label">Coverage</p>
+    <h2 class="regions-title">WE SEE<br><em>ALL</em><br>OF AFRICA</h2>
+    <p class="regions-sub">From Lagos to Nairobi, Dakar to Johannesburg — Empire Sports is building the continent's first unified talent infrastructure.</p>
+    <div class="region-list">
+      <div class="region-item">
+        <div class="region-dot west"></div>
+        <div class="region-info">
+          <div class="region-name">West Africa</div>
+          <div class="region-countries">Nigeria, Ghana, Senegal, Côte d'Ivoire, Mali & all ECOWAS</div>
+        </div>
+        <span class="region-status active">Active</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="academy" class="section alt">
-  <div class="container">
-    <h2>Academy</h2>
-    <p class="lead">Coming soon — short, practical modules for athletes, scouts, and coaches.</p>
-
-    <div class="card" style="padding:16px">
-      <h4 style="margin:0 0 6px">Coming Soon: Learning Pathways</h4>
-      <p class="small" style="margin:0">
-        Education is being designed as part of the next phase. The current MVP focuses on validating discovery and evaluation workflows first.
-      </p>
-      <div style="margin-top:12px">
-        <button class="btn btn-primary" id="academyNotifyBtn" type="button">Get notified</button>
+      <div class="region-item">
+        <div class="region-dot east"></div>
+        <div class="region-info">
+          <div class="region-name">East Africa</div>
+          <div class="region-countries">Kenya, Ethiopia, Tanzania, Uganda, Rwanda</div>
+        </div>
+        <span class="region-status active">Active</span>
+      </div>
+      <div class="region-item">
+        <div class="region-dot south"></div>
+        <div class="region-info">
+          <div class="region-name">Southern Africa</div>
+          <div class="region-countries">South Africa, Zimbabwe, Namibia</div>
+        </div>
+        <span class="region-status soon">Expanding</span>
+      </div>
+      <div class="region-item">
+        <div class="region-dot north"></div>
+        <div class="region-info">
+          <div class="region-name">North Africa</div>
+          <div class="region-countries">Egypt, Morocco & more coming</div>
+        </div>
+        <span class="region-status soon">Expanding</span>
       </div>
     </div>
   </div>
 </section>
 
-<section id="wallet" class="section">
-  <div class="container">
-    <h2>Funding & Scholarships</h2>
-    <p class="lead">Coming soon — structured funding pathways and transparent scholarship processes.</p>
-
-    <div class="wallet card">
-      <div class="wallet-row">
-        <div>Status</div>
-        <div class="wallet-amount" id="walletAmount">Coming Soon</div>
+<!-- DISCOVER / PROFILES -->
+<section id="profiles">
+  <div class="discover-header">
+    <div>
+      <p class="section-label">Discover</p>
+      <h2 class="section-title" style="margin-bottom: 0;">VERIFIED<br><em>PROFILES</em></h2>
+    </div>
+    <p style="font-size:15px; color: var(--white-dim); max-width:320px; line-height:1.7;">
+      Real athlete profiles are published only after full manual review. No fabricated data. No stock photos. Only verified talent.
+    </p>
+  </div>
+  <div class="discover-coming">
+    <div class="profile-placeholder">
+      <div>
+        <div class="profile-ghost">⚽</div>
+        <span class="profile-sport-tag">Football</span>
+        <div class="profile-placeholder-name">Athlete #001</div>
+        <div class="profile-placeholder-detail">West Africa · Forward · Age 17</div>
       </div>
-
-      <button id="fundBtn" class="btn btn-outline" type="button">Request Scholarship (Coming Soon)</button>
-      <p class="small">
-        This feature is not active yet. We will open scholarship requests after completing MVP validation and setting clear criteria.
-      </p>
+      <div class="profile-unlock">Awaiting verification</div>
+    </div>
+    <div class="profile-placeholder">
+      <div>
+        <div class="profile-ghost">🏃</div>
+        <span class="profile-sport-tag">Athletics</span>
+        <div class="profile-placeholder-name">Athlete #002</div>
+        <div class="profile-placeholder-detail">East Africa · Sprinter · Age 19</div>
+      </div>
+      <div class="profile-unlock">Awaiting verification</div>
+    </div>
+    <div class="profile-placeholder">
+      <div>
+        <div class="profile-ghost">🏀</div>
+        <span class="profile-sport-tag">Basketball</span>
+        <div class="profile-placeholder-name">Athlete #003</div>
+        <div class="profile-placeholder-detail">Southern Africa · Guard · Age 20</div>
+      </div>
+      <div class="profile-unlock">Awaiting verification</div>
+    </div>
+  </div>
+  <div class="profiles-cta-block">
+    <div class="profiles-cta-text">
+      <div class="profiles-cta-title">Are you a scout or club?</div>
+      <p class="profiles-cta-sub">Join our network and be first to access verified athlete profiles when they go live. We're building the pipeline — be part of it from day one.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px; flex-shrink:0;">
+      <button class="btn-primary" onclick="openModal()">Join Scout Network</button>
+      <a href="https://sportsmanagentintllc-byte.github.io/empire-sports-investor-hub/" target="_blank" class="btn-secondary" style="text-align:center;">Investor Hub →</a>
     </div>
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div>© 2025 Empire Sports</div>
-    <div class="social">
-      <a class="icon-link" data-url="https://sportsmanagentintllc-byte.github.io/empire-sports-mvp/innovation-lab/" data-name="twitter">
-        <img src="assets/icons/twitter.svg" alt="tw"/>
-      </a>
-      <a class="icon-link" data-url="https://sportsmanagentintllc-byte.github.io/empire-sports-mvp/innovation-lab/" data-name="instagram">
-        <img src="assets/icons/instagram.svg" alt="ig"/>
-      </a>
-      <a class="icon-link" data-url="mailto:sportsmanagentintllc@gmail.com?subject=Empire%20Sports%20MVP%20Inquiry" data-name="email">
-        <img src="assets/icons/whatsapp.svg" alt="email"/>
-      </a>
+<!-- ACADEMY -->
+<section id="academy">
+  <p class="section-label">Academy</p>
+  <h2 class="section-title">KNOWLEDGE IS<br><em>YOUR EDGE</em></h2>
+  <div class="academy-grid">
+    <div class="academy-left">
+      <p style="font-size:16px; color:var(--white-dim); line-height:1.8; margin-bottom:32px;">
+        Short, practical modules designed for athletes, parents, coaches and scouts navigating the business of sport in Africa and beyond.
+      </p>
+      <button class="btn-primary" onclick="openModal()">Get Notified at Launch</button>
+    </div>
+    <div class="academy-modules">
+      <div class="module-item">
+        <div class="module-num">01</div>
+        <div class="module-info">
+          <div class="module-title">How scouting really works</div>
+          <div class="module-sub">What scouts look for — and what they don't tell you</div>
+        </div>
+        <span class="module-badge free">Free</span>
+      </div>
+      <div class="module-item locked">
+        <div class="module-num">02</div>
+        <div class="module-info">
+          <div class="module-title">Agents, contracts & your rights</div>
+          <div class="module-sub">Navigating the agent system safely</div>
+        </div>
+        <span class="module-badge soon">Coming</span>
+      </div>
+      <div class="module-item locked">
+        <div class="module-num">03</div>
+        <div class="module-info">
+          <div class="module-title">Building your athlete profile</div>
+          <div class="module-sub">What to film, what to include, how to present</div>
+        </div>
+        <span class="module-badge soon">Coming</span>
+      </div>
+      <div class="module-item locked">
+        <div class="module-num">04</div>
+        <div class="module-info">
+          <div class="module-title">Trials, academies & trials abroad</div>
+          <div class="module-sub">What to expect and how to prepare</div>
+        </div>
+        <span class="module-badge soon">Coming</span>
+      </div>
+      <div class="module-item locked">
+        <div class="module-num">05</div>
+        <div class="module-info">
+          <div class="module-title">The scholarship pathway</div>
+          <div class="module-sub">Sports scholarships in Africa, Europe & USA</div>
+        </div>
+        <span class="module-badge soon">Coming</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNDING -->
+<section id="wallet">
+  <p class="section-label">Funding</p>
+  <h2 class="section-title">MONEY<br>SHOULDN'T<br>STOP <em>TALENT</em></h2>
+  <div class="funding-grid">
+    <div class="funding-card">
+      <span class="funding-card-tag">Scholarships</span>
+      <div class="funding-card-title">Education Funding</div>
+      <p class="funding-card-desc">Connecting athletes to sports scholarships at institutions across Africa, Europe, and North America — with clear criteria and transparent processes.</p>
+      <div class="funding-card-status">Coming after MVP validation ›</div>
+    </div>
+    <div class="funding-card featured">
+      <span class="funding-card-tag">⭐ Core Feature</span>
+      <div class="funding-card-title">Talent Grants</div>
+      <p class="funding-card-desc">Structured micro-funding for athletes who need support for trials, equipment, or travel. Built on verified profiles — not guesswork.</p>
+      <div class="funding-card-status">In development ›</div>
+    </div>
+    <div class="funding-card">
+      <span class="funding-card-tag">Investors</span>
+      <div class="funding-card-title">Investor Pipeline</div>
+      <p class="funding-card-desc">For individuals and institutions who want to invest in African sporting talent at the ground floor — with clear returns and impact metrics.</p>
+      <div class="funding-card-status">
+        <a href="https://sportsmanagentintllc-byte.github.io/empire-sports-investor-hub/" target="_blank" style="color:var(--gold); text-decoration:none;">View Investor Hub ›</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo"><span>EMPIRE</span> SPORTS</div>
+      <p class="footer-tagline">Building the infrastructure for African talent to reach the world — one verified athlete at a time.</p>
+    </div>
+    <div class="footer-links-col">
+      <div class="footer-col-title">Platform</div>
+      <ul class="footer-link-list">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#discover">Submit a clip</a></li>
+        <li><a href="#profiles">Discover talent</a></li>
+        <li><a href="#academy">Academy</a></li>
+        <li><a href="#wallet">Funding</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-col">
+      <div class="footer-col-title">For Scouts & Clubs</div>
+      <ul class="footer-link-list">
+        <li><a href="https://sportsmanagentintllc-byte.github.io/empire-sports-investor-hub/" target="_blank">Investor Hub</a></li>
+        <li><a href="#profiles" onclick="openModal(); return false;">Join Scout Network</a></li>
+        <li><a href="mailto:sportsmanagentintllc@gmail.com">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-col">
+      <div class="footer-col-title">Connect</div>
+      <ul class="footer-link-list">
+        <li><a href="mailto:sportsmanagentintllc@gmail.com">sportsmanagentintllc@gmail.com</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Empire Sports — Sports Management International LLC. Early-stage MVP.</span>
+    <div class="footer-pan-stripe">
+      <span class="stripe-pill r"></span>
+      <span class="stripe-pill g"></span>
+      <span class="stripe-pill gr"></span>
     </div>
   </div>
 </footer>
 
-<!-- Modal -->
-<div id="modal" class="modal" aria-hidden="true">
-  <div class="modal-content">
-    <button id="modalClose" class="modal-close">&times;</button>
-    <div id="modalBody"></div>
+<!-- WAITLIST MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-title">Join the List</div>
+    <p class="modal-sub">Be first to know when athlete profiles go live, the Academy launches, and funding opens up.</p>
+    <input class="modal-input" type="text" placeholder="Your full name"/>
+    <input class="modal-input" type="email" placeholder="Email address"/>
+    <select class="modal-select">
+      <option value="" disabled selected>I am a...</option>
+      <option>Athlete</option>
+      <option>Parent / Guardian</option>
+      <option>Scout</option>
+      <option>Club / Academy</option>
+      <option>Coach</option>
+      <option>Investor</option>
+      <option>Other</option>
+    </select>
+    <button class="modal-submit" onclick="submitWaitlist()">Get Notified →</button>
   </div>
 </div>
 
-<script src="script.js"></script>
+<script>
+  function openModal() {
+    document.getElementById('modal').classList.add('open');
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+  }
+  document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  function submitWaitlist() {
+    const box = document.querySelector('.modal-box');
+    box.innerHTML = `
+      <div style="text-align:center; padding: 20px 0;">
+        <div style="font-size:48px; margin-bottom:16px;">🏆</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:36px; color:#D4A017; margin-bottom:12px;">You're On The List</div>
+        <p style="color:#B8B0A0; font-size:15px; line-height:1.7; margin-bottom:24px;">We'll reach out as soon as we launch. Empire Sports is being built for you.</p>
+        <button onclick="closeModal()" style="background:#D4A017; color:#0A0A0A; font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:14px 32px; border:none; cursor:pointer;">Close</button>
+      </div>
+    `;
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.borderBottomColor = window.scrollY > 60
+      ? 'rgba(212,160,23,0.3)'
+      : 'rgba(212,160,23,0.15)';
+  });
+</script>
 </body>
 </html>
