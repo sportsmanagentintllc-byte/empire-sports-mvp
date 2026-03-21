@@ -284,13 +284,17 @@ section { padding: 100px 48px; }
 .who-card {
   background: var(--card); border: 1px solid var(--border);
   padding: 32px 28px; border-radius: 2px; transition: all 0.3s;
+  overflow: hidden; position: relative;
 }
 .who-card:hover { border-color: var(--gold); transform: translateY(-3px); }
-.who-icon { font-size: 30px; margin-bottom: 14px; }
+.who-num {
+  font-family: var(--font-display); font-size: 72px; line-height: 1;
+  color: rgba(252,209,22,0.07); margin-bottom: -12px; display: block;
+}
+.who-accent { display: block; width: 20px; height: 2px; margin-bottom: 12px; }
 .who-title {
-  font-family: var(--font-condensed); font-size: 18px; font-weight: 700;
-  letter-spacing: 1px; text-transform: uppercase; color: var(--gold);
-  margin-bottom: 10px;
+  font-family: var(--font-display); font-size: 26px; letter-spacing: 1px;
+  color: var(--gold); margin-bottom: 8px; line-height: 1;
 }
 .who-desc { font-size: 14px; line-height: 1.6; color: var(--muted); }
 
@@ -657,33 +661,39 @@ footer {
     <h2 class="section-title reveal">WHO COMES<br>TO A <span class="gold">GUNDUA EVENT</span></h2>
     <div class="who-grid">
       <div class="who-card reveal">
-        <div class="who-icon">⚽</div>
+        <span class="who-num">01</span>
         <div class="who-title">Athletes</div>
+        <span class="who-accent" style="background:var(--red)"></span>
         <div class="who-desc">Ages 16–20 selected from the GUNDUA platform database. Male and female. All sports — football first. Register your profile to be considered for selection.</div>
       </div>
       <div class="who-card reveal">
-        <div class="who-icon">🔍</div>
+        <span class="who-num">02</span>
         <div class="who-title">International Scouts</div>
+        <span class="who-accent" style="background:var(--green)"></span>
         <div class="who-desc">Verified scouts from UK, Spain, and USA connected through AFCAS, FutbolJobs, and Soccer Syndicate. Not spectators — decision makers.</div>
       </div>
       <div class="who-card reveal">
-        <div class="who-icon">🎯</div>
+        <span class="who-num">03</span>
         <div class="who-title">Coaches</div>
+        <span class="who-accent" style="background:var(--gold)"></span>
         <div class="who-desc">Local coaches attend Phase 1 for AFCAS certification. Developmental coaches lead the clinic sessions. Knowledge transferred, credentials earned.</div>
       </div>
       <div class="who-card reveal">
-        <div class="who-icon">🏟️</div>
+        <span class="who-num">04</span>
         <div class="who-title">Club Representatives</div>
+        <span class="who-accent" style="background:var(--red)"></span>
         <div class="who-desc">African club academies, U17 and U19 squads competing in the Phase 2 tournament. European and international clubs attending as observers and scouts.</div>
       </div>
       <div class="who-card reveal">
-        <div class="who-icon">⚕️</div>
+        <span class="who-num">05</span>
         <div class="who-title">Support Staff</div>
+        <span class="who-accent" style="background:var(--green)"></span>
         <div class="who-desc">Sports psychologists, physiotherapists, nutritionists, and massage therapists. Elite athlete welfare built into every event — not an afterthought.</div>
       </div>
       <div class="who-card reveal">
-        <div class="who-icon">🌐</div>
+        <span class="who-num">06</span>
         <div class="who-title">Media & Coverage</div>
+        <span class="who-accent" style="background:var(--gold)"></span>
         <div class="who-desc">Events are documented for the GUNDUA platform. Athletes' performances captured and added to their verified platform profiles for ongoing scout visibility.</div>
       </div>
     </div>
