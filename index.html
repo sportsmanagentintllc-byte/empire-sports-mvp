@@ -1,1275 +1,643 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Empire Sports — Discover African Talent</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico"/>
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png"/>
-<link rel="apple-touch-icon" href="favicon.png"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GUNDUA SPORTS — Africa's Talent, Discovered</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000'/><rect y='88' width='100' height='4' fill='%23009A44'/><rect y='94' width='100' height='3' fill='%23FCD116'/><rect y='97' width='100' height='3' fill='%23CE1126'/><text x='50' y='76' font-family='serif' font-weight='900' font-size='68' fill='%23FCD116' text-anchor='middle'>G</text></svg>">
 <style>
   :root {
-    --gold: #D4A017;
-    --gold-light: #F0C040;
-    --gold-dim: #8A6610;
-    --red: #C0392B;
-    --red-bright: #E74C3C;
-    --green: #1A6B3A;
-    --green-bright: #27AE60;
-    --black: #0A0A0A;
-    --black-2: #111111;
-    --black-3: #1A1A1A;
-    --black-4: #222222;
-    --white: #F5F0E8;
-    --white-dim: #B8B0A0;
-    --font-display: 'Bebas Neue', sans-serif;
-    --font-condensed: 'Barlow Condensed', sans-serif;
-    --font-body: 'Barlow', sans-serif;
+    --red: #CE1126;
+    --gold: #FCD116;
+    --green: #009A44;
+    --black: #060606;
+    --dark: #0e0e0e;
+    --card: #111111;
+    --border: rgba(252,209,22,0.15);
+    --text: #e8e8e8;
+    --muted: #888;
   }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html { scroll-behavior: smooth; }
 
   body {
     background: var(--black);
-    color: var(--white);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.6;
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    height: 64px;
-    background: rgba(10,10,10,0.92);
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 40px;
+    background: rgba(6,6,6,0.92);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(212,160,23,0.15);
+    border-bottom: 1px solid var(--border);
   }
 
   .nav-logo {
-    font-family: var(--font-display);
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 28px;
-    letter-spacing: 2px;
-    color: var(--white);
+    letter-spacing: 3px;
+    color: var(--gold);
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
   }
 
-  .nav-logo .empire { color: var(--gold); }
-  .nav-logo .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); display: inline-block; margin: 0 2px 2px; }
+  .nav-logo span { color: var(--red); }
 
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
 
   .nav-links a {
-    font-family: var(--font-condensed);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--white-dim);
+    color: var(--muted);
     text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     transition: color 0.2s;
   }
 
   .nav-links a:hover { color: var(--gold); }
 
   .nav-cta {
-    background: var(--gold);
-    color: var(--black);
-    font-family: var(--font-condensed);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    background: var(--gold) !important;
+    color: var(--black) !important;
     padding: 10px 22px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
+    border-radius: 2px;
+    font-weight: 700 !important;
   }
 
-  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+  /* PAN-AFRICAN STRIPE */
+  .pan-stripe {
+    height: 3px;
+    background: linear-gradient(90deg, var(--green) 33.3%, var(--gold) 33.3% 66.6%, var(--red) 66.6%);
+  }
 
-  /* ── HERO ── */
-  #home {
+  /* HERO */
+  .hero {
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 64px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px 60px 80px 60px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero-eyebrow {
-    font-family: var(--font-condensed);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 24px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 40px 80px;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 60% at 70% 50%, rgba(252,209,22,0.04) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(206,17,38,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 80% 20%, rgba(0,154,68,0.04) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: 
+      linear-gradient(rgba(252,209,22,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(252,209,22,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+
+  .hero-content { position: relative; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--green);
+    margin-bottom: 24px;
   }
 
   .hero-eyebrow::before {
     content: '';
-    display: block;
-    width: 32px;
-    height: 2px;
-    background: var(--gold);
+    display: block; width: 30px; height: 2px;
+    background: var(--green);
   }
 
   .hero-headline {
-    font-family: var(--font-display);
-    font-size: clamp(64px, 8vw, 108px);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 10vw, 140px);
     line-height: 0.92;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     margin-bottom: 32px;
+    animation: fadeUp 0.8s ease both;
   }
 
-  .hero-headline .line-gold { color: var(--gold); }
-  .hero-headline .line-red { color: var(--red-bright); }
-  .hero-headline .line-green { color: var(--green-bright); }
+  .hero-headline .gold { color: var(--gold); }
+  .hero-headline .red { color: var(--red); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
   .hero-sub {
-    font-size: 17px;
-    color: var(--white-dim);
-    max-width: 420px;
-    line-height: 1.7;
-    margin-bottom: 48px;
-    border-left: 3px solid var(--gold);
-    padding-left: 20px;
+    font-size: 18px; font-weight: 300; line-height: 1.7;
+    color: var(--muted); max-width: 520px; margin-bottom: 48px;
+    animation: fadeUp 0.8s 0.2s ease both;
   }
 
+  .hero-sub strong { color: var(--text); font-weight: 600; }
+
   .hero-actions {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 64px;
+    display: flex; gap: 16px; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.4s ease both;
   }
 
   .btn-primary {
-    background: var(--gold);
-    color: var(--black);
-    font-family: var(--font-condensed);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 16px 32px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    display: inline-block;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold); color: var(--black);
+    padding: 16px 32px; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; text-decoration: none;
+    border-radius: 2px; transition: all 0.2s;
   }
 
-  .btn-primary:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-  }
+  .btn-primary:hover { background: #fff; transform: translateY(-2px); }
 
   .btn-secondary {
-    background: transparent;
-    color: var(--white);
-    font-family: var(--font-condensed);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 16px 32px;
-    border: 1px solid rgba(245,240,232,0.3);
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    display: inline-block;
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid var(--border); color: var(--text);
+    padding: 16px 32px; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; text-decoration: none;
+    border-radius: 2px; transition: all 0.2s;
   }
 
-  .btn-secondary:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stat-bar {
+    display: flex; gap: 48px; margin-top: 72px; flex-wrap: wrap;
+    padding-top: 48px; border-top: 1px solid var(--border);
+    animation: fadeUp 0.8s 0.6s ease both;
   }
 
-  .hero-stats {
-    display: flex;
-    gap: 40px;
+  .hero-stat { }
+  .hero-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px; color: var(--gold); line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted); margin-top: 4px;
   }
 
-  .stat-item { display: flex; flex-direction: column; }
+  /* SECTIONS */
+  section { padding: 100px 40px; }
 
-  .stat-number {
-    font-family: var(--font-display);
-    font-size: 36px;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-family: var(--font-condensed);
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--white-dim);
-    margin-top: 4px;
-  }
-
-  .hero-right {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .hero-visual {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Pan-African geometric background */
-  .pan-african-grid {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    opacity: 0.07;
-  }
-
-  .pan-african-grid div:nth-child(1),
-  .pan-african-grid div:nth-child(5),
-  .pan-african-grid div:nth-child(9) { background: var(--gold); }
-  .pan-african-grid div:nth-child(2),
-  .pan-african-grid div:nth-child(6) { background: var(--red); }
-  .pan-african-grid div:nth-child(3),
-  .pan-african-grid div:nth-child(4) { background: var(--green); }
-
-  .hero-card {
-    position: relative;
-    z-index: 2;
-    width: 320px;
-    background: var(--black-3);
-    border: 1px solid rgba(212,160,23,0.3);
-    padding: 32px;
-    transform: rotate(2deg);
-    box-shadow: 20px 20px 0 var(--gold-dim), -4px -4px 0 var(--red);
-    animation: float 4s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: rotate(2deg) translateY(0); }
-    50% { transform: rotate(2deg) translateY(-10px); }
-  }
-
-  .hero-card-badge {
-    font-family: var(--font-condensed);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--black);
-    background: var(--green-bright);
-    padding: 4px 10px;
-    display: inline-block;
-    margin-bottom: 20px;
-  }
-
-  .hero-card-sport {
-    font-family: var(--font-display);
-    font-size: 48px;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .hero-card-name {
-    font-family: var(--font-condensed);
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 4px;
-  }
-
-  .hero-card-detail {
-    font-size: 13px;
-    color: var(--white-dim);
-    margin-bottom: 24px;
-  }
-
-  .hero-card-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .hero-card-stat { text-align: center; }
-
-  .hero-card-stat-val {
-    font-family: var(--font-display);
-    font-size: 24px;
-    color: var(--white);
-    line-height: 1;
-  }
-
-  .hero-card-stat-key {
-    font-family: var(--font-condensed);
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--white-dim);
-    margin-top: 4px;
-  }
-
-  /* Stripe accent behind hero */
-  .hero-stripe {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    display: flex;
-  }
-
-  .hero-stripe span { flex: 1; }
-  .hero-stripe span:nth-child(1) { background: var(--red); }
-  .hero-stripe span:nth-child(2) { background: var(--gold); }
-  .hero-stripe span:nth-child(3) { background: var(--green); }
-
-  /* ── PROOF BAR ── */
-  .proof-bar {
-    background: var(--gold);
-    padding: 20px 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-
-  .proof-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .proof-icon {
-    width: 36px;
-    height: 36px;
-    background: var(--black);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-
-  .proof-text { display: flex; flex-direction: column; }
-
-  .proof-val {
-    font-family: var(--font-display);
-    font-size: 22px;
-    color: var(--black);
-    line-height: 1;
-  }
-
-  .proof-desc {
-    font-family: var(--font-condensed);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: rgba(10,10,10,0.65);
-  }
-
-  .proof-divider {
-    width: 1px;
-    height: 40px;
-    background: rgba(10,10,10,0.2);
-  }
-
-  /* ── HOW IT WORKS ── */
-  #how {
-    padding: 120px 60px;
-    background: var(--black-2);
-    position: relative;
-    overflow: hidden;
-  }
-
-  #how::before {
-    content: 'HOW';
-    position: absolute;
-    right: -20px;
-    top: 40px;
-    font-family: var(--font-display);
-    font-size: 200px;
-    color: rgba(212,160,23,0.04);
-    pointer-events: none;
-    line-height: 1;
-  }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
 
   .section-label {
-    font-family: var(--font-condensed);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--green);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
   }
 
   .section-label::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--gold);
+    content: ''; display: block;
+    width: 24px; height: 2px; background: var(--green);
   }
 
   .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(40px, 5vw, 72px);
-    line-height: 0.95;
-    margin-bottom: 64px;
-    max-width: 600px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1; letter-spacing: 1px;
+    margin-bottom: 20px;
   }
 
-  .section-title em {
-    font-style: normal;
-    color: var(--gold);
+  .section-title .gold { color: var(--gold); }
+
+  /* WHAT WE DO */
+  .what-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px; margin-top: 60px;
   }
 
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+  .what-card {
+    background: var(--card); padding: 40px;
+    border: 1px solid var(--border);
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s;
   }
 
-  .step {
-    background: var(--black-3);
-    padding: 40px 36px;
-    position: relative;
+  .what-card:hover { border-color: var(--gold); }
+
+  .what-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--gold); opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .what-card:hover::before { opacity: 1; }
+
+  .what-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px; color: rgba(252,209,22,0.08);
+    line-height: 1; margin-bottom: 24px;
+  }
+
+  .what-icon { font-size: 28px; margin-bottom: 16px; }
+
+  .what-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .what-desc { font-size: 15px; line-height: 1.7; color: var(--muted); }
+
+  /* COVERAGE */
+  .coverage { background: var(--dark); }
+
+  .regions-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px; margin-top: 60px; border: 1px solid var(--border);
+  }
+
+  .region-card {
+    padding: 32px 24px; background: var(--card);
+    border-right: 1px solid var(--border);
     transition: background 0.3s;
   }
 
-  .step:hover { background: var(--black-4); }
+  .region-card:hover { background: rgba(252,209,22,0.05); }
 
-  .step-num {
-    font-family: var(--font-display);
-    font-size: 80px;
-    line-height: 1;
-    color: rgba(212,160,23,0.12);
-    position: absolute;
-    top: 20px;
-    right: 24px;
-  }
-
-  .step-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 24px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .step-icon-inner {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-  }
-
-  .step:nth-child(1) .step-icon-inner { background: var(--red); }
-  .step:nth-child(2) .step-icon-inner { background: var(--gold); }
-  .step:nth-child(3) .step-icon-inner { background: var(--green); }
-
-  .step-title {
-    font-family: var(--font-condensed);
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 12px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .step-desc {
-    font-size: 15px;
-    color: var(--white-dim);
-    line-height: 1.7;
-    position: relative;
-    z-index: 1;
-  }
-
-  .step-tag {
-    margin-top: 24px;
-    display: inline-block;
-    font-family: var(--font-condensed);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 5px 12px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .step:nth-child(1) .step-tag { background: rgba(192,57,43,0.15); color: var(--red-bright); }
-  .step:nth-child(2) .step-tag { background: rgba(212,160,23,0.15); color: var(--gold-light); }
-  .step:nth-child(3) .step-tag { background: rgba(26,107,58,0.15); color: var(--green-bright); }
-
-  /* ── SUBMIT ── */
-  #discover {
-    padding: 120px 60px;
-    background: var(--black);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .submit-left {}
-
-  .submit-form-block {
-    background: var(--black-3);
-    border: 1px solid rgba(212,160,23,0.2);
-    padding: 48px;
-    position: relative;
-  }
-
-  .submit-form-block::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--red), var(--gold), var(--green));
-  }
-
-  .form-title {
-    font-family: var(--font-display);
-    font-size: 36px;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-
-  .form-sub {
-    font-size: 14px;
-    color: var(--white-dim);
-    margin-bottom: 32px;
-    line-height: 1.6;
-  }
-
-  .form-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-
-  .form-opt {
-    background: var(--black-4);
-    border: 1px solid rgba(255,255,255,0.06);
-    padding: 20px 16px;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-align: center;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: var(--white);
-  }
-
-  .form-opt:hover {
-    border-color: var(--gold);
-    background: rgba(212,160,23,0.06);
-  }
-
-  .form-opt-icon { font-size: 24px; }
-
-  .form-opt-label {
-    font-family: var(--font-condensed);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .form-opt-desc {
-    font-size: 12px;
-    color: var(--white-dim);
-    line-height: 1.4;
-  }
-
-  .form-cta {
-    display: block;
-    width: 100%;
-    background: var(--gold);
-    color: var(--black);
-    font-family: var(--font-condensed);
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 18px;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-bottom: 16px;
-  }
-
-  .form-cta:hover { background: var(--gold-light); }
-
-  .form-note {
-    font-size: 12px;
-    color: var(--white-dim);
-    text-align: center;
-    line-height: 1.5;
-  }
-
-  .form-note a { color: var(--gold); text-decoration: none; }
-
-  /* Submit right — regions */
-  .regions-block {}
-
-  .regions-title {
-    font-family: var(--font-display);
-    font-size: 48px;
-    line-height: 0.95;
-    margin-bottom: 12px;
-  }
-
-  .regions-title em { font-style: normal; color: var(--gold); }
-
-  .regions-sub {
-    font-size: 16px;
-    color: var(--white-dim);
-    margin-bottom: 48px;
-    max-width: 420px;
-    line-height: 1.7;
-  }
-
-  .region-list { display: flex; flex-direction: column; gap: 2px; }
-
-  .region-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 24px;
-    background: var(--black-3);
-    transition: background 0.2s;
-    cursor: default;
-  }
-
-  .region-item:hover { background: var(--black-4); }
-
-  .region-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .region-dot.west { background: var(--gold); }
-  .region-dot.east { background: var(--green-bright); }
-  .region-dot.south { background: var(--red-bright); }
-  .region-dot.north { background: var(--white-dim); }
+  .region-flag { font-size: 24px; margin-bottom: 12px; }
 
   .region-name {
-    font-family: var(--font-condensed);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--white);
-    flex: 1;
-  }
-
-  .region-countries {
-    font-size: 12px;
-    color: var(--white-dim);
-  }
-
-  .region-status {
-    font-family: var(--font-condensed);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 4px 10px;
-  }
-
-  .region-status.active {
-    background: rgba(39,174,96,0.15);
-    color: var(--green-bright);
-  }
-
-  .region-status.soon {
-    background: rgba(212,160,23,0.1);
-    color: var(--gold);
-  }
-
-  /* ── DISCOVER ── */
-  #profiles {
-    padding: 120px 60px;
-    background: var(--black-2);
-  }
-
-  .discover-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-bottom: 64px;
-  }
-
-  .discover-coming {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-  }
-
-  .profile-placeholder {
-    background: var(--black-3);
-    padding: 40px 32px;
-    border: 1px solid rgba(212,160,23,0.08);
-    position: relative;
-    overflow: hidden;
-    min-height: 320px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .profile-placeholder::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-  }
-
-  .profile-placeholder:nth-child(1)::after { background: var(--gold); }
-  .profile-placeholder:nth-child(2)::after { background: var(--red); }
-  .profile-placeholder:nth-child(3)::after { background: var(--green); }
-
-  .profile-ghost {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    background: var(--black-4);
-    border: 2px dashed rgba(212,160,23,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-
-  .profile-sport-tag {
-    font-family: var(--font-condensed);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--black);
-    padding: 4px 12px;
-    display: inline-block;
-    margin-bottom: 16px;
-  }
-
-  .profile-placeholder:nth-child(1) .profile-sport-tag { background: var(--gold); }
-  .profile-placeholder:nth-child(2) .profile-sport-tag { background: var(--red-bright); }
-  .profile-placeholder:nth-child(3) .profile-sport-tag { background: var(--green-bright); }
-
-  .profile-placeholder-name {
-    font-family: var(--font-condensed);
-    font-size: 22px;
-    font-weight: 700;
-    color: rgba(245,240,232,0.2);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--gold);
     margin-bottom: 8px;
   }
 
-  .profile-placeholder-detail {
-    font-size: 13px;
-    color: rgba(245,240,232,0.1);
-    margin-bottom: 24px;
-  }
+  .region-countries { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-  .profile-unlock {
-    font-family: var(--font-condensed);
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--white-dim);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+  /* HOW IT WORKS */
+  .steps { display: flex; flex-direction: column; gap: 0; margin-top: 60px; }
 
-  .profile-unlock::before {
-    content: '🔒';
-    font-size: 14px;
-  }
-
-  .profiles-cta-block {
-    margin-top: 48px;
-    background: var(--black-3);
-    border: 1px solid rgba(212,160,23,0.15);
-    padding: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-  }
-
-  .profiles-cta-text {
-    max-width: 480px;
-  }
-
-  .profiles-cta-title {
-    font-family: var(--font-display);
-    font-size: 32px;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-
-  .profiles-cta-sub {
-    font-size: 15px;
-    color: var(--white-dim);
-    line-height: 1.6;
-  }
-
-  /* ── ACADEMY ── */
-  #academy {
-    padding: 120px 60px;
-    background: var(--black);
-  }
-
-  .academy-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 80px;
+  .step {
+    display: grid; grid-template-columns: 80px 1fr;
+    gap: 32px; padding: 40px 0;
+    border-bottom: 1px solid var(--border);
     align-items: start;
   }
 
-  .academy-left {}
+  .step:last-child { border-bottom: none; }
 
-  .academy-modules {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px; color: rgba(252,209,22,0.12);
+    line-height: 0.85; padding-top: 4px;
   }
 
-  .module-item {
-    background: var(--black-3);
-    padding: 28px 32px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    cursor: default;
-    transition: background 0.2s;
-    border-left: 3px solid transparent;
+  .step-content { }
+
+  .step-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 24px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--text);
+    margin-bottom: 10px;
   }
 
-  .module-item:hover {
-    background: var(--black-4);
-    border-left-color: var(--gold);
+  .step-desc { font-size: 15px; line-height: 1.7; color: var(--muted); max-width: 600px; }
+
+  /* LIVE EVENTS */
+  .events { background: var(--dark); }
+
+  .events-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px; margin-top: 60px;
   }
 
-  .module-item.locked { opacity: 0.45; }
-
-  .module-num {
-    font-family: var(--font-display);
-    font-size: 32px;
-    color: var(--gold);
-    line-height: 1;
-    width: 36px;
-    flex-shrink: 0;
+  .event-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 4px; overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
   }
 
-  .module-item.locked .module-num { color: var(--white-dim); }
+  .event-card:hover { transform: translateY(-4px); border-color: rgba(252,209,22,0.4); }
 
-  .module-info { flex: 1; }
-
-  .module-title {
-    font-family: var(--font-condensed);
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 4px;
+  .event-header {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: start;
   }
 
-  .module-sub {
-    font-size: 13px;
-    color: var(--white-dim);
+  .event-status {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; padding: 4px 10px;
+    border-radius: 2px;
   }
 
-  .module-badge {
-    font-family: var(--font-condensed);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 4px 10px;
+  .status-upcoming { background: rgba(0,154,68,0.15); color: var(--green); border: 1px solid rgba(0,154,68,0.3); }
+  .status-announced { background: rgba(252,209,22,0.1); color: var(--gold); border: 1px solid rgba(252,209,22,0.25); }
+  .status-tba { background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid rgba(255,255,255,0.1); }
+
+  .status-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: currentColor;
   }
 
-  .module-badge.free { background: rgba(39,174,96,0.15); color: var(--green-bright); }
-  .module-badge.soon { background: rgba(212,160,23,0.1); color: var(--gold); }
+  .status-upcoming .status-dot { animation: pulse 1.5s infinite; }
 
-  /* ── FUNDING ── */
-  #wallet {
-    padding: 120px 60px;
-    background: var(--black-2);
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
   }
 
-  .funding-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    margin-top: 64px;
+  .event-type {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted);
   }
 
-  .funding-card {
-    background: var(--black-3);
-    padding: 40px 36px;
+  .event-body { padding: 24px 28px; }
+
+  .event-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; letter-spacing: 1px;
+    color: var(--text); margin-bottom: 10px; line-height: 1.1;
+  }
+
+  .event-desc { font-size: 14px; line-height: 1.6; color: var(--muted); margin-bottom: 20px; }
+
+  .event-meta {
+    display: flex; flex-direction: column; gap: 6px;
+  }
+
+  .event-meta-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--muted);
+  }
+
+  .event-meta-item span:first-child { font-size: 14px; }
+
+  .event-footer {
+    padding: 16px 28px;
+    border-top: 1px solid var(--border);
+    display: flex; gap: 12px;
+  }
+
+  .event-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; padding: 8px 18px;
+    border-radius: 2px; text-decoration: none; cursor: pointer;
+    border: none; transition: all 0.2s;
+  }
+
+  .event-btn-primary {
+    background: var(--gold); color: var(--black);
+  }
+
+  .event-btn-primary:hover { background: #fff; }
+
+  .event-btn-outline {
+    background: transparent; color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  .event-btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .events-coming {
+    margin-top: 40px; padding: 32px;
+    border: 1px dashed rgba(252,209,22,0.2);
+    border-radius: 4px; text-align: center;
+  }
+
+  .events-coming p {
+    font-size: 14px; color: var(--muted); line-height: 1.6;
+  }
+
+  .events-coming strong { color: var(--gold); }
+
+  /* PARTNERS */
+  .partners-strip {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 40px;
+  }
+
+  .partners-label {
+    text-align: center; font-size: 11px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 32px;
+  }
+
+  .partners-logos {
+    display: flex; justify-content: center; align-items: center;
+    gap: 60px; flex-wrap: wrap;
+  }
+
+  .partner-item {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+  }
+
+  .partner-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px; letter-spacing: 2px;
+    color: rgba(255,255,255,0.25); transition: color 0.3s;
+  }
+
+  .partner-item:hover .partner-name { color: var(--gold); }
+
+  .partner-country {
+    font-size: 10px; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: rgba(255,255,255,0.15);
+  }
+
+  /* WHO WE SERVE */
+  .serve-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px; margin-top: 60px;
+  }
+
+  .serve-card {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 32px; border-radius: 4px;
+    transition: all 0.3s;
+  }
+
+  .serve-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+
+  .serve-icon { font-size: 32px; margin-bottom: 16px; }
+
+  .serve-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .serve-desc { font-size: 14px; line-height: 1.6; color: var(--muted); margin-bottom: 20px; }
+
+  .serve-link {
+    font-size: 12px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--text);
+    text-decoration: none; display: inline-flex;
+    align-items: center; gap: 6px; transition: color 0.2s;
+  }
+
+  .serve-link:hover { color: var(--gold); }
+
+  /* MANIFESTO */
+  .manifesto { background: var(--red); overflow: hidden; }
+
+  .manifesto-inner { 
+    max-width: 900px; margin: 0 auto; text-align: center;
     position: relative;
   }
 
-  .funding-card.featured {
-    background: var(--gold);
+  .manifesto-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.1; letter-spacing: 2px;
   }
 
-  .funding-card-tag {
-    font-family: var(--font-condensed);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    display: inline-block;
-    padding: 4px 12px;
+  .manifesto-text .white { color: #fff; }
+  .manifesto-text .gold { color: var(--gold); }
+  .manifesto-text .black { color: var(--black); }
+
+  .manifesto-sub {
+    margin-top: 24px; font-size: 16px; font-weight: 300;
+    color: rgba(255,255,255,0.8); line-height: 1.7;
   }
 
-  .funding-card:not(.featured) .funding-card-tag {
-    background: rgba(212,160,23,0.1);
-    color: var(--gold);
+  .manifesto .btn-primary { margin-top: 40px; }
+
+  /* GUNDUA DEFINITION */
+  .definition {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px;
+    text-align: center;
   }
 
-  .funding-card.featured .funding-card-tag {
-    background: var(--black);
-    color: var(--gold);
-  }
-
-  .funding-card-title {
-    font-family: var(--font-display);
-    font-size: 32px;
-    margin-bottom: 12px;
+  .definition-word {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 96px);
+    color: var(--gold); letter-spacing: 4px;
     line-height: 1;
   }
 
-  .funding-card:not(.featured) .funding-card-title { color: var(--white); }
-  .funding-card.featured .funding-card-title { color: var(--black); }
-
-  .funding-card-desc {
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 32px;
+  .definition-phonetic {
+    font-size: 18px; color: var(--muted);
+    font-style: italic; margin: 8px 0 20px;
   }
 
-  .funding-card:not(.featured) .funding-card-desc { color: var(--white-dim); }
-  .funding-card.featured .funding-card-desc { color: rgba(10,10,10,0.7); }
-
-  .funding-card-status {
-    font-family: var(--font-condensed);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+  .definition-text {
+    font-size: 20px; color: var(--text);
+    font-style: italic; max-width: 600px; margin: 0 auto;
   }
 
-  .funding-card:not(.featured) .funding-card-status { color: var(--white-dim); }
-  .funding-card.featured .funding-card-status { color: var(--black); }
+  .definition-lang {
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--green); margin-top: 12px;
+  }
 
-  /* ── FOOTER ── */
+  /* REGISTER CTA */
+  .register-cta {
+    text-align: center; padding: 120px 40px;
+  }
+
+  .register-cta .section-title { margin-bottom: 16px; }
+
+  .register-cta p {
+    font-size: 18px; color: var(--muted); margin-bottom: 48px;
+    max-width: 500px; margin-left: auto; margin-right: auto;
+  }
+
+  /* FOOTER */
   footer {
-    background: var(--black);
-    border-top: 1px solid rgba(212,160,23,0.1);
-    padding: 60px;
+    background: #000;
+    border-top: 1px solid var(--border);
+    padding: 60px 40px 32px;
   }
 
   .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    margin-bottom: 48px;
-    flex-wrap: wrap;
+    max-width: 1200px; margin: 0 auto;
   }
 
-  .footer-brand {}
+  .footer-top {
+    display: flex; justify-content: space-between;
+    align-items: start; flex-wrap: wrap; gap: 40px;
+    padding-bottom: 48px; border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
 
   .footer-logo {
-    font-family: var(--font-display);
-    font-size: 32px;
-    letter-spacing: 2px;
-    color: var(--white);
-    margin-bottom: 12px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px; letter-spacing: 3px; color: var(--gold);
   }
 
-  .footer-logo span { color: var(--gold); }
+  .footer-logo span { color: var(--red); }
 
   .footer-tagline {
-    font-size: 14px;
-    color: var(--white-dim);
-    max-width: 280px;
-    line-height: 1.6;
+    font-size: 13px; color: var(--muted); margin-top: 8px;
+    font-style: italic;
   }
 
-  .footer-links-col {}
+  .footer-links { display: flex; gap: 48px; flex-wrap: wrap; }
 
-  .footer-col-title {
-    font-family: var(--font-condensed);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
+  .footer-col h4 {
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--text); margin-bottom: 16px;
   }
 
-  .footer-link-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  .footer-col a {
+    display: block; color: var(--muted); text-decoration: none;
+    font-size: 14px; margin-bottom: 10px; transition: color 0.2s;
   }
 
-  .footer-link-list a {
-    font-size: 14px;
-    color: var(--white-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-link-list a:hover { color: var(--gold); }
+  .footer-col a:hover { color: var(--gold); }
 
   .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 32px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    flex-wrap: wrap;
-    gap: 16px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
   }
 
-  .footer-copy {
-    font-size: 13px;
-    color: var(--white-dim);
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+  .footer-stripe {
+    height: 4px;
+    background: linear-gradient(90deg, var(--green) 33.3%, var(--gold) 33.3% 66.6%, var(--red) 66.6%);
+    margin-top: 32px;
   }
 
-  .footer-pan-stripe {
-    display: flex;
-    gap: 4px;
-    align-items: center;
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
   }
 
-  .stripe-pill {
-    width: 24px;
-    height: 6px;
-    border-radius: 3px;
-  }
-
-  .stripe-pill.r { background: var(--red); }
-  .stripe-pill.g { background: var(--gold); }
-  .stripe-pill.gr { background: var(--green); }
-
-  /* WAITLIST MODAL */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    z-index: 200;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .modal-overlay.open { display: flex; }
-
-  .modal-box {
-    background: var(--black-3);
-    border: 1px solid rgba(212,160,23,0.3);
-    padding: 48px;
-    max-width: 480px;
-    width: 90%;
-    position: relative;
-  }
-
-  .modal-box::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--red), var(--gold), var(--green));
-  }
-
-  .modal-close {
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    background: none;
-    border: none;
-    color: var(--white-dim);
-    font-size: 24px;
-    cursor: pointer;
-    line-height: 1;
-  }
-
-  .modal-title {
-    font-family: var(--font-display);
-    font-size: 36px;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-
-  .modal-sub {
-    font-size: 14px;
-    color: var(--white-dim);
-    margin-bottom: 32px;
-    line-height: 1.6;
-  }
-
-  .modal-input {
-    width: 100%;
-    background: var(--black-4);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: var(--white);
-    font-family: var(--font-body);
-    font-size: 15px;
-    padding: 14px 16px;
-    margin-bottom: 12px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .modal-input:focus { border-color: var(--gold); }
-  .modal-input::placeholder { color: rgba(255,255,255,0.25); }
-
-  .modal-select {
-    width: 100%;
-    background: var(--black-4);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: var(--white);
-    font-family: var(--font-body);
-    font-size: 15px;
-    padding: 14px 16px;
-    margin-bottom: 20px;
-    outline: none;
-    cursor: pointer;
-    appearance: none;
-  }
-
-  .modal-submit {
-    width: 100%;
-    background: var(--gold);
-    color: var(--black);
-    font-family: var(--font-condensed);
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-
-  .modal-submit:hover { background: var(--gold-light); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* MOBILE */
-  @media (max-width: 900px) {
-    nav { padding: 0 24px; }
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
     .nav-links { display: none; }
-
-    #home {
-      grid-template-columns: 1fr;
-      min-height: auto;
-    }
-
-    .hero-left { padding: 60px 24px 40px; }
-
-    .hero-right {
-      padding: 40px 24px;
-      min-height: 300px;
-    }
-
-    .hero-card { width: 260px; }
-
-    .hero-stats { gap: 24px; }
-
-    .proof-bar { padding: 20px 24px; justify-content: center; }
-    .proof-divider { display: none; }
-
-    #how { padding: 80px 24px; }
-    .steps-grid { grid-template-columns: 1fr; }
-
-    #discover { padding: 80px 24px; grid-template-columns: 1fr; gap: 48px; }
-
-    #profiles { padding: 80px 24px; }
-    .discover-coming { grid-template-columns: 1fr; }
-    .profiles-cta-block { flex-direction: column; gap: 24px; }
-
-    #academy { padding: 80px 24px; }
-    .academy-grid { grid-template-columns: 1fr; gap: 40px; }
-
-    #wallet { padding: 80px 24px; }
-    .funding-grid { grid-template-columns: 1fr; }
-
-    footer { padding: 48px 24px; }
-    .footer-inner { flex-direction: column; gap: 40px; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
-
-    .discover-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+    section { padding: 70px 20px; }
+    .hero { padding: 100px 20px 60px; }
+    .hero-stat-bar { gap: 24px; }
+    .partners-logos { gap: 32px; }
+    .footer-top { flex-direction: column; }
+    .footer-links { gap: 32px; }
+    .step { grid-template-columns: 60px 1fr; gap: 20px; }
   }
 </style>
 </head>
@@ -1277,517 +645,412 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#home" class="nav-logo">
-    <span class="empire">EMPIRE</span>&nbsp;SPORTS<span class="dot"></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#how">How It Works</a></li>
-    <li><a href="#discover">Submit</a></li>
-    <li><a href="#profiles">Discover</a></li>
-    <li><a href="academy.html">Academy</a></li>
-    <li><a href="#wallet">Funding</a></li>
-    <li><a href="#partners">Partners</a></li>
-  </ul>
-  <a href="discover.html" class="nav-cta">Find Your Path</a>
+  <a href="#" class="nav-logo">GUNDUA<span>.</span></a>
+  <div class="nav-links">
+    <a href="#what">Platform</a>
+    <a href="#coverage">Coverage</a>
+    <a href="#events">Events</a>
+    <a href="#serve">Who We Serve</a>
+    <a href="join.html" class="nav-cta">Get Discovered</a>
+  </div>
 </nav>
 
+<div class="pan-stripe"></div>
+
 <!-- HERO -->
-<section id="home">
-  <div class="hero-left">
-    <p class="hero-eyebrow">Pan-African Sports Infrastructure</p>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Swahili · To Discover · To Uncover · To Reveal</div>
     <h1 class="hero-headline">
-      <span class="line-gold">BUILT</span><br>
-      <span>FOR THE</span><br>
-      <span class="line-red">ONES</span><br>
-      <span class="line-green">OVERLOOKED</span>
+      BUILT FOR<br>
+      THE ONES<br>
+      <span class="gold">OVERLOOKED</span>
     </h1>
     <p class="hero-sub">
-      A structured pathway for African athletes across every sport — free scouting submissions, expert evaluation, and a direct line to global opportunities.
+      Africa produces the world's most extraordinary athletes. Most of them will never be found.<br><br>
+      <strong>GUNDUA SPORTS exists to change that.</strong>
     </p>
     <div class="hero-actions">
-      <a href="discover.html" class="btn-primary">Find Your Path — Free</a>
-      <a href="#how" class="btn-secondary">See How It Works</a>
+      <a href="join.html" class="btn-primary">Get Discovered ↗</a>
+      <a href="discover.html" class="btn-secondary">Find Talent</a>
     </div>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-number">54</span>
-        <span class="stat-label">African nations</span>
+    <div class="hero-stat-bar">
+      <div class="hero-stat">
+        <div class="hero-stat-num">54</div>
+        <div class="hero-stat-label">Nations Covered</div>
       </div>
-      <div class="stat-item">
-        <span class="stat-number">300M+</span>
-        <span class="stat-label">Youth athletes</span>
+      <div class="hero-stat">
+        <div class="hero-stat-num">300M+</div>
+        <div class="hero-stat-label">Youth Athletes</div>
       </div>
-      <div class="stat-item">
-        <span class="stat-number">0</span>
-        <span class="stat-label">Cost to submit</span>
+      <div class="hero-stat">
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-label">Regions Active</div>
       </div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="pan-african-grid">
-      <div></div><div></div><div></div>
-      <div></div><div></div><div></div>
-      <div></div><div></div><div></div>
-    </div>
-    <div class="hero-card">
-      <span class="hero-card-badge">⚽ Verified Profile</span>
-      <div class="hero-card-sport">09</div>
-      <div class="hero-card-name">Next African Star</div>
-      <div class="hero-card-detail">Forward · Lagos, Nigeria · Age 18</div>
-      <div class="hero-card-stats">
-        <div class="hero-card-stat">
-          <div class="hero-card-stat-val">94</div>
-          <div class="hero-card-stat-key">Speed</div>
-        </div>
-        <div class="hero-card-stat">
-          <div class="hero-card-stat-val">87</div>
-          <div class="hero-card-stat-key">Technical</div>
-        </div>
-        <div class="hero-card-stat">
-          <div class="hero-card-stat-val">A+</div>
-          <div class="hero-card-stat-key">Rating</div>
-        </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">$20B</div>
+        <div class="hero-stat-label">Market by 2030</div>
       </div>
     </div>
-  </div>
-  <div class="hero-stripe">
-    <span></span><span></span><span></span>
   </div>
 </section>
 
-<!-- PROOF BAR -->
-<div class="proof-bar">
-  <div class="proof-item">
-    <div class="proof-icon">🌍</div>
-    <div class="proof-text">
-      <span class="proof-val">Pan-African</span>
-      <span class="proof-desc">Coverage across all regions</span>
+<!-- DEFINITION -->
+<div class="definition">
+  <div class="definition-word">GUNDUA</div>
+  <div class="definition-phonetic">/ gun · du · a /</div>
+  <div class="definition-text">"To discover. To uncover. To reveal what was always there."</div>
+  <div class="definition-lang">Kiswahili — spoken by 200 million+ across Africa</div>
+</div>
+
+<!-- WHAT WE DO -->
+<section id="what">
+  <div class="section-inner">
+    <div class="section-label reveal">The Platform</div>
+    <h2 class="section-title reveal">WHAT <span class="gold">GUNDUA</span><br>DOES</h2>
+    <div class="what-grid">
+      <div class="what-card reveal">
+        <div class="what-num">01</div>
+        <div class="what-icon">🎯</div>
+        <div class="what-title">Talent Discovery</div>
+        <div class="what-desc">Athletes across 54 African nations submit their profiles and clips directly into our network. No middlemen. No gatekeepers. Just talent and opportunity, connected.</div>
+      </div>
+      <div class="what-card reveal">
+        <div class="what-num">02</div>
+        <div class="what-icon">🔍</div>
+        <div class="what-title">Scout Intelligence</div>
+        <div class="what-desc">Verified scouts, coaches, and clubs access a searchable talent database filtered by sport, region, age, position, and performance metrics. Find who you need, fast.</div>
+      </div>
+      <div class="what-card reveal">
+        <div class="what-num">03</div>
+        <div class="what-icon">🎓</div>
+        <div class="what-title">Certified Education</div>
+        <div class="what-desc">AFCAS-powered coaching certification built for African contexts. Coaches become certified. Certified coaches become our discovery network. The ecosystem feeds itself.</div>
+      </div>
+      <div class="what-card reveal">
+        <div class="what-num">04</div>
+        <div class="what-icon">🌍</div>
+        <div class="what-title">Global Pipeline</div>
+        <div class="what-desc">Partnerships with clubs, agencies, and academies in Europe, USA, and the Gulf — creating verified pathways for talent identified through our platform to move.</div>
+      </div>
     </div>
   </div>
-  <div class="proof-divider"></div>
-  <div class="proof-item">
-    <div class="proof-icon">✅</div>
-    <div class="proof-text">
-      <span class="proof-val">FIFA Qualified</span>
-      <span class="proof-desc">Agent-trained evaluation team</span>
+</section>
+
+<!-- COVERAGE -->
+<section id="coverage" class="coverage">
+  <div class="section-inner">
+    <div class="section-label reveal">Geographic Reach</div>
+    <h2 class="section-title reveal">54 NATIONS.<br><span class="gold">5 REGIONS.</span><br>ONE PLATFORM.</h2>
+    <div class="regions-grid reveal">
+      <div class="region-card">
+        <div class="region-flag">🌍</div>
+        <div class="region-name">West Africa</div>
+        <div class="region-countries">Nigeria · Ghana · Senegal · Côte d'Ivoire · Guinea · Mali · Cameroon · ECOWAS bloc</div>
+      </div>
+      <div class="region-card">
+        <div class="region-flag">🌍</div>
+        <div class="region-name">East Africa</div>
+        <div class="region-countries">Kenya · Tanzania · Uganda · Ethiopia · Rwanda · Somalia · Eritrea</div>
+      </div>
+      <div class="region-card">
+        <div class="region-flag">🌍</div>
+        <div class="region-name">Southern Africa</div>
+        <div class="region-countries">South Africa · Zimbabwe · Zambia · Mozambique · Malawi · Botswana · Namibia</div>
+      </div>
+      <div class="region-card">
+        <div class="region-flag">🌍</div>
+        <div class="region-name">North Africa</div>
+        <div class="region-countries">Egypt · Morocco · Tunisia · Algeria · Libya · Sudan</div>
+      </div>
+      <div class="region-card">
+        <div class="region-flag">🌍</div>
+        <div class="region-name">Central Africa</div>
+        <div class="region-countries">DRC · Congo · Angola · Gabon · Cameroon · CAR · Chad</div>
+      </div>
     </div>
   </div>
-  <div class="proof-divider"></div>
-  <div class="proof-item">
-    <div class="proof-icon">🤝</div>
-    <div class="proof-text">
-      <span class="proof-val">Global Partners</span>
-      <span class="proof-desc">UK · Spain · USA networks</span>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <div class="section-label reveal">The Process</div>
+    <h2 class="section-title reveal">HOW <span class="gold">DISCOVERY</span><br>WORKS</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-title">Athlete Registers</div>
+          <div class="step-desc">Any athlete aged 13-30 across Africa submits their profile — sport, position, location, age, and a clip. No cost, no gatekeeping. The platform belongs to them.</div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-title">Profile Enters the Network</div>
+          <div class="step-desc">The profile is live in our searchable database, visible to scouts, clubs, academies, and agents across our global partner network. One submission, global reach.</div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-title">Scouts & Clubs Discover</div>
+          <div class="step-desc">Verified scouts and clubs search by position, region, age, sport. They filter. They find. They connect — through us, with full trail and accountability.</div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-title">Talent Moves</div>
+          <div class="step-desc">Trial invitations, academy placements, contract pathways — facilitated through the platform with certified agents and verified international partners. This is what discovery becomes.</div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="proof-divider"></div>
-  <div class="proof-item">
-    <div class="proof-icon">⚡</div>
-    <div class="proof-text">
-      <span class="proof-val">All Sports</span>
-      <span class="proof-desc">Football first, expanding fast</span>
+</section>
+
+<!-- LIVE EVENTS -->
+<section id="events" class="events">
+  <div class="section-inner">
+    <div class="section-label reveal">Live &amp; Upcoming</div>
+    <h2 class="section-title reveal">EVENTS &amp;<br><span class="gold">SHOWCASES</span></h2>
+    <p class="reveal" style="color: var(--muted); font-size:16px; max-width:580px; line-height:1.7; margin-bottom:8px;">
+      Where discovery happens in person. Scouting showcases, coaching certification intensives, and talent trials — connecting African athletes directly with decision makers.
+    </p>
+    <div class="events-grid">
+
+      <!-- Event 1 -->
+      <div class="event-card reveal">
+        <div class="event-header">
+          <span class="event-status status-upcoming">
+            <span class="status-dot"></span>Registrations Open
+          </span>
+          <span class="event-type">Scouting Showcase</span>
+        </div>
+        <div class="event-body">
+          <div class="event-title">GUNDUA SCOUTING SHOWCASE — SERIES 1</div>
+          <div class="event-desc">Multi-sport talent showcase with UK, Spanish, and US-based scouts. Athletes selected from our platform database. Invitation only — register your profile now to be considered.</div>
+          <div class="event-meta">
+            <div class="event-meta-item"><span>📅</span><span>2025 — Date TBC upon confirmation</span></div>
+            <div class="event-meta-item"><span>📍</span><span>Location announced to confirmed athletes</span></div>
+            <div class="event-meta-item"><span>⚽</span><span>Football · Athletics · Basketball</span></div>
+            <div class="event-meta-item"><span>👥</span><span>U17 / U19 / U23 categories</span></div>
+          </div>
+        </div>
+        <div class="event-footer">
+          <a href="join.html" class="event-btn event-btn-primary">Register Profile</a>
+          <a href="join.html" class="event-btn event-btn-outline">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="event-card reveal">
+        <div class="event-header">
+          <span class="event-status status-announced">
+            <span class="status-dot"></span>Announced
+          </span>
+          <span class="event-type">Coaching Certification</span>
+        </div>
+        <div class="event-body">
+          <div class="event-title">AFCAS COACHING INTENSIVE — EAST AFRICA</div>
+          <div class="event-desc">AFCAS-certified coaching programme delivered in partnership with GUNDUA SPORTS. Coaches who complete certification join our scouting network as Certified Sports Educators.</div>
+          <div class="event-meta">
+            <div class="event-meta-item"><span>📅</span><span>Q3 2025 — Details forthcoming</span></div>
+            <div class="event-meta-item"><span>📍</span><span>East Africa region</span></div>
+            <div class="event-meta-item"><span>🎓</span><span>AFCAS accredited — internationally recognised</span></div>
+            <div class="event-meta-item"><span>👥</span><span>Coaches / Academy Staff</span></div>
+          </div>
+        </div>
+        <div class="event-footer">
+          <a href="join.html" class="event-btn event-btn-primary">Register Interest</a>
+          <a href="join.html" class="event-btn event-btn-outline">About AFCAS</a>
+        </div>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="event-card reveal">
+        <div class="event-header">
+          <span class="event-status status-tba">
+            <span class="status-dot"></span>Coming Soon
+          </span>
+          <span class="event-type">Trials Programme</span>
+        </div>
+        <div class="event-body">
+          <div class="event-title">FUTBOLJOBS AFRICA TRIALS — WEST AFRICA</div>
+          <div class="event-desc">In partnership with FutbolJobs — operating trials across 60+ countries — GUNDUA athletes gain direct access to trial pathways into European and international clubs.</div>
+          <div class="event-meta">
+            <div class="event-meta-item"><span>📅</span><span>2025 — Schedule in development</span></div>
+            <div class="event-meta-item"><span>📍</span><span>West Africa — multiple locations</span></div>
+            <div class="event-meta-item"><span>⚽</span><span>Football focus — all positions</span></div>
+            <div class="event-meta-item"><span>🌍</span><span>European club pathway</span></div>
+          </div>
+        </div>
+        <div class="event-footer">
+          <a href="join.html" class="event-btn event-btn-primary">Get Notified</a>
+          <a href="join.html" class="event-btn event-btn-outline">About FutbolJobs</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="events-coming reveal">
+      <p>More events being confirmed across all 5 regions. <strong>Register your profile now</strong> — when talent is selected for showcases, it comes from our platform database first. Be in the system before the announcement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<div class="partners-strip">
+  <div class="partners-label">Strategic Partners &amp; Networks</div>
+  <div class="partners-logos">
+    <div class="partner-item">
+      <div class="partner-name">A.F.C.A.S.</div>
+      <div class="partner-country">United Kingdom</div>
+    </div>
+    <div class="partner-item">
+      <div class="partner-name">Soccer Syndicate</div>
+      <div class="partner-country">United States</div>
+    </div>
+    <div class="partner-item">
+      <div class="partner-name">FutbolJobs</div>
+      <div class="partner-country">Spain · 60+ Countries</div>
     </div>
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
-<section id="how">
-  <p class="section-label">The process</p>
-  <h2 class="section-title">HOW <em>TALENT</em><br>GETS FOUND</h2>
-  <div class="steps-grid">
-    <div class="step">
-      <div class="step-num">01</div>
-      <div class="step-icon"><div class="step-icon-inner">📹</div></div>
-      <div class="step-title">Submit Your Clip</div>
-      <p class="step-desc">Any athlete from any African nation can submit a short video clip for free. No agent needed. No fees. Just your talent and a phone camera.</p>
-      <span class="step-tag">Always Free</span>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <div class="step-icon"><div class="step-icon-inner">🔍</div></div>
-      <div class="step-title">Expert Evaluation</div>
-      <p class="step-desc">Every submission is reviewed by our scouting team — trained in FIFA agent methodology. You receive a real written evaluation, not an algorithm score.</p>
-      <span class="step-tag">Human-reviewed</span>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <div class="step-icon"><div class="step-icon-inner">🚀</div></div>
-      <div class="step-title">Get Connected</div>
-      <p class="step-desc">Verified athletes are listed on our platform, visible to scouts, clubs, and academies worldwide. Your profile becomes your passport to global sport.</p>
-      <span class="step-tag">Coming Soon</span>
-    </div>
-  </div>
-</section>
-
-<!-- SUBMIT / REGIONS -->
-<section id="discover">
-  <div class="submit-left">
-    <p class="section-label">Submit</p>
-    <h2 class="section-title" style="font-size: clamp(32px,4vw,56px); margin-bottom: 40px;">YOUR<br><em>MOMENT</em><br>STARTS HERE</h2>
-    <div class="submit-form-block">
-      <div class="form-title">Free Submission</div>
-      <p class="form-sub">Submit a short highlight clip and receive a written scouting report. No cost. No middleman. Just honest evaluation.</p>
-      <div class="form-options">
-        <a href="join.html" class="form-opt">
-          <span class="form-opt-icon">⚽</span>
-          <span class="form-opt-label">I'm an Athlete</span>
-          <span class="form-opt-desc">Submit clips & get evaluated</span>
-        </a>
-        <a href="join.html" class="form-opt">
-          <span class="form-opt-icon">🔍</span>
-          <span class="form-opt-label">Scout / Club</span>
-          <span class="form-opt-desc">Access verified talent</span>
-        </a>
+<!-- WHO WE SERVE -->
+<section id="serve">
+  <div class="section-inner">
+    <div class="section-label reveal">Who This Is For</div>
+    <h2 class="section-title reveal">THE <span class="gold">GUNDUA</span><br>COMMUNITY</h2>
+    <div class="serve-grid">
+      <div class="serve-card reveal">
+        <div class="serve-icon">⚡</div>
+        <div class="serve-title">Athletes</div>
+        <div class="serve-desc">Age 13–30. Any sport. Any country across Africa. You submit once. You stay visible. You get found.</div>
+        <a href="join.html" class="serve-link">Register Now →</a>
       </div>
-      <a href="join.html" class="form-cta">Join Empire Sports — Free →</a>
-      <p class="form-note">Submissions reviewed manually by our scouting team.<br>Reports sent to: <a href="/cdn-cgi/l/email-protection#acdfdcc3ded8dfc1cdc2cdcbc9c2d8c5c2d8c0c0cfeccbc1cdc5c082cfc3c1"><span class="__cf_email__" data-cfemail="a4d7d4cbd6d0d7c9c5cac5c3c1cad0cdcad0c8c8c7e4c3c9c5cdc88ac7cbc9">[email&#160;protected]</span></a></p>
-    </div>
-  </div>
-  <div class="regions-block">
-    <p class="section-label">Coverage</p>
-    <h2 class="regions-title">WE SEE<br><em>ALL</em><br>OF AFRICA</h2>
-    <p class="regions-sub">From Lagos to Nairobi, Dakar to Johannesburg — Empire Sports is building the continent's first unified talent infrastructure.</p>
-    <div class="region-list">
-      <div class="region-item">
-        <div class="region-dot west"></div>
-        <div class="region-info">
-          <div class="region-name">West Africa</div>
-          <div class="region-countries">Nigeria, Ghana, Senegal, Côte d'Ivoire, Mali & all ECOWAS</div>
-        </div>
-        <span class="region-status active">Active</span>
+      <div class="serve-card reveal">
+        <div class="serve-icon">🔭</div>
+        <div class="serve-title">Scouts &amp; Coaches</div>
+        <div class="serve-desc">Access searchable talent across the continent. Filter by sport, region, age, position. Find the player you've been looking for.</div>
+        <a href="join.html" class="serve-link">Join as Scout →</a>
       </div>
-      <div class="region-item">
-        <div class="region-dot east"></div>
-        <div class="region-info">
-          <div class="region-name">East Africa</div>
-          <div class="region-countries">Kenya, Ethiopia, Tanzania, Uganda, Rwanda</div>
-        </div>
-        <span class="region-status active">Active</span>
+      <div class="serve-card reveal">
+        <div class="serve-icon">🏟️</div>
+        <div class="serve-title">Clubs &amp; Academies</div>
+        <div class="serve-desc">Build your recruitment pipeline from the richest talent pool on earth. Institutional access, data-rich profiles, verified contacts.</div>
+        <a href="join.html" class="serve-link">Partner With Us →</a>
       </div>
-      <div class="region-item">
-        <div class="region-dot south"></div>
-        <div class="region-info">
-          <div class="region-name">Southern Africa</div>
-          <div class="region-countries">South Africa, Zimbabwe, Namibia</div>
-        </div>
-        <span class="region-status soon">Expanding</span>
+      <div class="serve-card reveal">
+        <div class="serve-icon">👨‍👩‍👧</div>
+        <div class="serve-title">Parents</div>
+        <div class="serve-desc">Your child has talent. We make sure the right people see it. Safe, verified, transparent — built with families in mind.</div>
+        <a href="join.html" class="serve-link">Learn More →</a>
       </div>
-      <div class="region-item">
-        <div class="region-dot north"></div>
-        <div class="region-info">
-          <div class="region-name">North Africa</div>
-          <div class="region-countries">Egypt, Morocco & more coming</div>
-        </div>
-        <span class="region-status soon">Expanding</span>
+      <div class="serve-card reveal">
+        <div class="serve-icon">✈️</div>
+        <div class="serve-title">Diaspora Athletes</div>
+        <div class="serve-desc">African by blood, raised elsewhere. Eligible to represent. We connect diaspora talent to the continent's opportunities and pathways.</div>
+        <a href="join.html" class="serve-link">Register →</a>
+      </div>
+      <div class="serve-card reveal">
+        <div class="serve-icon">📋</div>
+        <div class="serve-title">Agents &amp; Advisors</div>
+        <div class="serve-desc">Registered agents gain verified access to the platform's talent pool. Work alongside us with full accountability and data.</div>
+        <a href="join.html" class="serve-link">Register Interest →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DISCOVER / PROFILES -->
-<section id="profiles">
-  <div class="discover-header">
-    <div>
-      <p class="section-label">Discover</p>
-      <h2 class="section-title" style="margin-bottom: 0;">VERIFIED<br><em>PROFILES</em></h2>
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="manifesto-inner">
+    <div class="manifesto-text reveal">
+      <span class="gold">THE CONTINENT</span><br>
+      <span class="white">HAS ALWAYS</span><br>
+      <span class="white">PRODUCED</span><br>
+      <span class="black">GREATNESS.</span>
     </div>
-    <p style="font-size:15px; color: var(--white-dim); max-width:320px; line-height:1.7;">
-      Real athlete profiles are published only after full manual review. No fabricated data. No stock photos. Only verified talent.
+    <p class="manifesto-sub reveal">
+      The problem was never the talent.<br>
+      The problem was the system that couldn't see it.<br><br>
+      <strong>GUNDUA SPORTS is the system that can.</strong>
     </p>
-  </div>
-  <div class="discover-coming">
-    <div class="profile-placeholder">
-      <div>
-        <div class="profile-ghost">⚽</div>
-        <span class="profile-sport-tag">Football</span>
-        <div class="profile-placeholder-name">Athlete #001</div>
-        <div class="profile-placeholder-detail">West Africa · Forward · Age 17</div>
-      </div>
-      <div class="profile-unlock">Awaiting verification</div>
-    </div>
-    <div class="profile-placeholder">
-      <div>
-        <div class="profile-ghost">🏃</div>
-        <span class="profile-sport-tag">Athletics</span>
-        <div class="profile-placeholder-name">Athlete #002</div>
-        <div class="profile-placeholder-detail">East Africa · Sprinter · Age 19</div>
-      </div>
-      <div class="profile-unlock">Awaiting verification</div>
-    </div>
-    <div class="profile-placeholder">
-      <div>
-        <div class="profile-ghost">🏀</div>
-        <span class="profile-sport-tag">Basketball</span>
-        <div class="profile-placeholder-name">Athlete #003</div>
-        <div class="profile-placeholder-detail">Southern Africa · Guard · Age 20</div>
-      </div>
-      <div class="profile-unlock">Awaiting verification</div>
-    </div>
-  </div>
-  <div class="profiles-cta-block">
-    <div class="profiles-cta-text">
-      <div class="profiles-cta-title">Are you a scout or club?</div>
-      <p class="profiles-cta-sub">Join our network and be first to access verified athlete profiles when they go live. We're building the pipeline — be part of it from day one.</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:12px; flex-shrink:0;">
-      <button class="btn-primary" onclick="openModal()">Join Scout Network</button>
-      <a href="https://sportsmanagentintllc-byte.github.io/empire-sports-investor-hub/" target="_blank" class="btn-secondary" style="text-align:center;">Investor Hub →</a>
-    </div>
+    <a href="join.html" class="btn-primary reveal" style="background:#000; color: var(--gold);">
+      Be Part of What's Coming ↗
+    </a>
   </div>
 </section>
 
-<!-- ACADEMY -->
-<section id="academy">
-  <p class="section-label">Academy</p>
-  <h2 class="section-title">KNOWLEDGE IS<br><em>YOUR EDGE</em></h2>
-  <div class="academy-grid">
-    <div class="academy-left">
-      <p style="font-size:16px; color:var(--white-dim); line-height:1.8; margin-bottom:32px;">
-        Short, practical modules designed for athletes, parents, coaches and scouts navigating the business of sport in Africa and beyond.
-      </p>
-      <a href="academy.html" class="btn-primary" style="display:inline-block;">Explore Full Curriculum →</a>
+<!-- FINAL CTA -->
+<section class="register-cta">
+  <div class="section-inner">
+    <div class="section-label reveal" style="justify-content:center;">Zero Cost. Zero Gatekeeping.</div>
+    <h2 class="section-title reveal" style="text-align:center;">GET <span class="gold">DISCOVERED</span><br>TODAY</h2>
+    <p class="reveal">Submit your profile. Enter the network. Let your talent do the rest.</p>
+    <div class="reveal" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <a href="join.html" class="btn-primary">Register as Athlete ↗</a>
+      <a href="discover.html" class="btn-secondary">I'm a Scout / Club</a>
     </div>
-    <div class="academy-modules">
-      <div class="module-item">
-        <div class="module-num">01</div>
-        <div class="module-info">
-          <div class="module-title">How scouting really works</div>
-          <div class="module-sub">What scouts look for — and what they don't tell you</div>
-        </div>
-        <span class="module-badge free">Free</span>
-      </div>
-      <div class="module-item locked">
-        <div class="module-num">02</div>
-        <div class="module-info">
-          <div class="module-title">Agents, contracts & your rights</div>
-          <div class="module-sub">Navigating the agent system safely</div>
-        </div>
-        <span class="module-badge soon">Coming</span>
-      </div>
-      <div class="module-item locked">
-        <div class="module-num">03</div>
-        <div class="module-info">
-          <div class="module-title">Building your athlete profile</div>
-          <div class="module-sub">What to film, what to include, how to present</div>
-        </div>
-        <span class="module-badge soon">Coming</span>
-      </div>
-      <div class="module-item locked">
-        <div class="module-num">04</div>
-        <div class="module-info">
-          <div class="module-title">Trials, academies & trials abroad</div>
-          <div class="module-sub">What to expect and how to prepare</div>
-        </div>
-        <span class="module-badge soon">Coming</span>
-      </div>
-      <div class="module-item locked">
-        <div class="module-num">05</div>
-        <div class="module-info">
-          <div class="module-title">The scholarship pathway</div>
-          <div class="module-sub">Sports scholarships in Africa, Europe & USA</div>
-        </div>
-        <span class="module-badge soon">Coming</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FUNDING -->
-<section id="wallet">
-  <p class="section-label">Funding</p>
-  <h2 class="section-title">MONEY<br>SHOULDN'T<br>STOP <em>TALENT</em></h2>
-  <div class="funding-grid">
-    <div class="funding-card">
-      <span class="funding-card-tag">Scholarships</span>
-      <div class="funding-card-title">Education Funding</div>
-      <p class="funding-card-desc">Connecting athletes to sports scholarships at institutions across Africa, Europe, and North America — with clear criteria and transparent processes.</p>
-      <div class="funding-card-status">Opening soon — join the waitlist ›</div>
-    </div>
-    <div class="funding-card featured">
-      <span class="funding-card-tag">⭐ Core Feature</span>
-      <div class="funding-card-title">Talent Grants</div>
-      <p class="funding-card-desc">Structured micro-funding for athletes who need support for trials, equipment, or travel. Built on verified profiles — not guesswork.</p>
-      <div class="funding-card-status">In development ›</div>
-    </div>
-    <div class="funding-card">
-      <span class="funding-card-tag">Investors</span>
-      <div class="funding-card-title">Investor Pipeline</div>
-      <p class="funding-card-desc">For individuals and institutions who want to invest in African sporting talent at the ground floor — with clear returns and impact metrics.</p>
-      <div class="funding-card-status">
-        <a href="https://sportsmanagentintllc-byte.github.io/empire-sports-investor-hub/" target="_blank" style="color:var(--gold); text-decoration:none;">View Investor Hub ›</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- STRATEGIC PARTNERS -->
-<section id="partners" style="padding: 100px 60px; background: var(--black-2); position: relative; overflow: hidden;">
-  <div style="position:absolute; right:-40px; top:40px; font-family:var(--font-display); font-size:180px; color:rgba(212,160,23,0.03); pointer-events:none; line-height:1;">NETWORK</div>
-  <p class="section-label">Strategic Partners</p>
-  <h2 class="section-title" style="margin-bottom:16px;">BACKED BY<br><em>INDUSTRY</em></h2>
-  <p style="font-size:16px; color:var(--white-dim); max-width:540px; line-height:1.8; margin-bottom:64px;">
-    Empire Sports operates with established relationships across the global football industry — connecting African talent directly to verified international networks.
-  </p>
-  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:2px;">
-
-    <div style="background:var(--black-3); padding:40px 36px; border-left:3px solid var(--red-bright); position:relative; transition:background 0.2s;">
-      <div style="font-family:var(--font-condensed); font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--red-bright); margin-bottom:16px;">United Kingdom</div>
-      <div style="font-family:var(--font-display); font-size:32px; color:var(--white); margin-bottom:4px; line-height:1;">A.F.C.A.S.</div>
-      <div style="font-family:var(--font-condensed); font-size:13px; color:var(--white-dim); margin-bottom:20px; font-weight:500; letter-spacing:1px;">Association of Football Coaches & Scouts</div>
-      <p style="font-size:14px; color:var(--white-dim); line-height:1.7; margin-bottom:24px;">Premier League-pedigreed scouting and coaching education network. Our partner in athlete evaluation standards and coaching certification — bringing UK professional methodology to African talent development.</p>
-      <div style="font-family:var(--font-condensed); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; background:rgba(231,76,60,0.1); color:var(--red-bright); display:inline-block;">Established Relationship</div>
-    </div>
-
-    <div style="background:var(--black-3); padding:40px 36px; border-left:3px solid var(--gold); position:relative; transition:background 0.2s;">
-      <div style="font-family:var(--font-condensed); font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:16px;">Spain</div>
-      <div style="font-family:var(--font-display); font-size:32px; color:var(--white); margin-bottom:4px; line-height:1;">FutbolJobs</div>
-      <div style="font-family:var(--font-condensed); font-size:13px; color:var(--white-dim); margin-bottom:20px; font-weight:500; letter-spacing:1px;">International Football Recruitment Platform</div>
-      <p style="font-size:14px; color:var(--white-dim); line-height:1.7; margin-bottom:24px;">Spain's leading football jobs and talent platform — connecting players and professionals across 60+ countries including Europe, Middle East and Africa. Empire Sports serves as their dedicated African talent pipeline and infrastructure partner.</p>
-      <div style="font-family:var(--font-condensed); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; background:rgba(212,160,23,0.1); color:var(--gold); display:inline-block;">Established Relationship</div>
-    </div>
-
-    <div style="background:var(--black-3); padding:40px 36px; border-left:3px solid var(--green-bright); position:relative; transition:background 0.2s;">
-      <div style="font-family:var(--font-condensed); font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--green-bright); margin-bottom:16px;">United States</div>
-      <div style="font-family:var(--font-display); font-size:32px; color:var(--white); margin-bottom:4px; line-height:1;">Soccer Syndicate</div>
-      <div style="font-family:var(--font-condensed); font-size:13px; color:var(--white-dim); margin-bottom:20px; font-weight:500; letter-spacing:1px;">USA Football Development & Scouting Network</div>
-      <p style="font-size:14px; color:var(--white-dim); line-height:1.7; margin-bottom:24px;">One of America's most active football development and exposure networks. Our bridge to the fastest-growing football market in the world — giving African athletes direct visibility into the American football ecosystem ahead of the 2026 World Cup wave.</p>
-      <div style="font-family:var(--font-condensed); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; background:rgba(39,174,96,0.1); color:var(--green-bright); display:inline-block;">Established Relationship</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- SOMETHING IS COMING -->
-<section style="padding:120px 60px; background:var(--black); position:relative; overflow:hidden; text-align:center;">
-  <div style="position:absolute; inset:0; background: repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(212,160,23,0.015) 60px, rgba(212,160,23,0.015) 61px); pointer-events:none;"></div>
-  <div style="position:relative; z-index:2; max-width:700px; margin:0 auto;">
-    <p class="section-label" style="justify-content:center;">Coming Soon</p>
-    <h2 style="font-family:var(--font-display); font-size:clamp(52px, 8vw, 96px); line-height:0.92; margin-bottom:24px;">
-      <span style="color:var(--gold);">SOMETHING</span><br>
-      <span style="color:var(--white);">IS</span><br>
-      <span style="color:var(--red-bright);">COMING</span>
-    </h2>
-    <p style="font-size:18px; color:var(--white-dim); line-height:1.8; margin-bottom:16px; max-width:520px; margin-left:auto; margin-right:auto;">
-      Empire Sports is preparing a landmark event — bringing international scouts, coaches, and clubs face-to-face with Africa's finest emerging talent.
-    </p>
-    <p style="font-family:var(--font-condensed); font-size:13px; letter-spacing:3px; text-transform:uppercase; color:rgba(212,160,23,0.5); margin-bottom:48px;">Details releasing soon. Get registered to be first to know.</p>
-    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:32px;">
-      <div style="background:var(--black-3); border:1px solid rgba(212,160,23,0.15); padding:16px 28px; display:flex; flex-direction:column; align-items:center; gap:4px; min-width:120px;">
-        <span style="font-family:var(--font-display); font-size:28px; color:var(--gold);">UK</span>
-        <span style="font-family:var(--font-condensed); font-size:10px; letter-spacing:2px; color:var(--white-dim); text-transform:uppercase;">Scouts</span>
-      </div>
-      <div style="background:var(--black-3); border:1px solid rgba(212,160,23,0.15); padding:16px 28px; display:flex; flex-direction:column; align-items:center; gap:4px; min-width:120px;">
-        <span style="font-family:var(--font-display); font-size:28px; color:var(--gold);">USA</span>
-        <span style="font-family:var(--font-condensed); font-size:10px; letter-spacing:2px; color:var(--white-dim); text-transform:uppercase;">Scouts</span>
-      </div>
-      <div style="background:var(--black-3); border:1px solid rgba(212,160,23,0.15); padding:16px 28px; display:flex; flex-direction:column; align-items:center; gap:4px; min-width:120px;">
-        <span style="font-family:var(--font-display); font-size:28px; color:var(--gold);">ESP</span>
-        <span style="font-family:var(--font-condensed); font-size:10px; letter-spacing:2px; color:var(--white-dim); text-transform:uppercase;">Clubs</span>
-      </div>
-      <div style="background:var(--black-3); border:1px solid rgba(212,160,23,0.15); padding:16px 28px; display:flex; flex-direction:column; align-items:center; gap:4px; min-width:120px;">
-        <span style="font-family:var(--font-display); font-size:28px; color:var(--gold);">U19</span>
-        <span style="font-family:var(--font-condensed); font-size:10px; letter-spacing:2px; color:var(--white-dim); text-transform:uppercase;">& U17</span>
-      </div>
-    </div>
-    <a href="join.html" class="btn-primary" style="display:inline-block; background:var(--gold); color:var(--black); font-family:var(--font-condensed); font-size:14px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:18px 48px; text-decoration:none; transition:all 0.2s;">Register Now — Don't Miss It</a>
-  </div>
-  <div class="hero-stripe" style="position:absolute; bottom:0; left:0; right:0; height:4px; display:flex;">
-    <span style="flex:1; background:var(--red);"></span>
-    <span style="flex:1; background:var(--gold);"></span>
-    <span style="flex:1; background:var(--green);"></span>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="footer-logo"><span>EMPIRE</span> SPORTS</div>
-      <p class="footer-tagline">Building the infrastructure for African talent to reach the world — one verified athlete at a time.</p>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">GUNDUA<span>.</span></div>
+        <div class="footer-tagline">Africa's talent, discovered.</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="join.html">Register</a>
+          <a href="discover.html">Discover Talent</a>
+          <a href="academy.html">Academy</a>
+          <a href="#events">Events</a>
+        </div>
+        <div class="footer-col">
+          <h4>For You</h4>
+          <a href="join.html">Athletes</a>
+          <a href="join.html">Scouts</a>
+          <a href="join.html">Clubs</a>
+          <a href="join.html">Parents</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="mailto:sportsmanagentintllc@gmail.com">Contact</a>
+          <a href="#">Partners</a>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
     </div>
-    <div class="footer-links-col">
-      <div class="footer-col-title">Platform</div>
-      <ul class="footer-link-list">
-        <li><a href="#how">How it works</a></li>
-        <li><a href="#discover">Submit a clip</a></li>
-        <li><a href="#profiles">Discover talent</a></li>
-        <li><a href="academy.html">Academy</a></li>
-        <li><a href="#wallet">Funding</a></li>
-      </ul>
-    </div>
-    <div class="footer-links-col">
-      <div class="footer-col-title">For Scouts & Clubs</div>
-      <ul class="footer-link-list">
-        <li><a href="https://sportsmanagentintllc-byte.github.io/empire-sports-investor-hub/" target="_blank">Investor Hub</a></li>
-        <li><a href="join.html">Join Scout Network</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#5f2c2f302d2b2c323e313e383a312b36312b33333c1f38323e3633713c3032">Contact Us</a></li>
-      </ul>
-    </div>
-    <div class="footer-links-col">
-      <div class="footer-col-title">Connect</div>
-      <ul class="footer-link-list">
-        <li><a href="/cdn-cgi/l/email-protection#2c5f5c435e585f414d424d4b49425845425840404f6c4b414d4540024f4341"><span class="__cf_email__" data-cfemail="6112110e1315120c000f0006040f15080f150d0d0221060c00080d4f020e0c">[email&#160;protected]</span></a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Twitter / X</a></li>
-        <li><a href="#">WhatsApp</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2025 Empire Sports — Sports Management International LLC.</span>
-    <div class="footer-pan-stripe">
-      <span class="stripe-pill r"></span>
-      <span class="stripe-pill g"></span>
-      <span class="stripe-pill gr"></span>
+    <div class="footer-bottom">
+      <p>© 2025 Gundua Sports International. All rights reserved.</p>
+      <p>Swahili: <em>Gundua</em> — to discover, to uncover, to reveal.</p>
     </div>
   </div>
+  <div class="footer-stripe"></div>
 </footer>
 
-<!-- WAITLIST MODAL -->
-<div class="modal-overlay" id="modal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <div class="modal-title">Join the List</div>
-    <p class="modal-sub">Be first to know when athlete profiles go live, the Academy launches, and funding opens up.</p>
-    <input class="modal-input" type="text" placeholder="Your full name"/>
-    <input class="modal-input" type="email" placeholder="Email address"/>
-    <select class="modal-select">
-      <option value="" disabled selected>I am a...</option>
-      <option>Athlete</option>
-      <option>Parent / Guardian</option>
-      <option>Scout</option>
-      <option>Club / Academy</option>
-      <option>Coach</option>
-      <option>Investor</option>
-      <option>Other</option>
-    </select>
-    <button class="modal-submit" onclick="submitWaitlist()">Get Notified →</button>
-  </div>
-</div>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  function openModal() {
-    document.getElementById('modal').classList.add('open');
-  }
-  function closeModal() {
-    document.getElementById('modal').classList.remove('open');
-  }
-  document.getElementById('modal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-  });
-  function submitWaitlist() {
-    const box = document.querySelector('.modal-box');
-    box.innerHTML = `
-      <div style="text-align:center; padding: 20px 0;">
-        <div style="font-size:48px; margin-bottom:16px;">🏆</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:36px; color:#D4A017; margin-bottom:12px;">You're On The List</div>
-        <p style="color:#B8B0A0; font-size:15px; line-height:1.7; margin-bottom:24px;">We'll reach out as soon as we launch. Empire Sports is being built for you.</p>
-        <button onclick="closeModal()" style="background:#D4A017; color:#0A0A0A; font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:14px 32px; border:none; cursor:pointer;">Close</button>
-      </div>
-    `;
-  }
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener(
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
