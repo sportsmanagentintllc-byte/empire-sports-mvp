@@ -74,6 +74,60 @@
     font-weight: 700 !important;
   }
 
+  /* THEME TOGGLE */
+  .theme-toggle {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 15px;
+    transition: all 0.2s; flex-shrink: 0;
+  }
+  .theme-toggle:hover { background: rgba(252,209,22,0.12); border-color: var(--gold); }
+
+  /* LIGHT MODE */
+  body.light {
+    --black: #f4f1eb;
+    --dark: #eae7e0;
+    --card: #fff;
+    --border: rgba(0,0,0,0.1);
+    --text: #111;
+    --muted: #555;
+  }
+  body.light nav { background: rgba(244,241,235,0.96); border-bottom-color: rgba(0,0,0,0.08); }
+  body.light .nav-links a { color: #555; }
+  body.light .nav-links a:hover { color: #000; }
+  body.light .hero-grid { background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px); }
+  body.light .hero-sub { color: #444; }
+  body.light .hero-stat-label { color: #666; }
+  body.light .what-card { background: #fff; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+  body.light .coverage { background: var(--dark); }
+  body.light .region-card { background: #fff; border-color: rgba(0,0,0,0.08); }
+  body.light .region-countries { color: #555; }
+  body.light .step { border-bottom-color: rgba(0,0,0,0.08); }
+  body.light .step-desc { color: #555; }
+  body.light .events { background: var(--dark); }
+  body.light .event-card { background: #fff; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+  body.light .event-desc { color: #555; }
+  body.light .event-meta-item { color: #555; }
+  body.light .event-btn-outline { color: #555; border-color: rgba(0,0,0,0.15); }
+  body.light .partners-strip { border-color: rgba(0,0,0,0.08); background: #ede9e1; }
+  body.light .partners-label { color: #777; }
+  body.light .partner-name { color: rgba(0,0,0,0.25); }
+  body.light .partner-country { color: rgba(0,0,0,0.3); }
+  body.light .serve-card { background: #fff; box-shadow: 0 2px 16px rgba(0,0,0,0.07); border-color: rgba(0,0,0,0.08); }
+  body.light .serve-desc { color: #555; }
+  body.light .register-cta p { color: #555; }
+  body.light footer { background: #e4e1da; border-top-color: rgba(0,0,0,0.08); }
+  body.light .footer-col a { color: #555; }
+  body.light .footer-bottom p { color: rgba(0,0,0,0.3); }
+  body.light .definition { background: var(--dark); border-color: rgba(0,0,0,0.08); }
+  body.light .definition-word { color: #111; }
+  body.light .definition-phonetic { color: #666; }
+  body.light .definition-text { color: #333; }
+  body.light .theme-toggle { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); }
+
   /* PAN-AFRICAN STRIPE */
   .pan-stripe {
     height: 3px;
@@ -649,8 +703,10 @@
   <div class="nav-links">
     <a href="#what">Platform</a>
     <a href="#coverage">Coverage</a>
-    <a href="#events">Events</a>
+    <a href="events.html">Events</a>
+    <a href="academy.html">Academy</a>
     <a href="#serve">Who We Serve</a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode" id="themeBtn">☀️</button>
     <a href="join.html" class="nav-cta">Get Discovered</a>
   </div>
 </nav>
@@ -1051,6 +1107,26 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+
+  // Light/dark toggle
+  function toggleTheme() {
+    const body = document.body;
+    const btn = document.getElementById('themeBtn');
+    body.classList.toggle('light');
+    const isLight = body.classList.contains('light');
+    btn.textContent = isLight ? '🌙' : '☀️';
+    localStorage.setItem('gundua-theme', isLight ? 'light' : 'dark');
+  }
+
+  // Restore saved preference
+  (function() {
+    const saved = localStorage.getItem('gundua-theme');
+    if (saved === 'light') {
+      document.body.classList.add('light');
+      const btn = document.getElementById('themeBtn');
+      if (btn) btn.textContent = '🌙';
+    }
+  })();
 </script>
 </body>
 </html>
