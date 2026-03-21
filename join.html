@@ -75,7 +75,7 @@ nav {
 .type-card:hover { border-color: rgba(252,209,22,0.4); transform: translateY(-2px); }
 .type-card.selected { border-color: var(--gold); background: rgba(252,209,22,0.05); }
 .type-card.selected .type-check { opacity: 1; transform: scale(1); }
-.type-icon { font-size: 28px; line-height: 1; }
+.type-card-num { font-family: var(--font-display); font-size: 52px; color: rgba(252,209,22,0.1); line-height: 1; margin-bottom: 4px; }
 .type-label { font-family: var(--font-condensed); font-size: 17px; font-weight: 700; color: var(--white); letter-spacing: 0.5px; }
 .type-desc { font-size: 12px; color: var(--white-dim); line-height: 1.5; }
 .type-check { position: absolute; top: 12px; right: 12px; width: 22px; height: 22px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--black); font-weight: 700; opacity: 0; transform: scale(0.5); transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1); }
@@ -168,7 +168,7 @@ nav {
     <div class="phoenix-stripe"><span></span><span></span><span></span></div>
   </div>
   <div class="phoenix-content">
-    <span class="phoenix-icon">🔥</span>
+    <div style="font-family:var(--font-display);font-size:72px;color:var(--gold);line-height:1;margin-bottom:8px;filter:drop-shadow(0 0 40px rgba(252,209,22,0.5))">GUNDUA</div>
     <div class="phoenix-eyebrow">You have been discovered</div>
     <div class="phoenix-title">
       <span class="pt-gold">GUNDUA</span><br>
@@ -203,25 +203,25 @@ nav {
       <div class="type-grid">
         <div class="type-card" onclick="selectType('athlete')" id="type-athlete">
           <div class="type-check">✓</div>
-          <div class="type-icon">⚽</div>
+          
           <div class="type-label">Athlete</div>
           <div class="type-desc">I play sport and want to be discovered</div>
         </div>
         <div class="type-card" onclick="selectType('scout')" id="type-scout">
           <div class="type-check">✓</div>
-          <div class="type-icon">🔍</div>
+          
           <div class="type-label">Scout / Coach</div>
           <div class="type-desc">I evaluate and develop talent</div>
         </div>
         <div class="type-card" onclick="selectType('club')" id="type-club">
           <div class="type-check">✓</div>
-          <div class="type-icon">🏟️</div>
+          
           <div class="type-label">Club / Academy</div>
           <div class="type-desc">We recruit and develop athletes</div>
         </div>
         <div class="type-card" onclick="selectType('parent')" id="type-parent">
           <div class="type-check">✓</div>
-          <div class="type-icon">👨‍👧</div>
+          
           <div class="type-label">Parent / Guardian</div>
           <div class="type-desc">I support an athlete's career</div>
         </div>
@@ -259,7 +259,7 @@ nav {
       <div class="review-grid" id="reviewGrid"></div>
       <div class="wizard-nav">
         <button class="btn-back" onclick="goToStep(3,true)">← Back</button>
-        <button class="btn-submit" onclick="submitForm()">🔥 Submit & Get Discovered <span class="btn-arrow">→</span></button>
+        <button class="btn-submit" onclick="submitForm()">Submit & Get Discovered <span class="btn-arrow">→</span></button>
       </div>
     </div>
   </div>
@@ -388,7 +388,7 @@ function collectStepData(step) {
 }
 function buildReview() {
   const labels = { type:'Role',firstName:'First Name',lastName:'Last Name',age:'Age',country:'Country',email:'Email',phone:'WhatsApp',org:'Organisation',experience:'Experience',position:'Position',foot:'Dominant Foot',club:'Current Club',clip:'Highlight Clip',social:'Social Handle',coverage:'Countries Covered',sports:'Sports',linkedin:'LinkedIn / Website',ageGroups:'Age Groups',athleteName:'Athlete Name' };
-  const typeLabels = { athlete:'⚽ Athlete',scout:'🔍 Scout / Coach',club:'🏟️ Club / Academy',parent:'👨‍👧 Parent / Guardian' };
+  const typeLabels = { athlete:'Athlete',scout:'Scout / Coach',club:'Club / Academy',parent:'Parent / Guardian' };
   const allData = { type:typeLabels[state.type], ...state.data };
   let html = '';
   Object.entries(allData).forEach(([k,v]) => { if(v&&labels[k]) html += `<div class="review-item"><div class="review-key">${labels[k]}</div><div class="review-val">${v}</div></div>`; });
@@ -430,7 +430,7 @@ function triggerPhoenix() {
   document.getElementById('phoenixOverlay').classList.add('active');
 }
 function shareProfile() {
-  const text = `I just joined GUNDUA SPORTS — the platform discovering Africa's overlooked talent. Get discovered. 🔥 https://gunduasports.com`;
+  const text = `I just joined GUNDUA SPORTS — the platform discovering Africa's overlooked talent. Get discovered. https://gunduasports.com`;
   if (navigator.share) { navigator.share({ title:'GUNDUA SPORTS', text, url:'https://gunduasports.com' }); }
   else { navigator.clipboard.writeText(text).then(()=>alert('Link copied! Share your journey.')); }
 }
