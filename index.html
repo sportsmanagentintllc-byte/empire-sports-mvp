@@ -520,28 +520,35 @@
   .serve-card {
     background: var(--card); border: 1px solid var(--border);
     padding: 32px; border-radius: 4px;
-    transition: all 0.3s;
+    transition: all 0.3s; position: relative; overflow: hidden;
   }
 
-  .serve-card:hover {
-    border-color: var(--gold);
-    transform: translateY(-4px);
-  }
+  .serve-card:hover { border-color: var(--gold); transform: translateY(-4px); }
 
-  .serve-icon { font-size: 32px; margin-bottom: 16px; }
+  .serve-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px; line-height: 1;
+    color: rgba(252,209,22,0.07);
+    margin-bottom: -12px; display: block;
+  }
 
   .serve-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px; font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase; color: var(--gold);
-    margin-bottom: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px; letter-spacing: 1px; line-height: 1;
+    color: var(--gold); margin-bottom: 8px;
+  }
+
+  .serve-accent {
+    display: block; width: 20px; height: 2px;
+    margin-bottom: 14px;
   }
 
   .serve-desc { font-size: 14px; line-height: 1.6; color: var(--muted); margin-bottom: 20px; }
 
   .serve-link {
-    font-size: 12px; font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase; color: var(--text);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--muted);
     text-decoration: none; display: inline-flex;
     align-items: center; gap: 6px; transition: color 0.2s;
   }
@@ -984,42 +991,47 @@
     <h2 class="section-title reveal">THE <span class="gold">GUNDUA</span><br>COMMUNITY</h2>
     <div class="serve-grid">
       <div class="serve-card reveal">
-        <div class="serve-icon">⚡</div>
+        <span class="serve-num">01</span>
         <div class="serve-title">Athletes</div>
+        <span class="serve-accent" style="background:var(--red)"></span>
         <div class="serve-desc">Age 13–30. Any sport. Any country across Africa. You submit once. You stay visible. You get found.</div>
         <a href="join.html" class="serve-link">Register Now →</a>
       </div>
       <div class="serve-card reveal">
-        <div class="serve-icon">🔭</div>
-        <div class="serve-title">Scouts &amp; Coaches</div>
+        <span class="serve-num">02</span>
+        <div class="serve-title">Scouts & Coaches</div>
+        <span class="serve-accent" style="background:var(--green)"></span>
         <div class="serve-desc">Access searchable talent across the continent. Filter by sport, region, age, position. Find the player you've been looking for.</div>
         <a href="join.html" class="serve-link">Join as Scout →</a>
       </div>
       <div class="serve-card reveal">
-        <div class="serve-icon">🏟️</div>
-        <div class="serve-title">Clubs &amp; Academies</div>
+        <span class="serve-num">03</span>
+        <div class="serve-title">Clubs & Academies</div>
+        <span class="serve-accent" style="background:var(--gold)"></span>
         <div class="serve-desc">Build your recruitment pipeline from the richest talent pool on earth. Institutional access, data-rich profiles, verified contacts.</div>
         <a href="join.html" class="serve-link">Partner With Us →</a>
       </div>
       <div class="serve-card reveal">
-        <div class="serve-icon">👨‍👩‍👧</div>
+        <span class="serve-num">04</span>
         <div class="serve-title">Parents</div>
+        <span class="serve-accent" style="background:var(--red)"></span>
         <div class="serve-desc">Your child has talent. We make sure the right people see it. Safe, verified, transparent — built with families in mind.</div>
         <a href="join.html" class="serve-link">Learn More →</a>
       </div>
       <div class="serve-card reveal">
-        <div class="serve-icon">✈️</div>
+        <span class="serve-num">05</span>
         <div class="serve-title">Diaspora Athletes</div>
+        <span class="serve-accent" style="background:var(--green)"></span>
         <div class="serve-desc">African by blood, raised elsewhere. Eligible to represent. We connect diaspora talent to the continent's opportunities and pathways.</div>
         <a href="join.html" class="serve-link">Register →</a>
       </div>
       <div class="serve-card reveal">
-        <div class="serve-icon">📋</div>
-        <div class="serve-title">Agents &amp; Advisors</div>
+        <span class="serve-num">06</span>
+        <div class="serve-title">Agents & Advisors</div>
+        <span class="serve-accent" style="background:var(--gold)"></span>
         <div class="serve-desc">Registered agents gain verified access to the platform's talent pool. Work alongside us with full accountability and data.</div>
         <a href="join.html" class="serve-link">Register Interest →</a>
       </div>
-    </div>
   </div>
 </section>
 
