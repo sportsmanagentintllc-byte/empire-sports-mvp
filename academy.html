@@ -71,10 +71,11 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .section-title em { font-style: normal; color: var(--gold); }
 .for-section { padding: 80px 60px; background: var(--gold); }
 .for-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 40px; }
-.for-card { background: rgba(6,6,6,0.08); padding: 28px 24px; transition: background 0.2s; }
+.for-card { background: rgba(6,6,6,0.08); padding: 28px 24px; transition: background 0.2s; overflow: hidden; }
 .for-card:hover { background: rgba(6,6,6,0.14); }
-.for-icon { font-size: 28px; margin-bottom: 14px; display: block; }
-.for-title { font-family: var(--font-condensed); font-size: 20px; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+.for-num { font-family: var(--font-display); font-size: 64px; line-height: 1; color: rgba(6,6,6,0.12); margin-bottom: -10px; }
+.for-accent { width: 20px; height: 2px; margin-bottom: 12px; }
+.for-title { font-family: var(--font-display); font-size: 26px; letter-spacing: 1px; color: var(--black); margin-bottom: 8px; line-height: 1; }
 .for-desc { font-size: 13px; color: rgba(6,6,6,0.65); line-height: 1.6; }
 .curriculum-section { padding: 120px 60px; background: var(--black-2); position: relative; overflow: hidden; }
 .curriculum-section::before { content: 'LEARN'; position: absolute; right: -40px; top: 60px; font-family: var(--font-display); font-size: 200px; color: rgba(252,209,22,0.03); pointer-events: none; line-height: 1; }
@@ -210,10 +211,30 @@ footer { background: var(--black); border-top: 1px solid rgba(252,209,22,0.08); 
   <p style="font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(6,6,6,0.5);margin-bottom:8px;display:flex;align-items:center;gap:10px;"><span style="display:block;width:24px;height:2px;background:rgba(6,6,6,0.3);"></span>Who This Is For</p>
   <h2 style="font-family:var(--font-display);font-size:clamp(36px,5vw,60px);color:var(--black);line-height:0.95;">EDUCATION FOR<br>THE ENTIRE ECOSYSTEM</h2>
   <div class="for-grid">
-    <div class="for-card"><span class="for-icon">⚽</span><div class="for-title">Athletes</div><p class="for-desc">Understand the industry you're trying to enter. Know your rights, your value, and how to navigate the system that controls your career.</p></div>
-    <div class="for-card"><span class="for-icon">🔍</span><div class="for-title">Scouts & Coaches</div><p class="for-desc">Sharpen your methodology, earn recognised credentials, and build a professional profile that opens doors across Africa and Europe.</p></div>
-    <div class="for-card"><span class="for-icon">🏟️</span><div class="for-title">Clubs & Academies</div><p class="for-desc">Develop your staff, standardise your evaluation processes, and access a curriculum built on Premier League principles.</p></div>
-    <div class="for-card"><span class="for-icon">👨‍👧</span><div class="for-title">Parents & Guardians</div><p class="for-desc">Protect your athlete. Understand contracts, agents, trial processes and what legitimate opportunities actually look like.</p></div>
+    <div class="for-card">
+      <div class="for-num">01</div>
+      <div class="for-title">Athletes</div>
+      <div class="for-accent" style="background:#CE1126"></div>
+      <p class="for-desc">Understand the industry you're trying to enter. Know your rights, your value, and how to navigate the system that controls your career.</p>
+    </div>
+    <div class="for-card">
+      <div class="for-num">02</div>
+      <div class="for-title">Scouts & Coaches</div>
+      <div class="for-accent" style="background:#060606"></div>
+      <p class="for-desc">Sharpen your methodology, earn recognised credentials, and build a professional profile that opens doors across Africa and Europe.</p>
+    </div>
+    <div class="for-card">
+      <div class="for-num">03</div>
+      <div class="for-title">Clubs & Academies</div>
+      <div class="for-accent" style="background:#CE1126"></div>
+      <p class="for-desc">Develop your staff, standardise your evaluation processes, and access a curriculum built on Premier League principles.</p>
+    </div>
+    <div class="for-card">
+      <div class="for-num">04</div>
+      <div class="for-title">Parents & Guardians</div>
+      <div class="for-accent" style="background:#060606"></div>
+      <p class="for-desc">Protect your athlete. Understand contracts, agents, trial processes and what legitimate opportunities actually look like.</p>
+    </div>
   </div>
 </div>
 <section class="curriculum-section" id="curriculum">
