@@ -25,14 +25,23 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { background: var(--black); color: var(--white); font-family: var(--font-body); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+/* NAV */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; height: 64px; background: rgba(6,6,6,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(252,209,22,0.12); }
 .nav-logo { font-family: var(--font-display); font-size: 24px; letter-spacing: 3px; color: var(--gold); text-decoration: none; }
 .nav-logo span { color: var(--red); }
-.nav-right { display: flex; align-items: center; gap: 24px; }
-.nav-back { font-family: var(--font-condensed); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white-dim); text-decoration: none; transition: color 0.2s; }
-.nav-back:hover { color: var(--gold); }
-.nav-cta { background: var(--gold); color: var(--black); font-family: var(--font-condensed); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 10px 20px; text-decoration: none; transition: background 0.2s; }
-.nav-cta:hover { background: var(--gold-light); }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { font-family: var(--font-condensed); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white-dim); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta { background: var(--gold) !important; color: var(--black) !important; padding: 9px 20px; border-radius: 2px; }
+.nav-hamburger { display: none; background: none; border: none; color: var(--white); font-size: 22px; cursor: pointer; padding: 4px 8px; }
+.mobile-nav { display: none; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; z-index: 99; background: rgba(6,6,6,0.98); border-bottom: 1px solid rgba(252,209,22,0.12); padding: 12px 24px 20px; }
+.mobile-nav a { color: var(--white-dim); text-decoration: none; font-family: var(--font-condensed); font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 12px 0; border-bottom: 1px solid rgba(252,209,22,0.08); transition: color 0.2s; }
+.mobile-nav a:hover { color: var(--gold); }
+.mobile-nav.open { display: flex; }
+@media(max-width: 768px) { .nav-links { display: none !important; } .nav-hamburger { display: block; } nav { padding: 0 20px; } }
+
+/* HERO */
 .academy-hero { min-height: 100vh; padding-top: 64px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; padding-left: 60px; padding-right: 60px; padding-bottom: 60px; }
 .hero-bg-text { position: absolute; right: -40px; top: 50%; transform: translateY(-50%); font-family: var(--font-display); font-size: 280px; color: rgba(252,209,22,0.03); line-height: 1; pointer-events: none; white-space: nowrap; }
 .academy-hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -48,6 +57,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
 .btn-outline { background: transparent; color: var(--white); font-family: var(--font-condensed); font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 16px 32px; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
 .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* AFCAS CARD */
 .afcas-card { background: var(--black-3); border: 1px solid rgba(252,209,22,0.25); position: relative; overflow: hidden; }
 .afcas-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--red), var(--gold), var(--green)); }
 .afcas-card-header { background: var(--black-4); padding: 24px 32px; border-bottom: 1px solid rgba(252,209,22,0.1); display: flex; align-items: center; justify-content: space-between; }
@@ -60,7 +71,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .afcas-cred { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--white-dim); line-height: 1.5; }
 .afcas-cred-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 6px; }
 .afcas-cert-badge { background: rgba(0,196,87,0.08); border: 1px solid rgba(0,196,87,0.2); padding: 16px 20px; display: flex; align-items: center; gap: 14px; }
-.afcas-cert-icon { font-size: 24px; flex-shrink: 0; }
 .afcas-cert-label { font-family: var(--font-condensed); font-size: 13px; font-weight: 700; color: var(--green-bright); letter-spacing: 1px; text-transform: uppercase; }
 .afcas-cert-desc { font-size: 12px; color: var(--white-dim); margin-top: 2px; }
 .hero-stripe { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; display: flex; }
@@ -68,39 +78,46 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .hero-stripe span:nth-child(1) { background: var(--green); }
 .hero-stripe span:nth-child(2) { background: var(--gold); }
 .hero-stripe span:nth-child(3) { background: var(--red); }
+
+/* SECTIONS */
 .section-label { font-family: var(--font-condensed); font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
 .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--gold); }
 .section-title { font-family: var(--font-display); font-size: clamp(40px,5vw,68px); line-height: 0.95; margin-bottom: 16px; }
 .section-title em { font-style: normal; color: var(--gold); }
+
+/* FOR SECTION */
 .for-section { padding: 80px 60px; background: var(--gold); }
 .for-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 40px; }
-.for-card { background: rgba(6,6,6,0.08); padding: 28px 24px; transition: background 0.2s; overflow: hidden; }
+.for-card { background: rgba(6,6,6,0.08); padding: 28px 24px; transition: background 0.2s; }
 .for-card:hover { background: rgba(6,6,6,0.14); }
 .for-num { font-family: var(--font-display); font-size: 64px; line-height: 1; color: rgba(6,6,6,0.12); margin-bottom: -10px; }
 .for-accent { width: 20px; height: 2px; margin-bottom: 12px; }
 .for-title { font-family: var(--font-display); font-size: 26px; letter-spacing: 1px; color: var(--black); margin-bottom: 8px; line-height: 1; }
 .for-desc { font-size: 13px; color: rgba(6,6,6,0.65); line-height: 1.6; }
+
+/* CURRICULUM */
 .curriculum-section { padding: 120px 60px; background: var(--black-2); position: relative; overflow: hidden; }
 .curriculum-section::before { content: 'LEARN'; position: absolute; right: -40px; top: 60px; font-family: var(--font-display); font-size: 200px; color: rgba(252,209,22,0.03); pointer-events: none; line-height: 1; }
 .curriculum-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 64px; }
-.course-card { background: var(--black-3); padding: 40px 36px; position: relative; overflow: hidden; transition: background 0.3s; cursor: default; }
+.course-card { background: var(--black-3); padding: 40px 36px; position: relative; overflow: hidden; transition: background 0.3s; }
 .course-card:hover { background: var(--black-4); }
 .course-num { font-family: var(--font-display); font-size: 88px; position: absolute; right: 16px; top: 8px; line-height: 1; opacity: 0.05; }
 .course-card:nth-child(1) .course-num{color:var(--red);}.course-card:nth-child(2) .course-num{color:var(--gold);}.course-card:nth-child(3) .course-num{color:var(--green);}.course-card:nth-child(4) .course-num{color:var(--white);}.course-card:nth-child(5) .course-num{color:var(--red);}.course-card:nth-child(6) .course-num{color:var(--gold);}.course-card:nth-child(7) .course-num{color:var(--green);}.course-card:nth-child(8) .course-num{color:var(--white);}
 .course-tag { font-family: var(--font-condensed); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; display: inline-block; margin-bottom: 20px; }
 .tag-free{background:rgba(0,196,87,0.12);color:var(--green-bright);}.tag-cert{background:rgba(252,209,22,0.12);color:var(--gold);}.tag-premium{background:rgba(206,17,38,0.12);color:var(--red-bright);}.tag-nil{background:rgba(255,255,255,0.06);color:var(--white-dim);}
-.course-icon { display: none; }
 .course-title { font-family: var(--font-condensed); font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 12px; position: relative; z-index: 1; }
 .course-desc { font-size: 14px; color: var(--white-dim); line-height: 1.75; margin-bottom: 24px; position: relative; z-index: 1; }
 .course-modules { display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px; position: relative; z-index: 1; }
 .course-module { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--white-dim); }
 .course-module::before { content: ''; display: block; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 .course-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); position: relative; z-index: 1; }
-.course-cert { font-family: var(--font-condensed); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--white-dim); display: flex; align-items: center; gap: 6px; }
+.course-cert { font-family: var(--font-condensed); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--white-dim); }
 .course-cert.has-cert { color: var(--green-bright); }
 .course-access { font-family: var(--font-condensed); font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 1px; }
 .course-card.featured { background: rgba(252,209,22,0.06); border: 1px solid rgba(252,209,22,0.2); }
 .course-card.featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--red), var(--gold), var(--green)); }
+
+/* NIL SECTION */
 .nil-section { padding: 100px 60px; background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .nil-right { background: var(--black-3); border: 1px solid rgba(252,209,22,0.15); padding: 48px; position: relative; }
 .nil-right::before { content: 'NIL'; position: absolute; right: 20px; bottom: 10px; font-family: var(--font-display); font-size: 100px; color: rgba(252,209,22,0.06); line-height: 1; }
@@ -110,24 +127,27 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .nil-desc { font-size: 15px; color: var(--white-dim); line-height: 1.8; margin-bottom: 32px; }
 .nil-points { display: flex; flex-direction: column; gap: 12px; }
 .nil-point { display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px; background: var(--black-4); }
-.nil-point-icon { font-size: 18px; flex-shrink: 0; }
+.nil-point-icon { font-size: 14px; font-weight: 700; color: var(--gold); font-family: var(--font-condensed); flex-shrink: 0; }
 .nil-point-text { font-size: 14px; color: var(--white-dim); line-height: 1.5; }
 .nil-point-text strong { color: var(--white); font-weight: 600; }
+
+/* PSYCH SECTION */
 .psych-section { padding: 100px 60px; background: var(--black-2); }
 .psych-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 64px; }
 .psych-card { background: var(--black-3); padding: 36px 32px; position: relative; overflow: hidden; }
 .psych-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; }
 .psych-card:nth-child(1)::after{background:var(--red);}.psych-card:nth-child(2)::after{background:var(--gold);}.psych-card:nth-child(3)::after{background:var(--green);}
-.psych-icon { display: none; }
 .psych-title { font-family: var(--font-condensed); font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
 .psych-desc { font-size: 14px; color: var(--white-dim); line-height: 1.7; }
+
+/* CERT SECTION */
 .cert-section { padding: 120px 60px; background: var(--black); position: relative; overflow: hidden; }
 .cert-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 .cert-tiers { display: flex; flex-direction: column; gap: 2px; }
 .cert-tier { background: var(--black-3); padding: 32px 36px; display: flex; gap: 24px; align-items: flex-start; border-left: 4px solid transparent; transition: all 0.2s; }
 .cert-tier:hover { background: var(--black-4); }
 .cert-tier.tier-free{border-left-color:var(--green-bright);}.cert-tier.tier-cert{border-left-color:var(--gold);}.cert-tier.tier-inst{border-left-color:var(--red-bright);}
-.cert-tier-icon { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+.cert-tier-icon { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 20px; letter-spacing: 1px; flex-shrink: 0; }
 .tier-free .cert-tier-icon{background:rgba(0,196,87,0.1);}.tier-cert .cert-tier-icon{background:rgba(252,209,22,0.1);}.tier-inst .cert-tier-icon{background:rgba(206,17,38,0.1);}
 .cert-tier-label { font-family: var(--font-condensed); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
 .tier-free .cert-tier-label{color:var(--green-bright);}.tier-cert .cert-tier-label{color:var(--gold);}.tier-inst .cert-tier-label{color:var(--red-bright);}
@@ -141,6 +161,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .cert-partner-box { background: var(--black-3); border: 1px solid rgba(252,209,22,0.2); padding: 28px 32px; margin-bottom: 24px; }
 .cert-partner-name { font-family: var(--font-display); font-size: 28px; color: var(--gold); margin-bottom: 4px; }
 .cert-partner-desc { font-size: 14px; color: var(--white-dim); line-height: 1.6; }
+
+/* CTA */
 .academy-cta { padding: 120px 60px; background: var(--black-2); text-align: center; position: relative; overflow: hidden; }
 .academy-cta::before { content: 'GUNDUA'; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-family: var(--font-display); font-size: 200px; color: rgba(252,209,22,0.025); pointer-events: none; white-space: nowrap; }
 .cta-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
@@ -148,6 +170,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .cta-title .t-gold{color:var(--gold);}.cta-title .t-red{color:var(--red-bright);}
 .cta-sub { font-size: 17px; color: var(--white-dim); line-height: 1.8; margin-bottom: 48px; max-width: 480px; margin-left: auto; margin-right: auto; }
 .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* FOOTER */
 footer { background: var(--black); border-top: 1px solid rgba(252,209,22,0.08); padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
 .footer-logo { font-family: var(--font-display); font-size: 22px; letter-spacing: 3px; color: var(--gold); }
 .footer-logo span { color: var(--red); }
@@ -157,19 +181,42 @@ footer { background: var(--black); border-top: 1px solid rgba(252,209,22,0.08); 
 .pan-stripe { display: flex; gap: 4px; }
 .stripe-pill { width: 24px; height: 6px; border-radius: 3px; }
 .r{background:var(--red);}.g{background:var(--gold);}.gr{background:var(--green);}
+
 @media (max-width: 900px) {
-  nav{padding:0 20px;}.academy-hero{padding:80px 24px 60px;}.academy-hero-inner{grid-template-columns:1fr;gap:40px;}.for-section{padding:60px 24px;}.for-grid{grid-template-columns:1fr 1fr;}.curriculum-section{padding:80px 24px;}.curriculum-grid{grid-template-columns:1fr;}.nil-section{padding:80px 24px;grid-template-columns:1fr;}.psych-section{padding:80px 24px;}.psych-grid{grid-template-columns:1fr;}.cert-section{padding:80px 24px;}.cert-inner{grid-template-columns:1fr;gap:48px;}.academy-cta{padding:80px 24px;}footer{padding:32px 24px;flex-direction:column;align-items:flex-start;}
+  .academy-hero{padding:80px 24px 60px;}.academy-hero-inner{grid-template-columns:1fr;gap:40px;}
+  .for-section{padding:60px 24px;}.for-grid{grid-template-columns:1fr 1fr;}
+  .curriculum-section{padding:80px 24px;}.curriculum-grid{grid-template-columns:1fr;}
+  .nil-section{padding:80px 24px;grid-template-columns:1fr;}
+  .psych-section{padding:80px 24px;}.psych-grid{grid-template-columns:1fr;}
+  .cert-section{padding:80px 24px;}.cert-inner{grid-template-columns:1fr;gap:48px;}
+  .academy-cta{padding:80px 24px;}
+  footer{padding:32px 24px;flex-direction:column;align-items:flex-start;}
 }
 </style>
 </head>
 <body>
+
 <nav>
-  <a href="index.html" class="nav-logo">GUNDUA<span>.</span></a>
-  <div class="nav-right">
-    <a href="index.html" class="nav-back">← Platform</a>
-    <a href="join.html" class="nav-cta">Enrol Now</a>
+  <a href="/" class="nav-logo">GUNDUA<span>.</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="about.html">About</a>
+    <a href="events.html">Events</a>
+    <a href="academy.html" style="color:var(--gold)!important;">Academy</a>
+    <a href="contact.html">Contact</a>
+    <a href="join.html" class="nav-cta">Get Discovered</a>
   </div>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileNav').classList.toggle('open')">☰</button>
 </nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/">Home</a>
+  <a href="about.html">About</a>
+  <a href="events.html">Events</a>
+  <a href="academy.html" style="color:var(--gold);">Academy</a>
+  <a href="contact.html">Contact</a>
+  <a href="join.html" class="nav-cta" style="text-align:center;margin-top:8px;">Get Discovered</a>
+</div>
+
 <section class="academy-hero">
   <div class="hero-bg-text">ACADEMY</div>
   <div class="academy-hero-inner">
@@ -199,7 +246,7 @@ footer { background: var(--black); border-top: 1px solid rgba(252,209,22,0.08); 
           </div>
           <div class="afcas-cert-badge">
             <span style="font-family:var(--font-display);font-size:18px;color:var(--green-bright);letter-spacing:1px;">CERT</span>
-            <div class="afcas-cert-text">
+            <div>
               <div class="afcas-cert-label">Certificates of Participation</div>
               <div class="afcas-cert-desc">Industry-recognised credentials issued on course completion</div>
             </div>
@@ -210,36 +257,18 @@ footer { background: var(--black); border-top: 1px solid rgba(252,209,22,0.08); 
   </div>
   <div class="hero-stripe"><span></span><span></span><span></span></div>
 </section>
+
 <div class="for-section">
   <p style="font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(6,6,6,0.5);margin-bottom:8px;display:flex;align-items:center;gap:10px;"><span style="display:block;width:24px;height:2px;background:rgba(6,6,6,0.3);"></span>Who This Is For</p>
   <h2 style="font-family:var(--font-display);font-size:clamp(36px,5vw,60px);color:var(--black);line-height:0.95;">EDUCATION FOR<br>THE ENTIRE ECOSYSTEM</h2>
   <div class="for-grid">
-    <div class="for-card">
-      <div class="for-num">01</div>
-      <div class="for-title">Athletes</div>
-      <div class="for-accent" style="background:#CE1126"></div>
-      <p class="for-desc">Understand the industry you're trying to enter. Know your rights, your value, and how to navigate the system that controls your career.</p>
-    </div>
-    <div class="for-card">
-      <div class="for-num">02</div>
-      <div class="for-title">Scouts & Coaches</div>
-      <div class="for-accent" style="background:#060606"></div>
-      <p class="for-desc">Sharpen your methodology, earn recognised credentials, and build a professional profile that opens doors across Africa and Europe.</p>
-    </div>
-    <div class="for-card">
-      <div class="for-num">03</div>
-      <div class="for-title">Clubs & Academies</div>
-      <div class="for-accent" style="background:#CE1126"></div>
-      <p class="for-desc">Develop your staff, standardise your evaluation processes, and access a curriculum built on Premier League principles.</p>
-    </div>
-    <div class="for-card">
-      <div class="for-num">04</div>
-      <div class="for-title">Parents & Guardians</div>
-      <div class="for-accent" style="background:#060606"></div>
-      <p class="for-desc">Protect your athlete. Understand contracts, agents, trial processes and what legitimate opportunities actually look like.</p>
-    </div>
+    <div class="for-card"><div class="for-num">01</div><div class="for-title">Athletes</div><div class="for-accent" style="background:#CE1126"></div><p class="for-desc">Understand the industry you're trying to enter. Know your rights, your value, and how to navigate the system that controls your career.</p></div>
+    <div class="for-card"><div class="for-num">02</div><div class="for-title">Scouts & Coaches</div><div class="for-accent" style="background:#060606"></div><p class="for-desc">Sharpen your methodology, earn recognised credentials, and build a professional profile that opens doors across Africa and Europe.</p></div>
+    <div class="for-card"><div class="for-num">03</div><div class="for-title">Clubs & Academies</div><div class="for-accent" style="background:#CE1126"></div><p class="for-desc">Develop your staff, standardise your evaluation processes, and access a curriculum built on Premier League principles.</p></div>
+    <div class="for-card"><div class="for-num">04</div><div class="for-title">Parents & Guardians</div><div class="for-accent" style="background:#060606"></div><p class="for-desc">Protect your athlete. Understand contracts, agents, trial processes and what legitimate opportunities actually look like.</p></div>
   </div>
 </div>
+
 <section class="curriculum-section" id="curriculum">
   <p class="section-label">Full Curriculum</p>
   <h2 class="section-title">EIGHT PILLARS.<br><em>ONE EDUCATION.</em></h2>
@@ -254,6 +283,7 @@ footer { background: var(--black); border-top: 1px solid rgba(252,209,22,0.08); 
     <div class="course-card"><div class="course-num">08</div><span class="course-tag tag-premium">Advanced</span><div class="course-title">Athletic Development & Sports Science</div><p class="course-desc">Physical preparation, injury prevention, nutrition principles and recovery strategies designed for the African athlete's specific developmental environment and climate.</p><div class="course-modules"><div class="course-module">Periodisation and load management basics</div><div class="course-module">Injury prevention protocols</div><div class="course-module">Nutrition for performance without big budgets</div><div class="course-module">Recovery and sleep optimisation</div></div><div class="course-footer"><span class="course-cert has-cert">Certificate on completion</span><span class="course-access">Advanced</span></div></div>
   </div>
 </section>
+
 <section class="nil-section">
   <div class="nil-left">
     <p class="section-label">Spotlight Module</p>
@@ -266,13 +296,14 @@ footer { background: var(--black); border-top: 1px solid rgba(252,209,22,0.08); 
     <div class="nil-expand"><em>Name.</em><br><em>Image.</em><br><em>Likeness.</em></div>
     <p class="nil-desc">Your identity as an athlete has commercial value — before you turn professional, before you sign a club contract, before anyone else tells you what you're worth. NIL is about owning that value yourself.</p>
     <div class="nil-points">
-      <div class="nil-point"><span class="nil-point-icon" style="font-size:14px;font-weight:700;color:var(--gold);font-family:var(--font-condensed);">—</span><div class="nil-point-text"><strong>Social media = your broadcast channel.</strong> 10,000 engaged followers in your sport is a commercial asset. We show you how to build it correctly.</div></div>
-      <div class="nil-point"><span class="nil-point-icon" style="font-size:14px;font-weight:700;color:var(--gold);font-family:var(--font-condensed);">—</span><div class="nil-point-text"><strong>Sponsorship before the professional contract.</strong> Local brands, sports companies and community businesses will pay for athlete endorsement. Most athletes don't know this.</div></div>
-      <div class="nil-point"><span class="nil-point-icon" style="font-size:14px;font-weight:700;color:var(--gold);font-family:var(--font-condensed);">—</span><div class="nil-point-text"><strong>Legal protection of your identity.</strong> Your face, your name and your image can be used without your permission — unless you understand how to protect them.</div></div>
-      <div class="nil-point"><span class="nil-point-icon" style="font-size:14px;font-weight:700;color:var(--gold);font-family:var(--font-condensed);">—</span><div class="nil-point-text"><strong>The African athlete's NIL opportunity is now.</strong> The global sports content economy is hungry for authentic African stories. You are the content.</div></div>
+      <div class="nil-point"><span class="nil-point-icon">—</span><div class="nil-point-text"><strong>Social media = your broadcast channel.</strong> 10,000 engaged followers in your sport is a commercial asset. We show you how to build it correctly.</div></div>
+      <div class="nil-point"><span class="nil-point-icon">—</span><div class="nil-point-text"><strong>Sponsorship before the professional contract.</strong> Local brands, sports companies and community businesses will pay for athlete endorsement. Most athletes don't know this.</div></div>
+      <div class="nil-point"><span class="nil-point-icon">—</span><div class="nil-point-text"><strong>Legal protection of your identity.</strong> Your face, your name and your image can be used without your permission — unless you understand how to protect them.</div></div>
+      <div class="nil-point"><span class="nil-point-icon">—</span><div class="nil-point-text"><strong>The African athlete's NIL opportunity is now.</strong> The global sports content economy is hungry for authentic African stories. You are the content.</div></div>
     </div>
   </div>
 </section>
+
 <section class="psych-section">
   <p class="section-label">Psychology</p>
   <h2 class="section-title">THE MIND<br><em>WINS FIRST</em></h2>
@@ -283,18 +314,19 @@ footer { background: var(--black); border-top: 1px solid rgba(252,209,22,0.08); 
     <div class="psych-card"><div class="psych-title">Recovery Psychology</div><p class="psych-desc">Rejection from trials. Release from academies. Serious injury. How elite athletes process setbacks and return stronger — and how you can develop the same capacity.</p></div>
   </div>
 </section>
+
 <section class="cert-section" id="pricing">
   <p class="section-label">Access & Certification</p>
   <div class="cert-inner">
     <div>
       <h2 class="section-title" style="margin-bottom:40px;">CHOOSE<br>YOUR <em>PATH</em></h2>
       <div class="cert-tiers">
-        <div class="cert-tier tier-free"><div class="cert-tier-icon" style="font-family:var(--font-display);font-size:20px;letter-spacing:1px;"></div><div class="cert-tier-content"><div class="cert-tier-label">Open Access</div><div class="cert-tier-title">Free Foundation Modules</div><p class="cert-tier-desc">Core modules open to every registered GUNDUA SPORTS user. No cost, no barrier. Scouting methodology, career pathways, player rights — free for all of Africa.</p><div class="cert-tier-price">Free — Always</div></div></div>
-        <div class="cert-tier tier-cert"><div class="cert-tier-icon" style="font-family:var(--font-display);font-size:20px;letter-spacing:1px;"></div><div class="cert-tier-content"><div class="cert-tier-label">Certified Programme</div><div class="cert-tier-title">A.F.C.A.S. Certificate Courses</div><p class="cert-tier-desc">Industry-recognised certificates backed by AFCAS (UK). For athletes, coaches and scouts who want credentials that open professional doors. Subsidised pricing for African participants.</p><div class="cert-tier-price">Subsidised Pricing</div></div></div>
-        <div class="cert-tier tier-inst"><div class="cert-tier-icon" style="font-family:var(--font-display);font-size:20px;letter-spacing:1px;"></div><div class="cert-tier-content"><div class="cert-tier-label">Institutional</div><div class="cert-tier-title">Club & Federation Licensing</div><p class="cert-tier-desc">Bulk access for football clubs, academies, national associations and schools. Train your entire staff and player pool under one institutional licence with GUNDUA SPORTS Academy.</p><div class="cert-tier-price">Contact Us</div></div></div>
+        <div class="cert-tier tier-free"><div class="cert-tier-icon">FREE</div><div><div class="cert-tier-label">Open Access</div><div class="cert-tier-title">Free Foundation Modules</div><p class="cert-tier-desc">Core modules open to every registered GUNDUA SPORTS user. No cost, no barrier. Scouting methodology, career pathways, player rights — free for all of Africa.</p><div class="cert-tier-price">Free — Always</div></div></div>
+        <div class="cert-tier tier-cert"><div class="cert-tier-icon">CERT</div><div><div class="cert-tier-label">Certified Programme</div><div class="cert-tier-title">A.F.C.A.S. Certificate Courses</div><p class="cert-tier-desc">Industry-recognised certificates backed by AFCAS (UK). For athletes, coaches and scouts who want credentials that open professional doors. Subsidised pricing for African participants.</p><div class="cert-tier-price">Subsidised Pricing</div></div></div>
+        <div class="cert-tier tier-inst"><div class="cert-tier-icon">ORG</div><div><div class="cert-tier-label">Institutional</div><div class="cert-tier-title">Club & Federation Licensing</div><p class="cert-tier-desc">Bulk access for football clubs, academies, national associations and schools. Train your entire staff and player pool under one institutional licence.</p><div class="cert-tier-price">Contact Us</div></div></div>
       </div>
     </div>
-    <div class="cert-right">
+    <div>
       <div class="cert-statement">A CREDENTIAL<br>FROM THE<br><em>PREMIER LEAGUE</em><br>WORLD.</div>
       <p class="cert-body">AFCAS certificates carry the weight of Premier League pedigree. For a scout in Lagos, a coach in Nairobi, or an athlete in Accra — this is access to the same standard of education that professional clubs in England rely on. GUNDUA SPORTS brings it home.</p>
       <div class="cert-partner-box"><div class="cert-partner-name">A.F.C.A.S.</div><p class="cert-partner-desc">Association of Football Coaches & Scouts — United Kingdom. Curriculum partner and certification authority for GUNDUA SPORTS Academy.</p></div>
@@ -302,21 +334,24 @@ footer { background: var(--black); border-top: 1px solid rgba(252,209,22,0.08); 
     </div>
   </div>
 </section>
+
 <section class="academy-cta">
   <div class="cta-inner">
     <h2 class="cta-title"><span class="t-gold">KNOWLEDGE</span><br>IS YOUR<br><span class="t-red">FIRST</span><br>CONTRACT</h2>
     <p class="cta-sub">Every athlete, coach and scout who registers with GUNDUA SPORTS gets access to the foundational curriculum — free, now, with no barriers. The Academy launches when the platform does. Get registered and be first in.</p>
     <div class="cta-actions">
       <a href="join.html" class="btn-primary">Enrol Now — It's Free</a>
-      <a href="index.html" class="btn-outline">Back to Platform</a>
+      <a href="/" class="btn-outline">Back to Home</a>
     </div>
   </div>
 </section>
+
 <footer>
   <div class="footer-logo">GUNDUA<span>.</span> ACADEMY</div>
   <p class="footer-copy">© 2025 GUNDUA SPORTS · In partnership with A.F.C.A.S. (UK) · Gundua Sports International</p>
-  <a href="index.html" class="footer-back">← Platform</a>
+  <a href="/" class="footer-back">← Home</a>
   <div class="pan-stripe"><span class="stripe-pill gr"></span><span class="stripe-pill g"></span><span class="stripe-pill r"></span></div>
 </footer>
+
 </body>
 </html>
