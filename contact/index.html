@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="dark"/>
+<title>Contact GUNDUA SPORTS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--gold:#FCD116;--gold-light:#FFE040;--red:#CE1126;--red-bright:#E8172D;--green:#009A44;--green-bright:#00C057;--black:#0A0A0A;--black-2:#111111;--black-3:#1A1A1A;--black-4:#222222;--white:#F0EDE8;--white-dim:#A8A09A;--white-faint:#5A554F;--font-display:'Bebas Neue',sans-serif;--font-condensed:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;}
+body.light{--black:#F4F1EC;--black-2:#ECE8E2;--black-3:#E2DDD6;--black-4:#D5CFC7;--white:#1A1610;--white-dim:#4A4540;--white-faint:#8A857F;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);overflow-x:hidden;transition:background .3s,color .3s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(10,10,10,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(252,209,22,.1);}
+body.light nav{background:rgba(244,241,236,.96);}
+.logo{font-family:var(--font-display);font-size:24px;letter-spacing:3px;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:2px;}
+.logo .lg{color:var(--gold);}
+.logo .ld{width:7px;height:7px;border-radius:50%;background:var(--red);margin-bottom:2px;display:inline-block;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white-dim);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-r{display:flex;align-items:center;gap:10px;}
+.theme-btn{background:none;border:1px solid rgba(255,255,255,.1);color:var(--white-dim);width:34px;height:34px;cursor:pointer;font-size:14px;transition:all .2s;display:flex;align-items:center;justify-content:center;}
+.theme-btn:hover{border-color:var(--gold);color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--black);font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;text-decoration:none;transition:all .2s;}
+.nav-cta:hover{background:var(--gold-light);}
+
+/* HERO */
+.contact-hero{min-height:55vh;padding-top:60px;display:flex;flex-direction:column;justify-content:center;padding:100px 60px 70px;position:relative;overflow:hidden;}
+.hero-bg-word{position:absolute;right:-20px;bottom:10px;font-family:var(--font-display);font-size:300px;color:rgba(252,209,22,.025);line-height:1;pointer-events:none;white-space:nowrap;}
+.hero-stripe{position:absolute;bottom:0;left:0;right:0;height:4px;display:flex;}
+.hs1{flex:1;background:var(--red);}
+.hs2{flex:1;background:var(--gold);}
+.hs3{flex:1;background:var(--green);}
+.hero-eyebrow{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--green-bright);margin-bottom:20px;display:flex;align-items:center;gap:12px;position:relative;z-index:2;}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--green-bright);}
+.hero-title{font-family:var(--font-display);font-size:clamp(64px,10vw,130px);line-height:.87;margin-bottom:20px;position:relative;z-index:2;}
+.ht-g{color:var(--gold);}
+.ht-r{color:var(--red-bright);}
+.hero-sub{font-size:18px;color:var(--white-dim);max-width:540px;line-height:1.8;position:relative;z-index:2;}
+
+/* MAIN LAYOUT */
+.contact-main{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--black-2);}
+
+/* LEFT — FORM */
+.form-side{background:var(--black-3);padding:60px 52px;}
+.eyebrow{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.eyebrow::before{content:'';display:block;width:22px;height:2px;background:var(--gold);}
+.form-title{font-family:var(--font-display);font-size:clamp(36px,4vw,52px);line-height:.92;margin-bottom:28px;}
+.form-title em{font-style:normal;color:var(--gold);}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+.field-label{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);}
+.fi,.fs,.ft{background:var(--black-4);border:1px solid rgba(255,255,255,.05);color:var(--white);font-family:var(--font-body);font-size:15px;padding:13px 15px;outline:none;transition:all .2s;appearance:none;width:100%;color-scheme:dark;}
+.fi:focus,.fs:focus,.ft:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(252,209,22,.07);}
+.fi::placeholder,.ft::placeholder{color:rgba(240,237,232,.2);}
+.ft{resize:vertical;min-height:120px;line-height:1.6;}
+.fs{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A8A09A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;}
+.fs option,.fs optgroup{background:#1a1a1a;color:#f0ede8;}
+.fi.err,.fs.err{border-color:var(--red-bright);}
+.btn-submit{background:var(--gold);color:var(--black);font-family:var(--font-condensed);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px 40px;border:none;cursor:pointer;transition:all .2s;margin-top:8px;width:100%;}
+.btn-submit:hover{background:var(--gold-light);transform:translateY(-1px);}
+.form-note{font-size:12px;color:var(--white-faint);margin-top:12px;line-height:1.5;}
+
+/* SUCCESS */
+.success{display:none;text-align:center;padding:40px 20px;}
+.success.on{display:block;}
+.success-word{font-family:var(--font-display);font-size:64px;color:var(--gold);margin-bottom:8px;}
+.success-msg{font-size:16px;color:var(--white-dim);line-height:1.8;max-width:380px;margin:0 auto 28px;}
+.btn-back{background:var(--gold);color:var(--black);font-family:var(--font-condensed);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:13px 28px;text-decoration:none;display:inline-block;transition:all .2s;}
+.btn-back:hover{background:var(--gold-light);}
+
+/* RIGHT — INFO */
+.info-side{background:var(--black-2);padding:60px 52px;display:flex;flex-direction:column;gap:2px;}
+.info-block{background:var(--black-3);padding:28px 26px;margin-bottom:2px;}
+.info-label{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.info-val{font-size:15px;color:var(--white);font-weight:600;word-break:break-all;margin-bottom:4px;}
+.info-desc{font-size:13px;color:var(--white-dim);line-height:1.5;}
+.info-divider{height:2px;background:var(--black-4);margin:8px 0;}
+.reason-list{display:flex;flex-direction:column;gap:2px;margin-top:24px;}
+.reason{background:var(--black-3);padding:18px 20px;display:flex;gap:14px;align-items:flex-start;}
+.reason-bar{width:3px;flex-shrink:0;align-self:stretch;}
+.reason:nth-child(1) .reason-bar{background:var(--red);}
+.reason:nth-child(2) .reason-bar{background:var(--gold);}
+.reason:nth-child(3) .reason-bar{background:var(--green);}
+.reason:nth-child(4) .reason-bar{background:var(--white-faint);}
+.reason-title{font-family:var(--font-condensed);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--white);margin-bottom:3px;}
+.reason-desc{font-size:13px;color:var(--white-dim);line-height:1.5;}
+
+/* LOADING */
+.loading{display:none;position:fixed;inset:0;background:rgba(10,10,10,.94);z-index:300;align-items:center;justify-content:center;flex-direction:column;gap:16px;}
+.loading.on{display:flex;}
+.loader{width:44px;height:44px;border:3px solid rgba(252,209,22,.08);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loader-txt{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white-dim);}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding:40px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.f-logo{font-family:var(--font-display);font-size:22px;letter-spacing:2px;}
+.f-logo span{color:var(--gold);}
+.f-copy{font-size:13px;color:var(--white-faint);}
+.f-links-row{display:flex;gap:20px;flex-wrap:wrap;}
+.f-links-row a{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--white-dim);text-decoration:none;transition:color .2s;}
+.f-links-row a:hover{color:var(--gold);}
+.pan{display:flex;gap:4px;}
+.ps{width:22px;height:5px;border-radius:3px;}
+.ps-r{background:var(--red);}
+.ps-g{background:var(--gold);}
+.ps-gr{background:var(--green);}
+
+@media(max-width:960px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .contact-hero{padding:90px 24px 60px;}
+  .contact-main{grid-template-columns:1fr;}
+  .form-side{padding:48px 24px;}
+  .info-side{padding:48px 24px;}
+  .field-row{grid-template-columns:1fr;}
+  footer{padding:32px 24px;flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+<div class="loading" id="loading"><div class="loader"></div><div class="loader-txt">Sending your message...</div></div>
+
+<nav>
+  <a href="/" class="logo"><span class="lg">GUNDUA</span><span class="ld"></span></a>
+  <ul class="nav-links">
+    <li><a href="/">Platform</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/academy">Academy</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact" class="active">Contact</a></li>
+  </ul>
+  <div class="nav-r">
+    <button class="theme-btn" id="tb" onclick="toggleTheme()">☀</button>
+    <a href="/join" class="nav-cta">Get Discovered</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="hero-bg-word">CONTACT</div>
+  <div class="hero-eyebrow">Get In Touch</div>
+  <h1 class="hero-title">
+    <span class="ht-g">LET'S</span><br>
+    <span class="ht-r">TALK</span>
+  </h1>
+  <p class="hero-sub">Athletes, scouts, coaches, clubs or partners — whatever your reason for reaching out, we want to hear from you. Every message is read personally.</p>
+  <div class="hero-stripe"><div class="hs1"></div><div class="hs2"></div><div class="hs3"></div></div>
+</section>
+
+<!-- MAIN -->
+<div class="contact-main">
+  <!-- FORM -->
+  <div class="form-side">
+    <div id="formWrap">
+      <div class="eyebrow">Send a Message</div>
+      <h2 class="form-title">WHAT'S ON<br>YOUR <em>MIND?</em></h2>
+      <div class="field-row">
+        <div><label class="field-label">First Name</label><input class="fi" id="fn" type="text" placeholder="First name" style="margin-top:7px;"/></div>
+        <div><label class="field-label">Last Name</label><input class="fi" id="ln" type="text" placeholder="Last name" style="margin-top:7px;"/></div>
+      </div>
+      <div class="field"><label class="field-label">Email</label><input class="fi" id="em" type="email" placeholder="your@email.com"/></div>
+      <div class="field"><label class="field-label">I Am A...</label>
+        <select class="fs" id="role">
+          <option value="" disabled selected>Select your role</option>
+          <option>Athlete</option>
+          <option>Parent / Guardian</option>
+          <option>Coach</option>
+          <option>Scout</option>
+          <option>Club / Academy</option>
+          <option>Media / Press</option>
+          <option>Partner / Sponsor</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field"><label class="field-label">Subject</label><input class="fi" id="subj" type="text" placeholder="What is this about?"/></div>
+      <div class="field"><label class="field-label">Message</label><textarea class="ft" id="msg" placeholder="Tell us what you need..."></textarea></div>
+      <button class="btn-submit" onclick="submitContact()">Send Message →</button>
+      <p class="form-note">We aim to respond within 48 hours. For urgent matters contact us directly at sportsmanagentintllc@gmail.com</p>
+    </div>
+    <div class="success" id="successMsg">
+      <div class="success-word">RECEIVED.</div>
+      <p class="success-msg">Thank you for reaching out. We read every message personally and will be in touch within 48 hours.</p>
+      <a href="/" class="btn-back">Back to Platform</a>
+    </div>
+  </div>
+
+  <!-- INFO -->
+  <div class="info-side">
+    <div class="eyebrow">Direct Contact</div>
+    <h2 style="font-family:var(--font-display);font-size:clamp(32px,4vw,48px);line-height:.92;margin-bottom:28px;">REACH US<br><span style="color:var(--gold);">DIRECTLY</span></h2>
+    <div class="info-block">
+      <div class="info-label">Email</div>
+      <div class="info-val">sportsmanagentintllc@gmail.com</div>
+      <div class="info-desc">Primary contact for all enquiries — athletes, partners, media and general questions.</div>
+    </div>
+    <div class="info-block">
+      <div class="info-label">Platform</div>
+      <div class="info-val">gunduasports.com</div>
+      <div class="info-desc">Explore everything GUNDUA SPORTS has to offer — from athlete registration to Academy courses.</div>
+    </div>
+    <div class="info-block">
+      <div class="info-label">Entity</div>
+      <div class="info-val">Sports Management International LLC</div>
+      <div class="info-desc">The registered operating entity behind GUNDUA SPORTS.</div>
+    </div>
+
+    <div style="margin-top:28px;">
+      <div class="eyebrow">Why People Contact Us</div>
+      <div class="reason-list">
+        <div class="reason"><div class="reason-bar"></div><div><div class="reason-title">Athlete Registration</div><div class="reason-desc">Questions about submitting a clip, the evaluation process, or your existing profile.</div></div></div>
+        <div class="reason"><div class="reason-bar"></div><div><div class="reason-title">Scout & Club Enquiries</div><div class="reason-desc">Access to our verified athlete database or joining the GUNDUA scout network.</div></div></div>
+        <div class="reason"><div class="reason-bar"></div><div><div class="reason-title">Academy & Events</div><div class="reason-desc">Course availability, certification questions, or upcoming event information.</div></div></div>
+        <div class="reason"><div class="reason-bar"></div><div><div class="reason-title">Media & Press</div><div class="reason-desc">Interviews, features, press materials — we welcome coverage of what we're building.</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-logo"><span>GUNDUA</span> SPORTS</div>
+  <p class="f-copy">© 2025 GUNDUA SPORTS · Sports Management International LLC</p>
+  <div class="f-links-row">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/events">Events</a>
+    <a href="/academy">Academy</a>
+    <a href="/join">Register</a>
+  </div>
+  <div class="pan"><span class="ps ps-r"></span><span class="ps ps-g"></span><span class="ps ps-gr"></span></div>
+</footer>
+
+<script>
+const SUPABASE_URL='https://iniwfkjifuguaqtxkios.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImluaXdma2ppZnVndWFxdHhraW9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwNDY1MTgsImV4cCI6MjA4OTYyMjUxOH0.hqY2GUG1EXWJAjE5EjS8K_VoJIS-Qs3gRrvUuRzT-UU';
+
+async function submitContact(){
+  const fn=document.getElementById('fn').value.trim();
+  const em=document.getElementById('em').value.trim();
+  const msg=document.getElementById('msg').value.trim();
+  let valid=true;
+  ['fn','em','msg'].forEach(id=>{document.getElementById(id).classList.remove('err');});
+  if(!fn){document.getElementById('fn').classList.add('err');valid=false;}
+  if(!em||!/\S+@\S+\.\S+/.test(em)){document.getElementById('em').classList.add('err');valid=false;}
+  if(!msg){document.getElementById('msg').classList.add('err');valid=false;}
+  if(!valid)return;
+  document.getElementById('loading').classList.add('on');
+  const payload={
+    user_type:'contact',
+    first_name:fn,
+    last_name:document.getElementById('ln').value.trim()||null,
+    email:em,
+    position:document.getElementById('role').value||null,
+    organisation:document.getElementById('subj').value.trim()||null,
+    biggest_challenge:msg,
+    source:'contact',
+    registered_at:new Date().toISOString()
+  };
+  try{
+    await fetch(`${SUPABASE_URL}/rest/v1/registrations`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Prefer':'return=minimal'},
+      body:JSON.stringify(payload)
+    });
+  }catch(e){console.error(e);}
+  document.getElementById('loading').classList.remove('on');
+  document.getElementById('formWrap').style.display='none';
+  document.getElementById('successMsg').classList.add('on');
+}
+
+function toggleTheme(){document.body.classList.toggle('light');document.getElementById('tb').textContent=document.body.classList.contains('light')?'☾':'☀';localStorage.setItem('gs-theme',document.body.classList.contains('light')?'light':'dark');}
+(function(){if(localStorage.getItem('gs-theme')==='light'){document.body.classList.add('light');document.getElementById('tb').textContent='☾';}})();
+</script>
+</body>
+</html>
