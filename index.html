@@ -25,6 +25,8 @@ body.light{
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--black);color:var(--white);font-family:var(--font-body);overflow-x:hidden;transition:background .3s,color .3s;}
+
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(10,10,10,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(252,209,22,.1);transition:border-color .3s;}
 body.light nav{background:rgba(244,241,236,.96);}
 .logo{font-family:var(--font-display);font-size:24px;letter-spacing:3px;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:2px;}
@@ -38,6 +40,8 @@ body.light nav{background:rgba(244,241,236,.96);}
 .theme-btn:hover{border-color:var(--gold);color:var(--gold);}
 .nav-cta{background:var(--gold);color:var(--black);font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;text-decoration:none;transition:all .2s;white-space:nowrap;}
 .nav-cta:hover{background:var(--gold-light);}
+
+/* HERO */
 .hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;justify-content:center;padding-left:60px;padding-right:60px;padding-bottom:60px;position:relative;overflow:hidden;}
 .hero-bg-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(10,1fr);grid-template-rows:repeat(8,1fr);opacity:.018;pointer-events:none;}
 .hero-bg-grid div{border:1px solid var(--gold);}
@@ -63,17 +67,23 @@ body.light nav{background:rgba(244,241,236,.96);}
 .hs1{flex:1;background:var(--red);}
 .hs2{flex:1;background:var(--gold);}
 .hs3{flex:1;background:var(--green);}
+
+/* PROOF */
 .proof{background:var(--gold);padding:18px 60px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
 .proof-item{display:flex;align-items:center;gap:12px;}
 .proof-icon{width:36px;height:36px;background:var(--black);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:17px;color:var(--gold);flex-shrink:0;}
 .proof-val{font-family:var(--font-display);font-size:20px;color:var(--black);line-height:1;}
 .proof-desc{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(10,10,10,.5);margin-top:2px;}
 .proof-div{width:1px;height:36px;background:rgba(10,10,10,.15);}
+
+/* SECTIONS */
 .sec{padding:90px 60px;}
 .eyebrow{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
 .eyebrow::before{content:'';display:block;width:22px;height:2px;background:var(--gold);}
 .sec-title{font-family:var(--font-display);font-size:clamp(42px,5.5vw,72px);line-height:.92;margin-bottom:16px;}
 .sec-title em{font-style:normal;color:var(--gold);}
+
+/* HOW */
 .how{background:var(--black-2);}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px;}
 .step{background:var(--black-3);padding:40px 32px;position:relative;overflow:hidden;transition:background .2s;}
@@ -92,6 +102,8 @@ body.light nav{background:rgba(244,241,236,.96);}
 .step:nth-child(1) .step-tag{background:rgba(206,17,38,.1);color:var(--red-bright);}
 .step:nth-child(2) .step-tag{background:rgba(252,209,22,.1);color:var(--gold);}
 .step:nth-child(3) .step-tag{background:rgba(0,154,68,.1);color:var(--green-bright);}
+
+/* SERVE */
 .serve{background:var(--black);}
 .serve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px;}
 .serve-card{background:var(--black-3);padding:38px 30px;position:relative;overflow:hidden;transition:background .2s;border-bottom:3px solid transparent;}
@@ -114,6 +126,8 @@ body.light nav{background:rgba(244,241,236,.96);}
 .sc-desc{font-size:14px;color:var(--white-dim);line-height:1.7;margin-bottom:18px;}
 .sc-link{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:color .2s;}
 .sc-link:hover{color:var(--white);}
+
+/* PARTNERS */
 .partners{background:var(--black-2);}
 .p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px;}
 .p-card{background:var(--black-3);padding:38px 32px;transition:background .2s;}
@@ -132,6 +146,8 @@ body.light nav{background:rgba(244,241,236,.96);}
 .p-card:nth-child(1) .p-badge{background:rgba(206,17,38,.1);color:var(--red-bright);}
 .p-card:nth-child(2) .p-badge{background:rgba(252,209,22,.1);color:var(--gold);}
 .p-card:nth-child(3) .p-badge{background:rgba(0,154,68,.1);color:var(--green-bright);}
+
+/* EVENTS TEASER */
 .ev-teaser{background:var(--black);text-align:center;position:relative;overflow:hidden;}
 .ev-teaser::before{content:'GUNDUA';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:280px;color:rgba(252,209,22,.02);pointer-events:none;white-space:nowrap;}
 .ev-inner{position:relative;z-index:2;max-width:660px;margin:0 auto;}
@@ -143,6 +159,8 @@ body.light nav{background:rgba(244,241,236,.96);}
 .ev-flag{background:var(--black-3);border:1px solid rgba(252,209,22,.1);padding:14px 22px;min-width:100px;display:flex;flex-direction:column;align-items:center;gap:3px;}
 .ef-val{font-family:var(--font-display);font-size:26px;color:var(--gold);line-height:1;}
 .ef-key{font-family:var(--font-condensed);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--white-faint);}
+
+/* COVERAGE */
 .coverage{background:var(--black-2);}
 .region-list{display:flex;flex-direction:column;gap:2px;margin-top:44px;}
 .region{background:var(--black-3);padding:20px 26px;display:flex;align-items:center;gap:18px;transition:background .2s;}
@@ -157,6 +175,8 @@ body.light nav{background:rgba(244,241,236,.96);}
 .r-badge{font-family:var(--font-condensed);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;}
 .b-active{background:rgba(0,154,68,.1);color:var(--green-bright);}
 .b-expanding{background:rgba(252,209,22,.08);color:var(--gold);}
+
+/* FOOTER */
 footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding:56px 60px;}
 .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px;}
 .f-logo{font-family:var(--font-display);font-size:30px;letter-spacing:2px;margin-bottom:10px;}
@@ -173,6 +193,7 @@ footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding
 .ps-r{background:var(--red);}
 .ps-g{background:var(--gold);}
 .ps-gr{background:var(--green);}
+
 @media(max-width:960px){
   nav{padding:0 20px;}
   .nav-links{display:none;}
@@ -193,6 +214,7 @@ footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding
 </style>
 </head>
 <body>
+
 <nav id="nav">
   <a href="/" class="logo"><span class="lg">GUNDUA</span><span class="ld"></span></a>
   <ul class="nav-links">
@@ -200,7 +222,8 @@ footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding
     <li><a href="#coverage">Coverage</a></li>
     <li><a href="/events">Events</a></li>
     <li><a href="/academy">Academy</a></li>
-    <li><a href="#serve">Who We Serve</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
   </ul>
   <div class="nav-r">
     <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">☀</button>
@@ -208,11 +231,16 @@ footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
   <div class="hero-bg-word">DISCOVER</div>
   <div class="hero-eyebrow">GUNDUA · SWAHILI · TO DISCOVER · TO UNCOVER · TO REVEAL</div>
-  <h1 class="hero-title"><span class="ht-w">BUILT FOR</span><br><span class="ht-w">THE ONES</span><br><span class="ht-g">OVER</span><span class="ht-r">LOOKED</span></h1>
+  <h1 class="hero-title">
+    <span class="ht-w">BUILT FOR</span><br>
+    <span class="ht-w">THE ONES</span><br>
+    <span class="ht-g">OVER</span><span class="ht-r">LOOKED</span>
+  </h1>
   <p class="hero-sub">Africa produces the world's most extraordinary athletes. <strong>Most of them will never be found.</strong></p>
   <p class="hero-mission">GUNDUA SPORTS exists to change that — free submission, real evaluation, global visibility.</p>
   <div class="hero-actions">
@@ -228,6 +256,7 @@ footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding
   <div class="hero-stripe"><div class="hs1"></div><div class="hs2"></div><div class="hs3"></div></div>
 </section>
 
+<!-- PROOF BAR -->
 <div class="proof">
   <div class="proof-item"><div class="proof-icon">G</div><div><div class="proof-val">Pan-African</div><div class="proof-desc">All 54 nations covered</div></div></div>
   <div class="proof-div"></div>
@@ -238,6 +267,7 @@ footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding
   <div class="proof-item"><div class="proof-icon">A</div><div><div class="proof-val">All Sports</div><div class="proof-desc">Football first, expanding fast</div></div></div>
 </div>
 
+<!-- HOW IT WORKS -->
 <section id="how" class="sec how">
   <div class="eyebrow">The Process</div>
   <h2 class="sec-title">HOW <em>TALENT</em><br>GETS FOUND</h2>
@@ -248,6 +278,7 @@ footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding
   </div>
 </section>
 
+<!-- WHO WE SERVE -->
 <section id="serve" class="sec serve">
   <div class="eyebrow">Who We Serve</div>
   <h2 class="sec-title">BUILT FOR<br><em>EVERYONE</em><br>IN THE GAME</h2>
@@ -261,6 +292,7 @@ footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding
   </div>
 </section>
 
+<!-- PARTNERS -->
 <section class="sec partners">
   <div class="eyebrow">Strategic Partners</div>
   <h2 class="sec-title">BACKED BY<br><em>THE INDUSTRY</em></h2>
@@ -271,6 +303,7 @@ footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding
   </div>
 </section>
 
+<!-- EVENTS TEASER -->
 <section class="sec ev-teaser">
   <div class="ev-inner">
     <div class="eyebrow" style="justify-content:center;margin-bottom:20px;">Coming Soon</div>
@@ -286,6 +319,7 @@ footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding
   </div>
 </section>
 
+<!-- COVERAGE -->
 <section id="coverage" class="sec coverage">
   <div class="eyebrow">Coverage</div>
   <h2 class="sec-title">WE SEE<br><em>ALL OF</em><br>AFRICA</h2>
@@ -297,12 +331,41 @@ footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div><div class="f-logo"><span>GUNDUA</span> SPORTS</div><p class="f-tagline">Africa's talent, discovered. Building the infrastructure for overlooked athletes to reach the world.</p></div>
-    <div><div class="f-col-title">Platform</div><ul class="f-links"><li><a href="#how">How It Works</a></li><li><a href="/discover">Find Your Path</a></li><li><a href="/join">Register</a></li><li><a href="/academy">Academy</a></li><li><a href="/events">Events</a></li></ul></div>
-    <div><div class="f-col-title">For Partners</div><ul class="f-links"><li><a href="/investor">Investor Hub</a></li><li><a href="/join">Scout Network</a></li><li><a href="/join">Club Access</a></li><li><a href="mailto:sportsmanagentintllc@gmail.com">Contact Us</a></li></ul></div>
-    <div><div class="f-col-title">Connect</div><ul class="f-links"><li><a href="mailto:sportsmanagentintllc@gmail.com">Email Us</a></li><li><a href="#">Instagram</a></li><li><a href="#">Twitter / X</a></li><li><a href="#">WhatsApp</a></li></ul></div>
+    <div>
+      <div class="f-logo"><span>GUNDUA</span> SPORTS</div>
+      <p class="f-tagline">Africa's talent, discovered. Building the infrastructure for overlooked athletes to reach the world.</p>
+    </div>
+    <div>
+      <div class="f-col-title">Platform</div>
+      <ul class="f-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="/discover">Find Your Path</a></li>
+        <li><a href="/join">Register</a></li>
+        <li><a href="/academy">Academy</a></li>
+        <li><a href="/events">Events</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-col-title">Company</div>
+      <ul class="f-links">
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/join">Scout Network</a></li>
+        <li><a href="/join">Club Access</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-col-title">Connect</div>
+      <ul class="f-links">
+        <li><a href="mailto:sportsmanagentintllc@gmail.com">Email Us</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">WhatsApp</a></li>
+      </ul>
+    </div>
   </div>
   <div class="f-bottom">
     <span class="f-copy">© 2025 GUNDUA SPORTS · Sports Management International LLC · gunduasports.com</span>
