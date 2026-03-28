@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="dark"/>
+<title>About GUNDUA SPORTS — Africa's Talent, Discovered</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--gold:#FCD116;--gold-light:#FFE040;--red:#CE1126;--red-bright:#E8172D;--green:#009A44;--green-bright:#00C057;--black:#0A0A0A;--black-2:#111111;--black-3:#1A1A1A;--black-4:#222222;--white:#F0EDE8;--white-dim:#A8A09A;--white-faint:#5A554F;--font-display:'Bebas Neue',sans-serif;--font-condensed:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;}
+body.light{--black:#F4F1EC;--black-2:#ECE8E2;--black-3:#E2DDD6;--black-4:#D5CFC7;--white:#1A1610;--white-dim:#4A4540;--white-faint:#8A857F;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);overflow-x:hidden;transition:background .3s,color .3s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(10,10,10,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(252,209,22,.1);}
+body.light nav{background:rgba(244,241,236,.96);}
+.logo{font-family:var(--font-display);font-size:24px;letter-spacing:3px;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:2px;}
+.logo .lg{color:var(--gold);}
+.logo .ld{width:7px;height:7px;border-radius:50%;background:var(--red);margin-bottom:2px;display:inline-block;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white-dim);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-r{display:flex;align-items:center;gap:10px;}
+.theme-btn{background:none;border:1px solid rgba(255,255,255,.1);color:var(--white-dim);width:34px;height:34px;cursor:pointer;font-size:14px;transition:all .2s;display:flex;align-items:center;justify-content:center;}
+.theme-btn:hover{border-color:var(--gold);color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--black);font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;text-decoration:none;transition:all .2s;}
+.nav-cta:hover{background:var(--gold-light);}
+.btn-gold{background:var(--gold);color:var(--black);font-family:var(--font-condensed);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px 32px;text-decoration:none;display:inline-block;transition:all .2s;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--white);font-family:var(--font-condensed);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px 32px;border:1px solid rgba(240,237,232,.18);text-decoration:none;display:inline-block;transition:all .2s;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.sec{padding:90px 60px;}
+.eyebrow{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.eyebrow::before{content:'';display:block;width:22px;height:2px;background:var(--gold);}
+.sec-title{font-family:var(--font-display);font-size:clamp(42px,5.5vw,72px);line-height:.92;margin-bottom:16px;}
+.sec-title em{font-style:normal;color:var(--gold);}
+
+/* HERO */
+.about-hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;justify-content:center;padding:100px 60px 80px;position:relative;overflow:hidden;}
+.hero-bg-word{position:absolute;right:-20px;bottom:20px;font-family:var(--font-display);font-size:300px;color:rgba(252,209,22,.025);line-height:1;pointer-events:none;white-space:nowrap;}
+.hero-stripe{position:absolute;bottom:0;left:0;right:0;height:4px;display:flex;}
+.hs1{flex:1;background:var(--red);}
+.hs2{flex:1;background:var(--gold);}
+.hs3{flex:1;background:var(--green);}
+.hero-eyebrow{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--green-bright);margin-bottom:20px;display:flex;align-items:center;gap:12px;position:relative;z-index:2;}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--green-bright);}
+.hero-title{font-family:var(--font-display);font-size:clamp(64px,10vw,130px);line-height:.87;margin-bottom:28px;position:relative;z-index:2;}
+.ht-g{color:var(--gold);}
+.ht-r{color:var(--red-bright);}
+.hero-body{font-size:18px;color:var(--white-dim);max-width:620px;line-height:1.85;margin-bottom:14px;position:relative;z-index:2;}
+.hero-body strong{color:var(--white);}
+.hero-mission{font-family:var(--font-condensed);font-size:15px;font-weight:700;color:var(--gold);border-left:3px solid var(--gold);padding-left:16px;line-height:1.6;max-width:500px;position:relative;z-index:2;margin-bottom:44px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:2;}
+
+/* STORY */
+.story{background:var(--black-2);}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:52px;}
+.story-left{background:var(--black-3);padding:48px 40px;border-left:4px solid var(--gold);}
+.story-right{background:var(--black-3);padding:48px 40px;border-left:4px solid var(--red);}
+.story-label{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;}
+.story-left .story-label{color:var(--gold);}
+.story-right .story-label{color:var(--red-bright);}
+.story-heading{font-family:var(--font-display);font-size:36px;color:var(--white);line-height:1;margin-bottom:18px;}
+.story-text{font-size:15px;color:var(--white-dim);line-height:1.85;}
+.story-text+.story-text{margin-top:14px;}
+
+/* VALUES */
+.values{background:var(--black);}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px;}
+.val-card{background:var(--black-3);padding:38px 32px;position:relative;overflow:hidden;transition:background .2s;border-bottom:3px solid transparent;}
+.val-card:hover{background:var(--black-4);}
+.val-card:nth-child(1){border-bottom-color:var(--red);}
+.val-card:nth-child(2){border-bottom-color:var(--gold);}
+.val-card:nth-child(3){border-bottom-color:var(--green);}
+.val-card:nth-child(4){border-bottom-color:var(--red);}
+.val-card:nth-child(5){border-bottom-color:var(--gold);}
+.val-card:nth-child(6){border-bottom-color:var(--green);}
+.val-num{font-family:var(--font-display);font-size:80px;position:absolute;right:10px;top:4px;color:rgba(252,209,22,.04);line-height:1;}
+.val-bar{height:3px;width:28px;margin-bottom:16px;}
+.val-card:nth-child(1) .val-bar{background:var(--red);}
+.val-card:nth-child(2) .val-bar{background:var(--gold);}
+.val-card:nth-child(3) .val-bar{background:var(--green);}
+.val-card:nth-child(4) .val-bar{background:var(--red);}
+.val-card:nth-child(5) .val-bar{background:var(--gold);}
+.val-card:nth-child(6) .val-bar{background:var(--green);}
+.val-title{font-family:var(--font-condensed);font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px;}
+.val-desc{font-size:14px;color:var(--white-dim);line-height:1.75;}
+
+/* PARTNERS */
+.about-partners{background:var(--black-2);}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px;}
+.p-card{background:var(--black-3);padding:38px 32px;transition:background .2s;}
+.p-card:hover{background:var(--black-4);}
+.p-card:nth-child(1){border-left:4px solid var(--red);}
+.p-card:nth-child(2){border-left:4px solid var(--gold);}
+.p-card:nth-child(3){border-left:4px solid var(--green);}
+.p-region{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;}
+.p-card:nth-child(1) .p-region{color:var(--red-bright);}
+.p-card:nth-child(2) .p-region{color:var(--gold);}
+.p-card:nth-child(3) .p-region{color:var(--green-bright);}
+.p-name{font-family:var(--font-display);font-size:34px;color:var(--white);line-height:1;margin-bottom:4px;}
+.p-sub{font-family:var(--font-condensed);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--white-faint);margin-bottom:14px;}
+.p-desc{font-size:14px;color:var(--white-dim);line-height:1.75;}
+
+/* MISSION STATEMENT */
+.mission-block{background:var(--gold);padding:80px 60px;text-align:center;position:relative;overflow:hidden;}
+.mission-block::before{content:'GUNDUA';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:240px;color:rgba(10,10,10,.06);pointer-events:none;white-space:nowrap;}
+.mb-inner{position:relative;z-index:2;max-width:700px;margin:0 auto;}
+.mb-label{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:rgba(10,10,10,.5);margin-bottom:16px;}
+.mb-quote{font-family:var(--font-display);font-size:clamp(40px,6vw,80px);color:var(--black);line-height:.92;margin-bottom:20px;}
+.mb-sub{font-size:16px;color:rgba(10,10,10,.6);line-height:1.8;max-width:500px;margin:0 auto;}
+
+/* CTA */
+.about-cta{background:var(--black);padding:90px 60px;text-align:center;position:relative;overflow:hidden;}
+.about-cta::before{content:'JOIN';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:300px;color:rgba(252,209,22,.02);pointer-events:none;white-space:nowrap;}
+.cta-inner{position:relative;z-index:2;max-width:580px;margin:0 auto;}
+.cta-title{font-family:var(--font-display);font-size:clamp(48px,7vw,88px);line-height:.9;margin-bottom:18px;}
+.ct-g{color:var(--gold);}
+.ct-r{color:var(--red-bright);}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid rgba(252,209,22,.07);padding:40px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.f-logo{font-family:var(--font-display);font-size:22px;letter-spacing:2px;}
+.f-logo span{color:var(--gold);}
+.f-copy{font-size:13px;color:var(--white-faint);}
+.f-links-row{display:flex;gap:20px;flex-wrap:wrap;}
+.f-links-row a{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--white-dim);text-decoration:none;transition:color .2s;}
+.f-links-row a:hover{color:var(--gold);}
+.pan{display:flex;gap:4px;}
+.ps{width:22px;height:5px;border-radius:3px;}
+.ps-r{background:var(--red);}
+.ps-g{background:var(--gold);}
+.ps-gr{background:var(--green);}
+
+@media(max-width:960px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .about-hero{padding:90px 24px 70px;}
+  .sec{padding:72px 24px;}
+  .story-grid{grid-template-columns:1fr;}
+  .values-grid{grid-template-columns:1fr 1fr;}
+  .p-grid{grid-template-columns:1fr;}
+  .mission-block{padding:60px 24px;}
+  .about-cta{padding:72px 24px;}
+  footer{padding:32px 24px;flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:540px){
+  .values-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo"><span class="lg">GUNDUA</span><span class="ld"></span></a>
+  <ul class="nav-links">
+    <li><a href="/">Platform</a></li>
+    <li><a href="/events">Events</a></li>
+    <li><a href="/academy">Academy</a></li>
+    <li><a href="/about" class="active">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <div class="nav-r">
+    <button class="theme-btn" id="tb" onclick="toggleTheme()">☀</button>
+    <a href="/join" class="nav-cta">Get Discovered</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="hero-bg-word">ABOUT</div>
+  <div class="hero-eyebrow">About GUNDUA SPORTS</div>
+  <h1 class="hero-title">
+    <span class="ht-g">AFRICA'S</span><br>
+    TALENT<br>
+    <span class="ht-r">DISCOVERED</span>
+  </h1>
+  <p class="hero-body">GUNDUA SPORTS is the infrastructure African football has always needed. A platform that <strong>finds athletes who would otherwise be missed</strong>, educates the people around them, and connects them to verified opportunities across the globe.</p>
+  <p class="hero-mission">We exist for the ones overlooked. The ones training in fields with no scouts watching. The ones with talent that never gets seen. GUNDUA changes that.</p>
+  <div class="hero-actions">
+    <a href="/join" class="btn-gold">Join the Platform →</a>
+    <a href="/contact" class="btn-ghost">Get in Touch</a>
+  </div>
+  <div class="hero-stripe"><div class="hs1"></div><div class="hs2"></div><div class="hs3"></div></div>
+</section>
+
+<!-- OUR STORY -->
+<section class="sec story">
+  <div class="eyebrow">Our Story</div>
+  <h2 class="sec-title">WHERE WE<br><em>COME FROM</em></h2>
+  <div class="story-grid">
+    <div class="story-left">
+      <div class="story-label">The Problem We Saw</div>
+      <div class="story-heading">The Best Talent in the World Goes Undiscovered</div>
+      <p class="story-text">Africa produces extraordinary athletes. Nigeria, Ghana, Senegal, Côte d'Ivoire, Kenya, Ethiopia — the continent is a generator of world-class sporting talent that Europe and America have been drawing from for decades.</p>
+      <p class="story-text">But the infrastructure to systematically discover, evaluate and develop that talent has never been built. Scouts travel blind. Athletes submit to fake agents. Parents sign contracts they don't understand. Coaches have no pathway to international credentials.</p>
+      <p class="story-text">The talent exists. The system to surface it does not. That is the gap GUNDUA SPORTS was built to fill.</p>
+    </div>
+    <div class="story-right">
+      <div class="story-label">What We Built</div>
+      <div class="story-heading">The Infrastructure Africa's Sports Ecosystem Needed</div>
+      <p class="story-text">GUNDUA SPORTS is built by people who understand this industry from the inside — the regulations, the exploitation, the gaps, and the opportunity. Founded by a FIFA agent exam-qualified professional with deep roots in the African football world.</p>
+      <p class="story-text">We have established relationships with A.F.C.A.S. (UK) — Premier League-pedigreed coaching and scouting educators — FutbolJobs (Spain), one of Europe's leading football recruitment platforms across 60+ countries, and Soccer Syndicate (USA), giving our athletes direct visibility into the American market.</p>
+      <p class="story-text">GUNDUA is not a concept. It is live, operational, and growing. Africa's talent deserves a platform built to its scale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="sec values">
+  <div class="eyebrow">What We Stand For</div>
+  <h2 class="sec-title">OUR<br><em>VALUES</em></h2>
+  <div class="values-grid">
+    <div class="val-card"><div class="val-num">01</div><div class="val-bar"></div><div class="val-title">Transparency</div><p class="val-desc">We tell athletes exactly what we see. No false promises, no empty hype. Real evaluations, honest feedback, legitimate pathways only.</p></div>
+    <div class="val-card"><div class="val-num">02</div><div class="val-bar"></div><div class="val-title">Access</div><p class="val-desc">Submission is free. Always. The barrier between talent and opportunity should never be money. Every athlete on this continent deserves a fair shot.</p></div>
+    <div class="val-card"><div class="val-num">03</div><div class="val-bar"></div><div class="val-title">Integrity</div><p class="val-desc">We are built by a FIFA-qualified professional who understands the regulations. Everything we do is within the rules — protecting athletes, not exploiting them.</p></div>
+    <div class="val-card"><div class="val-num">04</div><div class="val-bar"></div><div class="val-title">Education</div><p class="val-desc">Knowledge is the first contract. GUNDUA Academy exists because informed athletes, coaches and parents are harder to exploit and better equipped to succeed.</p></div>
+    <div class="val-card"><div class="val-num">05</div><div class="val-bar"></div><div class="val-title">Pan-African</div><p class="val-desc">All 54 nations. West, East, Southern, North. GUNDUA does not pick favourites — the entire continent is in scope, and every region matters equally.</p></div>
+    <div class="val-card"><div class="val-num">06</div><div class="val-bar"></div><div class="val-title">Excellence</div><p class="val-desc">We hold ourselves to the same standard we ask of athletes. Professional, structured, internationally credible — in every evaluation, every course, every event.</p></div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="sec about-partners">
+  <div class="eyebrow">Strategic Partners</div>
+  <h2 class="sec-title">WHO WE<br><em>WORK WITH</em></h2>
+  <p style="font-size:16px;color:var(--white-dim);line-height:1.8;max-width:540px;margin-bottom:52px;">GUNDUA SPORTS operates with established relationships across the global football industry — connecting African talent to verified international networks across three continents.</p>
+  <div class="p-grid">
+    <div class="p-card"><div class="p-region">United Kingdom</div><div class="p-name">A.F.C.A.S.</div><div class="p-sub">Association of Football Coaches & Scouts</div><p class="p-desc">Former West Ham United first-team scout. Chief Scout at Grimsby Town and Leyton Orient. National Team Chief Scout for Malawi at AFCON 2022. Mentored by Sir Bobby Robson. 29+ years in professional football. The curriculum and credentialing backbone of GUNDUA Academy.</p></div>
+    <div class="p-card"><div class="p-region">Spain</div><div class="p-name">FutbolJobs</div><div class="p-sub">International Football Recruitment Platform</div><p class="p-desc">One of Europe's leading football jobs and talent platforms, operating across 60+ countries and running professional trials in Alicante. GUNDUA serves as their dedicated African talent pipeline — giving our athletes direct access to European club opportunities.</p></div>
+    <div class="p-card"><div class="p-region">United States</div><div class="p-name">Soccer Syndicate</div><div class="p-sub">USA Football Development Network</div><p class="p-desc">America's football development network bringing a proven player development methodology to GUNDUA's evaluation framework. Our bridge to the fastest-growing football market in the world — direct visibility into the American football ecosystem for African athletes.</p></div>
+  </div>
+</section>
+
+<!-- MISSION STATEMENT -->
+<div class="mission-block">
+  <div class="mb-inner">
+    <div class="mb-label">Our Mission</div>
+    <div class="mb-quote">AFRICA'S TALENT, DISCOVERED.</div>
+    <p class="mb-sub">Every athlete who submits to GUNDUA SPORTS gets a real evaluation from a real human who knows the game. That is our promise to every player on this continent.</p>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="about-cta">
+  <div class="cta-inner">
+    <h2 class="cta-title"><span class="ct-g">BE PART</span><br>OF<br><span class="ct-r">THIS</span></h2>
+    <p style="font-size:17px;color:var(--white-dim);line-height:1.8;margin-bottom:40px;">Whether you are an athlete, a coach, a scout or a club — GUNDUA SPORTS has a place for you in this ecosystem. Register free and join Africa's talent discovery infrastructure.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="/join" class="btn-gold">Register Free →</a>
+      <a href="/contact" class="btn-ghost">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo"><span>GUNDUA</span> SPORTS</div>
+  <p class="f-copy">© 2025 GUNDUA SPORTS · Sports Management International LLC</p>
+  <div class="f-links-row">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/events">Events</a>
+    <a href="/academy">Academy</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <div class="pan"><span class="ps ps-r"></span><span class="ps ps-g"></span><span class="ps ps-gr"></span></div>
+</footer>
+
+<script>
+function toggleTheme(){document.body.classList.toggle('light');document.getElementById('tb').textContent=document.body.classList.contains('light')?'☾':'☀';localStorage.setItem('gs-theme',document.body.classList.contains('light')?'light':'dark');}
+(function(){if(localStorage.getItem('gs-theme')==='light'){document.body.classList.add('light');document.getElementById('tb').textContent='☾';}})();
+</script>
+</body>
+</html>
