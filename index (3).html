@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="dark"/>
+<title>GUNDUA SPORTS — Events</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0A0A'/><text x='4' y='24' font-family='serif' font-weight='900' font-size='22' fill='%23FCD116'>G</text><rect x='0' y='28' width='11' height='4' fill='%23CE1126'/><rect x='11' y='28' width='10' height='4' fill='%23FCD116'/><rect x='21' y='28' width='11' height='4' fill='%23009A44'/></svg>"/>
+<style>
+:root{--gold:#FCD116;--gold-light:#FFE040;--red:#CE1126;--red-bright:#E8172D;--green:#009A44;--green-bright:#00C057;--black:#0A0A0A;--black-2:#101010;--black-3:#181818;--black-4:#222222;--white:#F0EDE8;--white-dim:#A8A09A;--white-faint:#5A554F;--font-display:'Bebas Neue',sans-serif;--font-condensed:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;}
+body.light{--black:#F5F2ED;--black-2:#EDE9E3;--black-3:#E4DFD8;--black-4:#D8D2CA;--white:#1A1610;--white-dim:#4A4540;--white-faint:#8A857F;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);overflow-x:hidden;transition:background 0.3s,color 0.3s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(10,10,10,0.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(252,209,22,0.08);}
+body.light nav{background:rgba(245,242,237,0.94);}
+.nav-logo{font-family:var(--font-display);font-size:22px;letter-spacing:3px;color:var(--white);text-decoration:none;}
+.nav-logo span{color:var(--gold);}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.nav-back{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white-dim);text-decoration:none;transition:color 0.2s;}
+.nav-back:hover{color:var(--gold);}
+.theme-btn{background:none;border:1px solid rgba(255,255,255,0.1);color:var(--white-dim);width:34px;height:34px;cursor:pointer;font-size:13px;transition:all 0.2s;}
+.theme-btn:hover{border-color:var(--gold);color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--black);font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;text-decoration:none;transition:all 0.2s;}
+.nav-cta:hover{background:var(--white);}
+.btn-primary{background:var(--gold);color:var(--black);font-family:var(--font-condensed);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px 32px;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s;}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-outline{background:transparent;color:var(--white);font-family:var(--font-condensed);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px 32px;border:1px solid rgba(240,237,232,0.18);text-decoration:none;display:inline-block;transition:all 0.2s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+section{padding:100px 60px;}
+.eyebrow{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.eyebrow::before{content:'';display:block;width:22px;height:2px;background:var(--gold);}
+.sec-title{font-family:var(--font-display);font-size:clamp(40px,5vw,68px);line-height:0.93;margin-bottom:16px;}
+.sec-title em{font-style:normal;color:var(--gold);}
+
+/* HERO */
+.ev-hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:64px;position:relative;overflow:hidden;}
+.ev-hero-bg{position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(252,209,22,0.015) 60px,rgba(252,209,22,0.015) 61px);pointer-events:none;}
+.ev-hero-inner{position:relative;z-index:2;max-width:800px;padding:80px 40px;}
+.ev-title{font-family:var(--font-display);font-size:clamp(64px,12vw,140px);line-height:0.85;margin-bottom:24px;}
+.ev-title .et-g{color:var(--gold);}
+.ev-title .et-r{color:var(--red-bright);}
+.ev-title .et-gr{color:var(--green-bright);}
+.ev-sub{font-size:18px;color:var(--white-dim);line-height:1.8;max-width:560px;margin:0 auto 48px;}
+.ev-flags{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;}
+.ev-flag{background:var(--black-3);border:1px solid rgba(252,209,22,0.1);padding:16px 22px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:110px;}
+.ef-val{font-family:var(--font-display);font-size:28px;color:var(--gold);line-height:1;}
+.ef-key{font-family:var(--font-condensed);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--white-faint);}
+.ev-stripe{position:absolute;bottom:0;left:0;right:0;height:4px;display:flex;}
+.ev-stripe span{flex:1;}
+.ev-stripe span:nth-child(1){background:var(--red);}
+.ev-stripe span:nth-child(2){background:var(--gold);}
+.ev-stripe span:nth-child(3){background:var(--green);}
+
+/* FORMAT */
+#format{background:var(--black-2);}
+.format-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:56px;}
+.phase-card{background:var(--black-3);padding:40px 34px;position:relative;overflow:hidden;}
+.phase-card:nth-child(1){border-left:4px solid var(--gold);}
+.phase-card:nth-child(2){border-left:4px solid var(--red);}
+.phase-num{font-family:var(--font-display);font-size:88px;position:absolute;right:12px;top:4px;line-height:1;opacity:0.04;}
+.phase-card:nth-child(1) .phase-num{color:var(--gold);}
+.phase-card:nth-child(2) .phase-num{color:var(--red);}
+.phase-label{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;}
+.phase-card:nth-child(1) .phase-label{color:var(--gold);}
+.phase-card:nth-child(2) .phase-label{color:var(--red-bright);}
+.phase-title{font-family:var(--font-display);font-size:36px;color:var(--white);margin-bottom:8px;line-height:1;}
+.phase-duration{font-family:var(--font-condensed);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white-faint);margin-bottom:20px;}
+.phase-items{display:flex;flex-direction:column;gap:8px;margin-bottom:28px;}
+.phase-item{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--white-dim);line-height:1.5;}
+.phase-item::before{content:'›';color:var(--gold);flex-shrink:0;font-weight:700;}
+
+/* EVENTS GRID */
+#upcoming{background:var(--black);}
+.events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:56px;}
+.ev-card{background:var(--black-3);padding:40px 34px;position:relative;overflow:hidden;transition:background 0.2s;}
+.ev-card:hover{background:var(--black-4);}
+.ev-card.featured{background:rgba(252,209,22,0.04);border:1px solid rgba(252,209,22,0.15);}
+.ev-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold),var(--green));}
+.ev-status{font-family:var(--font-condensed);font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:4px 10px;display:inline-flex;align-items:center;gap:6px;margin-bottom:20px;}
+.status-shaping{background:rgba(252,209,22,0.1);color:var(--gold);}
+.status-rolling{background:rgba(0,154,68,0.1);color:var(--green-bright);}
+.status-soon{background:rgba(206,17,38,0.08);color:var(--red-bright);}
+.status-dev{background:rgba(255,255,255,0.04);color:var(--white-dim);}
+.pulse{width:6px;height:6px;border-radius:50%;animation:pulse 2s infinite;}
+.pulse-g{background:var(--gold);}
+.pulse-gr{background:var(--green-bright);}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}
+.ev-card-num{font-family:var(--font-display);font-size:72px;position:absolute;right:14px;top:8px;line-height:1;opacity:0.04;}
+.ev-card-title{font-family:var(--font-display);font-size:34px;color:var(--white);margin-bottom:8px;line-height:1;}
+.ev-card-type{font-family:var(--font-condensed);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white-faint);margin-bottom:16px;}
+.ev-card-desc{font-size:14px;color:var(--white-dim);line-height:1.75;margin-bottom:24px;}
+.ev-card-meta{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:24px;}
+.ev-meta-item{display:flex;flex-direction:column;gap:2px;}
+.ev-meta-label{font-family:var(--font-condensed);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white-faint);}
+.ev-meta-val{font-family:var(--font-condensed);font-size:14px;font-weight:700;color:var(--white);}
+.ev-card-cta{font-family:var(--font-condensed);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:color 0.2s;display:inline-flex;align-items:center;gap:6px;}
+.ev-card-cta:hover{color:var(--gold-light);}
+
+/* WHO ATTENDS */
+#who{background:var(--black-2);}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px;}
+.who-card{background:var(--black-3);padding:34px 28px;position:relative;overflow:hidden;}
+.who-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;}
+.who-card:nth-child(1)::after{background:var(--red);}
+.who-card:nth-child(2)::after{background:var(--gold);}
+.who-card:nth-child(3)::after{background:var(--green);}
+.who-card:nth-child(4)::after{background:var(--red);}
+.who-card:nth-child(5)::after{background:var(--gold);}
+.who-card:nth-child(6)::after{background:var(--green);}
+.who-num{font-family:var(--font-display);font-size:56px;color:rgba(252,209,22,0.05);line-height:1;margin-bottom:10px;}
+.who-bar{height:3px;width:28px;margin-bottom:14px;}
+.who-card:nth-child(1) .who-bar{background:var(--red);}
+.who-card:nth-child(2) .who-bar{background:var(--gold);}
+.who-card:nth-child(3) .who-bar{background:var(--green);}
+.who-card:nth-child(4) .who-bar{background:var(--red);}
+.who-card:nth-child(5) .who-bar{background:var(--gold);}
+.who-card:nth-child(6) .who-bar{background:var(--green);}
+.who-title{font-family:var(--font-condensed);font-size:18px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.who-desc{font-size:13px;color:var(--white-dim);line-height:1.6;}
+
+/* CSE */
+#cse{background:var(--black);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.cse-card{background:var(--black-3);border:1px solid rgba(252,209,22,0.15);padding:48px;position:relative;overflow:hidden;}
+.cse-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold),var(--green));}
+.cse-ghost{position:absolute;right:10px;bottom:-10px;font-family:var(--font-display);font-size:100px;color:rgba(252,209,22,0.04);line-height:1;}
+.cse-badge{font-family:var(--font-condensed);font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:rgba(252,209,22,0.1);color:var(--gold);padding:4px 12px;display:inline-block;margin-bottom:16px;}
+.cse-title{font-family:var(--font-display);font-size:40px;color:var(--white);line-height:1;margin-bottom:12px;}
+.cse-title em{font-style:normal;color:var(--gold);}
+.cse-desc{font-size:15px;color:var(--white-dim);line-height:1.8;margin-bottom:28px;}
+.cse-points{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.cse-pt{background:var(--black-4);padding:14px 16px;display:flex;gap:12px;align-items:flex-start;}
+.cse-pt-bar{width:3px;flex-shrink:0;align-self:stretch;}
+.cse-pt:nth-child(1) .cse-pt-bar{background:var(--red);}
+.cse-pt:nth-child(2) .cse-pt-bar{background:var(--gold);}
+.cse-pt:nth-child(3) .cse-pt-bar{background:var(--green);}
+.cse-pt:nth-child(4) .cse-pt-bar{background:var(--white-faint);}
+.cse-pt-text{font-size:13px;color:var(--white-dim);line-height:1.5;}
+.cse-pt-text strong{color:var(--white);}
+
+/* CTA */
+.ev-cta{background:var(--black-2);padding:100px 60px;text-align:center;position:relative;overflow:hidden;}
+.ev-cta::before{content:'GUNDUA';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:240px;color:rgba(252,209,22,0.02);pointer-events:none;white-space:nowrap;}
+.ev-cta-inner{position:relative;z-index:2;max-width:600px;margin:0 auto;}
+.ev-cta-title{font-family:var(--font-display);font-size:clamp(52px,8vw,92px);line-height:0.9;margin-bottom:20px;}
+.ec-g{color:var(--gold);}
+.ec-r{color:var(--red-bright);}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid rgba(252,209,22,0.06);padding:40px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.fl{font-family:var(--font-display);font-size:20px;letter-spacing:2px;}
+.fl span{color:var(--gold);}
+.fc{font-size:13px;color:var(--white-faint);}
+.fback{font-family:var(--font-condensed);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);text-decoration:none;}
+.fback:hover{color:var(--gold-light);}
+.ps{display:flex;gap:4px;}
+.p{width:22px;height:5px;border-radius:2px;}
+.pr{background:var(--red);}
+.pg{background:var(--gold);}
+.pgr{background:var(--green);}
+
+@media(max-width:960px){
+  nav{padding:0 20px;}
+  section{padding:72px 24px;}
+  .ev-hero-inner{padding:60px 24px;}
+  .format-grid{grid-template-columns:1fr;}
+  .events-grid{grid-template-columns:1fr;}
+  .who-grid{grid-template-columns:1fr 1fr;}
+  #cse{grid-template-columns:1fr;gap:40px;}
+  .ev-cta{padding:80px 24px;}
+  footer{padding:32px 24px;flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:540px){
+  .who-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo"><span>GUNDUA</span> SPORTS</a>
+  <div class="nav-right">
+    <a href="/" class="nav-back">← Platform</a>
+    <button class="theme-btn" id="tb" onclick="toggleTheme()">☀</button>
+    <a href="/join" class="nav-cta">Register</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="ev-hero">
+  <div class="ev-hero-bg"></div>
+  <div class="ev-hero-inner">
+    <div class="eyebrow" style="justify-content:center;margin-bottom:24px;">GUNDUA SPORTS Events</div>
+    <div class="ev-title">
+      <span class="et-g">TALENT</span><br>
+      MEETS<br>
+      <span class="et-r">OPPORTUNITY</span>
+    </div>
+    <p class="ev-sub">GUNDUA SPORTS is building a series of landmark events — bringing international scouts, coaches and clubs face to face with Africa's finest emerging talent. Register now to be first in the selection pool.</p>
+    <div class="ev-flags">
+      <div class="ev-flag"><div class="ef-val">UK</div><div class="ef-key">Scouts</div></div>
+      <div class="ev-flag"><div class="ef-val">USA</div><div class="ef-key">Coaches</div></div>
+      <div class="ev-flag"><div class="ef-val">ESP</div><div class="ef-key">Clubs</div></div>
+      <div class="ev-flag"><div class="ef-val">U19</div><div class="ef-key">& U17</div></div>
+      <div class="ev-flag"><div class="ef-val">M+F</div><div class="ef-key">Both genders</div></div>
+    </div>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="/join" class="btn-primary">Register — Be First in the Pool →</a>
+      <a href="#upcoming" class="btn-outline">See Upcoming Events</a>
+    </div>
+  </div>
+  <div class="ev-stripe"><span></span><span></span><span></span></div>
+</div>
+
+<!-- FORMAT -->
+<section id="format">
+  <div class="eyebrow">Event Format</div>
+  <h2 class="sec-title">HOW EVERY<br><em>GUNDUA EVENT</em><br>IS STRUCTURED</h2>
+  <p style="font-size:16px;color:var(--white-dim);line-height:1.8;max-width:520px;margin-bottom:56px;">Every GUNDUA event runs in two phases — education first, then exposure. Athletes leave with both a credential and a record on the international stage.</p>
+  <div class="format-grid">
+    <div class="phase-card">
+      <div class="phase-num">01</div>
+      <div class="phase-label">Phase One</div>
+      <div class="phase-title">COACHING CLINIC</div>
+      <div class="phase-duration">3 days · Intensive</div>
+      <div class="phase-items">
+        <div class="phase-item">Coaching seminars led by A.F.C.A.S. (UK) certified educators</div>
+        <div class="phase-item">Player development sessions using Soccer Syndicate USA framework</div>
+        <div class="phase-item">Tactical workshops and game analysis</div>
+        <div class="phase-item">Certificates of participation issued to coaches and athletes</div>
+        <div class="phase-item">Sports psychology and mental performance modules</div>
+      </div>
+      <a href="/academy" class="btn-outline" style="font-size:11px;padding:10px 20px;">View Academy Curriculum</a>
+    </div>
+    <div class="phase-card">
+      <div class="phase-num">02</div>
+      <div class="phase-label">Phase Two</div>
+      <div class="phase-title">TRIALS & SHOWCASE</div>
+      <div class="phase-duration">7 days · Competitive</div>
+      <div class="phase-items">
+        <div class="phase-item">U17 and U19 competitive tournament — tryout teams and invited squads</div>
+        <div class="phase-item">International scouts in attendance from UK, Spain, USA and beyond</div>
+        <div class="phase-item">Athletes evaluated against verified GUNDUA scouting criteria</div>
+        <div class="phase-item">Written scouting reports issued to all participating athletes</div>
+        <div class="phase-item">Top performers connected directly to partner clubs and academies</div>
+      </div>
+      <a href="/join" class="btn-primary" style="font-size:11px;padding:10px 20px;">Register for Selection Pool</a>
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING -->
+<section id="upcoming">
+  <div class="eyebrow">Upcoming Events</div>
+  <h2 class="sec-title">WHAT'S<br><em>COMING</em></h2>
+  <div class="events-grid">
+    <div class="ev-card featured">
+      <div class="ev-card-num">01</div>
+      <div class="ev-status status-shaping"><div class="pulse pulse-g"></div>Taking Shape</div>
+      <div class="ev-card-title">GUNDUA Scouting Showcase</div>
+      <div class="ev-card-type">Series 1 — Flagship Event</div>
+      <p class="ev-card-desc">The first GUNDUA SPORTS talent showcase — a 10-day programme bringing together athletes, coaches and international scouts for the continent's most structured discovery event. Location and dates to be confirmed. Register now to be in the selection pool.</p>
+      <div class="ev-card-meta">
+        <div class="ev-meta-item"><div class="ev-meta-label">Format</div><div class="ev-meta-val">Clinic + Showcase</div></div>
+        <div class="ev-meta-item"><div class="ev-meta-label">Ages</div><div class="ev-meta-val">U17 & U19</div></div>
+        <div class="ev-meta-item"><div class="ev-meta-label">Gender</div><div class="ev-meta-val">Male & Female</div></div>
+        <div class="ev-meta-item"><div class="ev-meta-label">Location</div><div class="ev-meta-val">TBC</div></div>
+      </div>
+      <a href="/join" class="ev-card-cta">Register for Selection Pool →</a>
+    </div>
+    <div class="ev-card">
+      <div class="ev-card-num">02</div>
+      <div class="ev-status status-rolling"><div class="pulse pulse-gr"></div>Rolling Registration</div>
+      <div class="ev-card-title">AFCAS Coaching Intensive</div>
+      <div class="ev-card-type">Education Series · A.F.C.A.S. Partnership</div>
+      <p class="ev-card-desc">Standalone coaching education sessions delivered through the GUNDUA Academy in partnership with A.F.C.A.S. (UK). Open to coaches and scouts across Africa. Certificates of participation issued. Dates and format to be confirmed.</p>
+      <div class="ev-card-meta">
+        <div class="ev-meta-item"><div class="ev-meta-label">Format</div><div class="ev-meta-val">Workshops</div></div>
+        <div class="ev-meta-item"><div class="ev-meta-label">Audience</div><div class="ev-meta-val">Coaches & Scouts</div></div>
+        <div class="ev-meta-item"><div class="ev-meta-label">Certificate</div><div class="ev-meta-val">Yes — AFCAS</div></div>
+      </div>
+      <a href="/join" class="ev-card-cta">Register Interest →</a>
+    </div>
+    <div class="ev-card">
+      <div class="ev-card-num">03</div>
+      <div class="ev-status status-soon">Announcing Soon</div>
+      <div class="ev-card-title">FutbolJobs Africa Trials</div>
+      <div class="ev-card-type">Partner Event · FutbolJobs Spain</div>
+      <p class="ev-card-desc">In partnership with FutbolJobs (Spain), GUNDUA SPORTS is developing a dedicated Africa trials programme connecting evaluated athletes to European clubs via the FutbolJobs network. Further details coming soon.</p>
+      <div class="ev-card-meta">
+        <div class="ev-meta-item"><div class="ev-meta-label">Partner</div><div class="ev-meta-val">FutbolJobs</div></div>
+        <div class="ev-meta-item"><div class="ev-meta-label">Market</div><div class="ev-meta-val">Europe</div></div>
+        <div class="ev-meta-item"><div class="ev-meta-label">Format</div><div class="ev-meta-val">TBC</div></div>
+      </div>
+      <a href="/join" class="ev-card-cta">Register Interest →</a>
+    </div>
+    <div class="ev-card">
+      <div class="ev-card-num">04</div>
+      <div class="ev-status status-dev">In Development</div>
+      <div class="ev-card-title">Regional Showcase Series</div>
+      <div class="ev-card-type">2025/26 Season</div>
+      <p class="ev-card-desc">A rolling series of regional showcase events across West, East, Southern and North Africa — bringing the GUNDUA evaluation framework to every corner of the continent. Scouts and clubs can register to attend.</p>
+      <div class="ev-card-meta">
+        <div class="ev-meta-item"><div class="ev-meta-label">Coverage</div><div class="ev-meta-val">Pan-African</div></div>
+        <div class="ev-meta-item"><div class="ev-meta-label">Format</div><div class="ev-meta-val">Regional</div></div>
+        <div class="ev-meta-item"><div class="ev-meta-label">Season</div><div class="ev-meta-val">2025/26</div></div>
+      </div>
+      <a href="/join" class="ev-card-cta">Register Interest →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO ATTENDS -->
+<section id="who">
+  <div class="eyebrow">Who Attends</div>
+  <h2 class="sec-title">BUILT FOR<br><em>EVERYONE</em><br>IN THE ROOM</h2>
+  <div class="who-grid">
+    <div class="who-card"><div class="who-num">01</div><div class="who-bar"></div><div class="who-title">Athletes</div><p class="who-desc">U17 and U19 players competing for evaluated profiles and direct exposure to international scouts and clubs. Both male and female.</p></div>
+    <div class="who-card"><div class="who-num">02</div><div class="who-bar"></div><div class="who-title">Coaches</div><p class="who-desc">Grassroots and professional coaches attending the clinic phase for AFCAS-backed CPD and certificates of participation.</p></div>
+    <div class="who-card"><div class="who-num">03</div><div class="who-bar"></div><div class="who-title">International Scouts</div><p class="who-desc">Scouts from UK, Spain, USA and global networks attending to evaluate talent against GUNDUA's verified criteria.</p></div>
+    <div class="who-card"><div class="who-num">04</div><div class="who-bar"></div><div class="who-title">Clubs & Academies</div><p class="who-desc">Club representatives and academy directors attending to identify talent for their programmes. Pre-registration required.</p></div>
+    <div class="who-card"><div class="who-num">05</div><div class="who-bar"></div><div class="who-title">Educators</div><p class="who-desc">Sports psychologists, fitness coaches, nutritionists and sports scientists contributing to the clinic programme.</p></div>
+    <div class="who-card"><div class="who-num">06</div><div class="who-bar"></div><div class="who-title">Parents & Guardians</div><p class="who-desc">Parents of attending athletes receive orientation on the process, their child's evaluation, and next steps. Transparency is core to everything we do.</p></div>
+  </div>
+</section>
+
+<!-- CSE -->
+<section id="cse">
+  <div>
+    <div class="eyebrow">Certified Sports Educators</div>
+    <h2 class="sec-title">BECOME A<br><em>CSE</em></h2>
+    <p style="font-size:16px;color:var(--white-dim);line-height:1.8;margin-bottom:32px;max-width:400px;">GUNDUA SPORTS is building a network of Certified Sports Educators across Africa. CSEs are the distribution engine of the platform — coaches and scouts who have completed our training and advocate for the platform in their region.</p>
+    <a href="/join" class="btn-primary">Apply to Become a CSE</a>
+  </div>
+  <div class="cse-card">
+    <div class="cse-ghost">CSE</div>
+    <div class="cse-badge">Certified Sports Educator Programme</div>
+    <div class="cse-title">YOUR CREDENTIAL.<br><em>YOUR COMMUNITY.</em></div>
+    <p class="cse-desc">A CSE isn't just certified — they're connected. Every CSE becomes an official GUNDUA SPORTS representative in their region, with a revenue share on placements they source and direct access to our international partner networks.</p>
+    <div class="cse-points">
+      <div class="cse-pt"><div class="cse-pt-bar"></div><div class="cse-pt-text"><strong>Complete the GUNDUA Academy curriculum</strong> and earn your AFCAS-backed certificate</div></div>
+      <div class="cse-pt"><div class="cse-pt-bar"></div><div class="cse-pt-text"><strong>Become the platform's eyes on the ground</strong> in your country or region</div></div>
+      <div class="cse-pt"><div class="cse-pt-bar"></div><div class="cse-pt-text"><strong>Earn from placements</strong> — revenue share model for verified talent you source</div></div>
+      <div class="cse-pt"><div class="cse-pt-bar"></div><div class="cse-pt-text"><strong>Direct access to Ged Searson (AFCAS) and Matt Martin (Soccer Syndicate)</strong> network connections</div></div>
+    </div>
+    <a href="/join" class="btn-primary">Join the CSE Programme</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="ev-cta">
+  <div class="ev-cta-inner">
+    <h2 class="ev-cta-title"><span class="ec-g">GET IN</span><br>THE<br><span class="ec-r">POOL</span></h2>
+    <p style="font-size:17px;color:var(--white-dim);line-height:1.8;margin-bottom:40px;max-width:460px;margin-left:auto;margin-right:auto;">Selection for GUNDUA events starts from the registered database. Every day you're not registered is a day you're not in consideration. It takes 60 seconds.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="/join" class="btn-primary">Register Now — Free →</a>
+      <a href="/" class="btn-outline">Back to Platform</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="fl"><span>GUNDUA</span> SPORTS</div>
+  <p class="fc">© 2025 GUNDUA SPORTS · Sports Management International LLC · gunduasports.com</p>
+  <a href="/" class="fback">← Platform</a>
+  <div class="ps"><span class="p pr"></span><span class="p pg"></span><span class="p pgr"></span></div>
+</footer>
+
+<script>
+function toggleTheme(){document.body.classList.toggle('light');document.getElementById('tb').textContent=document.body.classList.contains('light')?'☾':'☀';localStorage.setItem('gs-theme',document.body.classList.contains('light')?'light':'dark');}
+(function(){if(localStorage.getItem('gs-theme')==='light'){document.body.classList.add('light');document.getElementById('tb').textContent='☾';}})();
+</script>
+</body>
+</html>
