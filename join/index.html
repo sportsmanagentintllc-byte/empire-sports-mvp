@@ -1,217 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Register with Gundua Sports for free. Athletes, scouts, clubs and parents across Africa — join the pan-African talent discovery platform and get connected to verified international scout networks."/>
-<meta name="keywords" content="register African athlete, join football scouting Africa, get discovered Africa, African scout registration, free football platform Africa, join Gundua Sports"/>
-<meta name="author" content="Gundua Sports International"/>
-<meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://gunduasports.com/join.html"/>
-<meta property="og:type" content="website"/>
-<meta property="og:site_name" content="Gundua Sports"/>
-<meta property="og:title" content="Join Gundua Sports — Your Journey Starts Here"/>
-<meta property="og:description" content="Free registration for athletes, scouts, clubs and parents across Africa. Enter the network. Get discovered."/>
-<meta property="og:url" content="https://gunduasports.com/join.html"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Join Gundua Sports — Your Journey Starts Here"/>
-<meta name="twitter:description" content="Free registration for athletes, scouts, clubs and parents across Africa. Enter the network. Get discovered."/>
-<title>Join Gundua Sports — Register Free | Africa's Talent Discovery Platform</title>
+<meta name="color-scheme" content="dark"/>
+<title>Join GUNDUA SPORTS — Register Free</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;500;700&display=swap" rel="stylesheet"/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230A0A0A'/><text x='4' y='24' font-family='serif' font-weight='900' font-size='22' fill='%23FCD116'>G</text><rect x='0' y='28' width='11' height='4' fill='%23CE1126'/><rect x='11' y='28' width='10' height='4' fill='%23FCD116'/><rect x='21' y='28' width='11' height='4' fill='%23009A44'/></svg>"/>
 <style>
-:root{--gold:#FCD116;--gold-light:#FFE040;--gold-dim:#C9A400;--red:#CE1126;--red-bright:#E8172D;--green:#009A44;--green-bright:#00C057;--black:#0A0A0A;--black-2:#101010;--black-3:#181818;--black-4:#222222;--black-5:#2C2C2C;--white:#F0EDE8;--white-dim:#A8A09A;--white-faint:#5A554F;--font-display:'Bebas Neue',sans-serif;--font-condensed:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;}
+:root{--gold:#FCD116;--gold-light:#FFE040;--red:#CE1126;--red-bright:#E8172D;--green:#009A44;--green-bright:#00C057;--black:#0A0A0A;--black-2:#111111;--black-3:#1A1A1A;--black-4:#222222;--white:#F0EDE8;--white-dim:#A8A09A;--white-faint:#5A554F;--font-display:'Bebas Neue',sans-serif;--font-condensed:'Barlow Condensed',sans-serif;--font-body:'Barlow',sans-serif;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
 body{background:var(--black);color:var(--white);font-family:var(--font-body);min-height:100vh;overflow-x:hidden;}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;background:rgba(10,10,10,0.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(252,209,22,0.08);}
-.nav-logo{font-family:var(--font-display);font-size:22px;letter-spacing:3px;color:var(--white);text-decoration:none;}
-.nav-logo span{color:var(--gold);}
-.nav-back{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white-dim);text-decoration:none;transition:color 0.2s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;background:rgba(10,10,10,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(252,209,22,.08);}
+.logo{font-family:var(--font-display);font-size:22px;letter-spacing:3px;color:var(--white);text-decoration:none;}
+.logo span{color:var(--gold);}
+.nav-back{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white-dim);text-decoration:none;transition:color .2s;}
 .nav-back:hover{color:var(--gold);}
-
-/* WRAPPER */
-.wizard-wrap{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px 48px;}
-
-/* PROGRESS */
-.progress-wrap{width:100%;max-width:640px;margin-bottom:28px;display:flex;align-items:center;gap:14px;}
-.progress-track{flex:1;height:2px;background:rgba(255,255,255,0.05);overflow:hidden;}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--gold));transition:width 0.5s cubic-bezier(0.16,1,0.3,1);}
-.progress-label{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white-faint);white-space:nowrap;flex-shrink:0;}
-
-/* CARD */
-.card{width:100%;max-width:640px;background:var(--black-2);border:1px solid rgba(252,209,22,0.1);position:relative;overflow:hidden;}
+.wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px 48px;}
+.prog-wrap{width:100%;max-width:600px;margin-bottom:24px;display:flex;align-items:center;gap:14px;}
+.prog-track{flex:1;height:2px;background:rgba(255,255,255,.05);overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--gold));transition:width .5s ease;}
+.prog-label{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white-faint);white-space:nowrap;}
+.card{width:100%;max-width:600px;background:var(--black-2);border:1px solid rgba(252,209,22,.1);position:relative;overflow:hidden;}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold),var(--green));}
-
-/* SCREEN */
-.screen{display:none;padding:52px 52px;animation:sIn 0.4s cubic-bezier(0.16,1,0.3,1) both;}
-.screen.active{display:block;}
-@keyframes sIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
-@keyframes sInL{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
-.screen.back{animation:sInL 0.4s cubic-bezier(0.16,1,0.3,1) both;}
-
-/* TYPOGRAPHY */
-.eyebrow{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.screen{display:none;padding:48px;}
+.screen.active{display:block;animation:fadeIn .35s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.eyebrow{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
 .eyebrow::before{content:'';display:block;width:18px;height:2px;background:var(--gold);}
-.step-title{font-family:var(--font-display);font-size:clamp(40px,6vw,60px);line-height:0.92;margin-bottom:8px;color:var(--white);}
+.step-title{font-family:var(--font-display);font-size:clamp(36px,6vw,56px);line-height:.92;margin-bottom:8px;}
 .step-title em{font-style:normal;color:var(--gold);}
-.step-sub{font-size:15px;color:var(--white-dim);line-height:1.7;margin-bottom:36px;max-width:480px;}
+.step-sub{font-size:15px;color:var(--white-dim);line-height:1.7;margin-bottom:28px;}
 
-/* TYPE SELECTOR */
-.type-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:32px;}
-.type-card{background:var(--black-3);border:2px solid rgba(255,255,255,0.04);padding:22px 18px;cursor:pointer;transition:all 0.22s cubic-bezier(0.34,1.56,0.64,1);position:relative;user-select:none;text-align:left;}
-.type-card:hover{border-color:rgba(252,209,22,0.3);transform:translateY(-1px);}
-.type-card.selected{border-color:var(--gold);background:rgba(252,209,22,0.05);}
+/* TYPE GRID */
+.type-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:28px;}
+.type-card{background:var(--black-3);border:2px solid rgba(255,255,255,.04);padding:20px 16px;cursor:pointer;transition:all .2s;position:relative;text-align:left;}
+.type-card:hover{border-color:rgba(252,209,22,.25);}
+.type-card.selected{border-color:var(--gold);background:rgba(252,209,22,.04);}
 .type-card.selected .tc-check{opacity:1;transform:scale(1);}
-.tc-num{font-family:var(--font-display);font-size:32px;color:rgba(252,209,22,0.1);line-height:1;margin-bottom:8px;}
-.type-card.selected .tc-num{color:rgba(252,209,22,0.25);}
-.tc-label{font-family:var(--font-condensed);font-size:17px;font-weight:700;color:var(--white);margin-bottom:4px;}
-.tc-desc{font-size:12px;color:var(--white-dim);line-height:1.5;}
-.tc-check{position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--black);font-weight:900;opacity:0;transform:scale(0.4);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);}
+.tc-check{position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--black);font-weight:900;opacity:0;transform:scale(.4);transition:all .25s;}
+.tc-num{font-family:var(--font-display);font-size:28px;color:rgba(252,209,22,.1);line-height:1;margin-bottom:6px;}
+.type-card.selected .tc-num{color:rgba(252,209,22,.2);}
+.tc-label{font-family:var(--font-condensed);font-size:16px;font-weight:700;color:var(--white);margin-bottom:3px;}
+.tc-desc{font-size:12px;color:var(--white-dim);line-height:1.4;}
 
 /* FIELDS */
-.field-group{display:flex;flex-direction:column;gap:14px;margin-bottom:32px;}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.field{display:flex;flex-direction:column;gap:7px;}
-.field-label{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);}
-.field-input,.field-select,.field-textarea{background:var(--black-4);border:1px solid rgba(255,255,255,0.05);color:var(--white);font-family:var(--font-body);font-size:15px;padding:13px 15px;outline:none;transition:all 0.2s;appearance:none;width:100%;color-scheme:dark;}
-.field-input:focus,.field-select:focus,.field-textarea:focus{border-color:var(--gold);background:rgba(252,209,22,0.03);box-shadow:0 0 0 3px rgba(252,209,22,0.07);}
-.field-input::placeholder,.field-textarea::placeholder{color:rgba(240,237,232,0.2);}
-.field-select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A8A09A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;}
-.field-select option,.field-select optgroup{background:#1a1a1a;color:#f0ede8;}
-.field-hint{font-size:12px;color:var(--white-faint);line-height:1.5;margin-top:4px;}
-.field-textarea{resize:vertical;min-height:90px;line-height:1.6;}
-.field-input.err,.field-select.err{border-color:var(--red-bright);}
+.fields{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.field{display:flex;flex-direction:column;gap:6px;}
+.fl{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);}
+.fi,.fs{background:var(--black-4);border:1px solid rgba(255,255,255,.05);color:var(--white);font-family:var(--font-body);font-size:15px;padding:12px 14px;outline:none;transition:all .2s;width:100%;color-scheme:dark;appearance:none;}
+.fi:focus,.fs:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(252,209,22,.07);}
+.fi::placeholder{color:rgba(240,237,232,.2);}
+.fi.err,.fs.err{border-color:var(--red-bright);}
+.fs{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A8A09A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
+.fs option,.fs optgroup{background:#1a1a1a;color:#f0ede8;}
+.fhint{font-size:12px;color:var(--white-faint);line-height:1.4;}
 
 /* NAV BUTTONS */
-.step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:8px;}
-.btn-back-step{background:none;border:none;font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white-faint);cursor:pointer;padding:12px 0;transition:color 0.2s;display:flex;align-items:center;gap:6px;}
-.btn-back-step:hover{color:var(--white);}
-.btn-back-step:disabled{opacity:0;pointer-events:none;}
-.btn-next-step{background:var(--gold);color:var(--black);font-family:var(--font-condensed);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px 32px;border:none;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:8px;opacity:0.3;pointer-events:none;}
-.btn-next-step.ready{opacity:1;pointer-events:all;}
-.btn-next-step.ready:hover{background:var(--gold-light);transform:translateY(-1px);}
-.btn-submit{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--black);font-family:var(--font-condensed);font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:17px 44px;border:none;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:10px;}
-.btn-submit:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(252,209,22,0.25);}
+.step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:4px;}
+.btn-back{background:none;border:none;font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white-faint);cursor:pointer;padding:12px 0;transition:color .2s;}
+.btn-back:hover{color:var(--white);}
+.btn-back:disabled{opacity:0;pointer-events:none;}
+.btn-next{background:var(--gold);color:var(--black);font-family:var(--font-condensed);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 30px;border:none;cursor:pointer;transition:all .2s;opacity:.3;pointer-events:none;}
+.btn-next.on{opacity:1;pointer-events:all;}
+.btn-next.on:hover{background:var(--gold-light);}
+.btn-submit{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--black);font-family:var(--font-condensed);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:16px 40px;border:none;cursor:pointer;transition:all .2s;}
+.btn-submit:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(252,209,22,.2);}
 
 /* REVIEW */
-.review-list{display:flex;flex-direction:column;gap:2px;margin-bottom:32px;}
-.review-item{background:var(--black-3);padding:14px 18px;display:flex;gap:14px;align-items:flex-start;}
-.review-key{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);min-width:110px;flex-shrink:0;padding-top:2px;}
-.review-val{font-size:14px;color:var(--white);word-break:break-all;}
+.review-list{display:flex;flex-direction:column;gap:2px;margin-bottom:28px;}
+.rv{background:var(--black-3);padding:12px 16px;display:flex;gap:12px;}
+.rv-key{font-family:var(--font-condensed);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);min-width:100px;flex-shrink:0;padding-top:2px;}
+.rv-val{font-size:14px;color:var(--white);word-break:break-all;}
 
 /* LOADING */
-.loading{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.94);z-index:200;align-items:center;justify-content:center;flex-direction:column;gap:20px;}
+.loading{display:none;position:fixed;inset:0;background:rgba(10,10,10,.95);z-index:300;align-items:center;justify-content:center;flex-direction:column;gap:16px;}
 .loading.on{display:flex;}
-.loader{width:48px;height:48px;border:3px solid rgba(252,209,22,0.08);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;}
+.loader{width:44px;height:44px;border:3px solid rgba(252,209,22,.08);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
-.loader-txt{font-family:var(--font-condensed);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white-dim);}
+.ltxt{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white-dim);}
 
 /* PHOENIX */
-.phoenix{display:none;position:fixed;inset:0;background:var(--black);z-index:300;align-items:center;justify-content:center;flex-direction:column;overflow:hidden;}
+.phoenix{display:none;position:fixed;inset:0;background:var(--black);z-index:400;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:40px;overflow:hidden;}
 .phoenix.on{display:flex;}
-.phoenix-bg{position:absolute;inset:0;overflow:hidden;}
+.ph-stripe{position:absolute;bottom:0;left:0;right:0;height:4px;display:flex;}
+.ph-stripe span{flex:1;}
+.ph-stripe span:nth-child(1){background:var(--red);}
+.ph-stripe span:nth-child(2){background:var(--gold);}
+.ph-stripe span:nth-child(3){background:var(--green);}
 .ember{position:absolute;bottom:-20px;border-radius:2px;animation:rise linear both;opacity:0;}
-@keyframes rise{0%{transform:translateY(0) scale(1);opacity:.8}80%{opacity:.5}100%{transform:translateY(-110vh) scale(0.2) rotate(360deg);opacity:0}}
-.phoenix-stripe{position:absolute;bottom:0;left:0;right:0;height:5px;display:flex;}
-.phoenix-stripe span{flex:1;}
-.phoenix-stripe span:nth-child(1){background:var(--red);}
-.phoenix-stripe span:nth-child(2){background:var(--gold);}
-.phoenix-stripe span:nth-child(3){background:var(--green);}
-.phoenix-content{position:relative;z-index:2;text-align:center;padding:40px;max-width:580px;animation:phReveal 1s cubic-bezier(0.16,1,0.3,1) 0.5s both;}
-@keyframes phReveal{from{opacity:0;transform:translateY(32px) scale(0.96)}to{opacity:1;transform:translateY(0) scale(1)}}
-.phoenix-word{font-family:var(--font-display);font-size:clamp(40px,8vw,80px);color:var(--gold);letter-spacing:4px;margin-bottom:4px;animation:fadeUp 0.6s 1.2s both;}
-.phoenix-swahili{font-family:var(--font-condensed);font-size:13px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--white-dim);margin-bottom:28px;animation:fadeUp 0.6s 1.4s both;}
-.phoenix-title{font-family:var(--font-display);font-size:clamp(48px,9vw,88px);line-height:0.9;margin-bottom:20px;animation:fadeUp 0.6s 1.6s both;}
-.phoenix-title .pt-g{color:var(--gold);}
-.phoenix-title .pt-r{color:var(--red-bright);}
-.phoenix-title .pt-gr{color:var(--green-bright);}
-.phoenix-name{font-family:var(--font-display);font-size:clamp(24px,4vw,40px);color:var(--white);margin-bottom:20px;animation:fadeUp 0.6s 1.8s both;}
-.phoenix-msg{font-size:16px;color:var(--white-dim);line-height:1.8;margin-bottom:32px;max-width:440px;margin-left:auto;margin-right:auto;animation:fadeUp 0.6s 2s both;}
-.phoenix-id{font-family:var(--font-condensed);font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);background:rgba(252,209,22,0.07);border:1px solid rgba(252,209,22,0.18);padding:10px 22px;display:inline-block;margin-bottom:36px;animation:fadeUp 0.6s 2.2s both;}
-.phoenix-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.6s 2.4s both;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.btn-ph-primary{background:var(--gold);color:var(--black);font-family:var(--font-condensed);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px 30px;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s;}
-.btn-ph-primary:hover{background:var(--gold-light);}
-.btn-ph-secondary{background:transparent;color:var(--white);font-family:var(--font-condensed);font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px 30px;border:1px solid rgba(240,237,232,0.15);cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s;}
-.btn-ph-secondary:hover{border-color:var(--gold);color:var(--gold);}
+@keyframes rise{0%{transform:translateY(0) scale(1);opacity:.8}100%{transform:translateY(-110vh) scale(.2) rotate(360deg);opacity:0}}
+.ph-content{position:relative;z-index:2;max-width:540px;animation:fadeIn .8s .4s both;}
+.ph-word{font-family:var(--font-display);font-size:clamp(40px,8vw,80px);color:var(--gold);letter-spacing:4px;margin-bottom:4px;}
+.ph-swahili{font-family:var(--font-condensed);font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--white-dim);margin-bottom:24px;}
+.ph-title{font-family:var(--font-display);font-size:clamp(44px,8vw,80px);line-height:.9;margin-bottom:16px;}
+.ph-name{font-family:var(--font-display);font-size:clamp(22px,4vw,36px);color:var(--white);margin-bottom:16px;}
+.ph-msg{font-size:15px;color:var(--white-dim);line-height:1.8;max-width:420px;margin:0 auto 24px;}
+.ph-id{font-family:var(--font-condensed);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);background:rgba(252,209,22,.07);border:1px solid rgba(252,209,22,.18);padding:9px 20px;display:inline-block;margin-bottom:32px;}
+.ph-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.ph-btn-p{background:var(--gold);color:var(--black);font-family:var(--font-condensed);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s;}
+.ph-btn-p:hover{background:var(--gold-light);}
+.ph-btn-s{background:transparent;color:var(--white);font-family:var(--font-condensed);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;border:1px solid rgba(240,237,232,.15);cursor:pointer;transition:all .2s;}
+.ph-btn-s:hover{border-color:var(--gold);color:var(--gold);}
 
 @media(max-width:600px){
   nav{padding:0 20px;}
-  .screen{padding:36px 26px;}
+  .screen{padding:32px 24px;}
   .type-grid{grid-template-columns:1fr;}
   .field-row{grid-template-columns:1fr;}
-  .step-title{font-size:36px;}
 }
 </style>
 </head>
 <body>
 
-<div class="loading" id="loading"><div class="loader"></div><div class="loader-txt">Registering your profile...</div></div>
+<div class="loading" id="loading"><div class="loader"></div><div class="ltxt">Registering your profile...</div></div>
 
 <div class="phoenix" id="phoenix">
-  <div class="phoenix-bg" id="phoenixBg">
-    <div class="phoenix-stripe"><span></span><span></span><span></span></div>
-  </div>
-  <div class="phoenix-content">
-    <div class="phoenix-word">GUNDUA</div>
-    <div class="phoenix-swahili">Umekuwa umegunduliwa — You have been discovered</div>
-    <div class="phoenix-title">
-      <span class="pt-g">YOU</span><br>
-      <span>ARE</span><br>
-      <span class="pt-gr">VISIBLE</span>
+  <div class="ph-stripe"><span></span><span></span><span></span></div>
+  <div id="embers"></div>
+  <div class="ph-content">
+    <div class="ph-word">GUNDUA</div>
+    <div class="ph-swahili">Umekuwa umegunduliwa — You have been discovered</div>
+    <div class="ph-title">
+      <span style="color:var(--gold);">YOU</span><br>
+      <span style="color:var(--white);">ARE</span><br>
+      <span style="color:var(--green-bright);">VISIBLE</span>
     </div>
-    <div class="phoenix-name" id="phName"></div>
-    <p class="phoenix-msg" id="phMsg"></p>
-    <div class="phoenix-id" id="phId"></div>
-    <div class="phoenix-btns">
-      <a href="/" class="btn-ph-primary">Explore the Platform</a>
-      <button class="btn-ph-secondary" onclick="shareJourney()">Share Your Journey</button>
+    <div class="ph-name" id="phName"></div>
+    <p class="ph-msg" id="phMsg"></p>
+    <div class="ph-id" id="phId"></div>
+    <div class="ph-btns">
+      <a href="/" class="ph-btn-p">Explore the Platform</a>
+      <button class="ph-btn-s" onclick="shareIt()">Share Your Journey</button>
     </div>
   </div>
 </div>
 
 <nav>
-  <a href="/" class="nav-logo"><span>GUNDUA</span> SPORTS</a>
-  <a href="/" class="nav-back">← Back to platform</a>
+  <a href="/" class="logo"><span>GUNDUA</span> SPORTS</a>
+  <a href="/" class="nav-back">← Back</a>
 </nav>
 
-<div class="wizard-wrap">
-  <div class="progress-wrap" id="progressWrap" style="display:none;">
-    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:25%"></div></div>
-    <div class="progress-label" id="progressLabel">Step 1 of 4</div>
+<div class="wrap">
+  <div class="prog-wrap" id="progWrap" style="display:none;">
+    <div class="prog-track"><div class="prog-fill" id="progFill" style="width:25%"></div></div>
+    <div class="prog-label" id="progLabel">Step 1 of 4</div>
   </div>
 
-  <div class="card" id="card">
+  <div class="card">
 
-    <!-- STEP 1: WHO ARE YOU -->
+    <!-- STEP 1 -->
     <div class="screen active" id="s1">
       <div class="eyebrow">Step 1 of 4</div>
-      <h2 class="step-title">WHO<br>ARE <em>YOU?</em></h2>
-      <p class="step-sub">GUNDUA SPORTS is built for the entire football ecosystem. Tell us who you are and we'll shape your experience around you.</p>
-      <div class="type-grid" id="typeGrid">
-        <div class="type-card" onclick="pickType(this,'athlete')" data-val="athlete">
+      <h2 class="step-title">WHO ARE <em>YOU?</em></h2>
+      <p class="step-sub">Tell us who you are and we'll build your registration around you.</p>
+      <div class="type-grid">
+        <div class="type-card" onclick="pickRole(this,'athlete')">
           <div class="tc-check">✓</div>
           <div class="tc-num">01</div>
           <div class="tc-label">Athlete</div>
           <div class="tc-desc">I play football and want to be discovered</div>
         </div>
-        <div class="type-card" onclick="pickType(this,'scout')" data-val="scout">
+        <div class="type-card" onclick="pickRole(this,'scout')">
           <div class="tc-check">✓</div>
           <div class="tc-num">02</div>
           <div class="tc-label">Scout / Coach</div>
           <div class="tc-desc">I evaluate talent and want a global platform</div>
         </div>
-        <div class="type-card" onclick="pickType(this,'club')" data-val="club">
+        <div class="type-card" onclick="pickRole(this,'club')">
           <div class="tc-check">✓</div>
           <div class="tc-num">03</div>
           <div class="tc-label">Club / Academy</div>
           <div class="tc-desc">We recruit and develop players</div>
         </div>
-        <div class="type-card" onclick="pickType(this,'parent')" data-val="parent">
+        <div class="type-card" onclick="pickRole(this,'parent')">
           <div class="tc-check">✓</div>
           <div class="tc-num">04</div>
           <div class="tc-label">Parent / Guardian</div>
@@ -219,43 +183,43 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
         </div>
       </div>
       <div class="step-nav">
-        <button class="btn-back-step" disabled>← Back</button>
-        <button class="btn-next-step" id="n1" onclick="goStep(2)">Continue →</button>
+        <button class="btn-back" disabled>← Back</button>
+        <button class="btn-next" id="n1" onclick="goTo(2)">Continue →</button>
       </div>
     </div>
 
-    <!-- STEP 2: YOUR DETAILS -->
+    <!-- STEP 2 -->
     <div class="screen" id="s2">
       <div class="eyebrow">Step 2 of 4</div>
-      <h2 class="step-title" id="s2Title">YOUR<br><em>IDENTITY</em></h2>
-      <p class="step-sub" id="s2Sub">This is how the world will know you.</p>
-      <div class="field-group" id="s2Fields"></div>
+      <h2 class="step-title" id="s2title">YOUR <em>IDENTITY</em></h2>
+      <p class="step-sub" id="s2sub">This is how the world will know you.</p>
+      <div class="fields" id="s2fields"></div>
       <div class="step-nav">
-        <button class="btn-back-step" onclick="goStep(1,true)">← Back</button>
-        <button class="btn-next-step ready" onclick="validateStep(2)">Continue →</button>
+        <button class="btn-back" onclick="goTo(1)">← Back</button>
+        <button class="btn-next on" onclick="validateAndGo(3)">Continue →</button>
       </div>
     </div>
 
-    <!-- STEP 3: YOUR GAME -->
+    <!-- STEP 3 -->
     <div class="screen" id="s3">
       <div class="eyebrow">Step 3 of 4</div>
-      <h2 class="step-title" id="s3Title">YOUR<br><em>DETAILS</em></h2>
-      <p class="step-sub" id="s3Sub">Tell us more about your football role.</p>
-      <div class="field-group" id="s3Fields"></div>
+      <h2 class="step-title" id="s3title">YOUR <em>GAME</em></h2>
+      <p class="step-sub" id="s3sub">Tell us more about your football role.</p>
+      <div class="fields" id="s3fields"></div>
       <div class="step-nav">
-        <button class="btn-back-step" onclick="goStep(2,true)">← Back</button>
-        <button class="btn-next-step ready" onclick="validateStep(3)">Continue →</button>
+        <button class="btn-back" onclick="goTo(2)">← Back</button>
+        <button class="btn-next on" onclick="collectAndGo(4)">Continue →</button>
       </div>
     </div>
 
-    <!-- STEP 4: REVIEW -->
+    <!-- STEP 4 -->
     <div class="screen" id="s4">
       <div class="eyebrow">Step 4 of 4</div>
-      <h2 class="step-title">READY<br>TO <em>RISE?</em></h2>
-      <p class="step-sub">Review your details. Once you submit, you enter the GUNDUA ecosystem.</p>
+      <h2 class="step-title">READY TO <em>RISE?</em></h2>
+      <p class="step-sub">Review your details then submit to enter the GUNDUA ecosystem.</p>
       <div class="review-list" id="reviewList"></div>
       <div class="step-nav">
-        <button class="btn-back-step" onclick="goStep(3,true)">← Back</button>
+        <button class="btn-back" onclick="goTo(3)">← Back</button>
         <button class="btn-submit" onclick="submitForm()">Submit & Be Discovered →</button>
       </div>
     </div>
@@ -264,136 +228,263 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 </div>
 
 <script>
-const SUPABASE_URL='https://iniwfkjifuguaqtxkios.supabase.co';
-const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImluaXdma2ppZnVndWFxdHhraW9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwNDY1MTgsImV4cCI6MjA4OTYyMjUxOH0.hqY2GUG1EXWJAjE5EjS8K_VoJIS-Qs3gRrvUuRzT-UU';
-const state={type:null,step:1,data:{}};
+const SB_URL='https://iniwfkjifuguaqtxkios.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImluaXdma2ppZnVndWFxdHhraW9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwNDY1MTgsImV4cCI6MjA4OTYyMjUxOH0.hqY2GUG1EXWJAjE5EjS8K_VoJIS-Qs3gRrvUuRzT-UU';
 
-function countries(){const af=['Algeria','Angola','Benin','Botswana','Burkina Faso','Burundi','Cameroon','Cape Verde','Central African Republic','Chad','Comoros','Congo','DR Congo','Djibouti','Egypt','Equatorial Guinea','Eritrea','Eswatini','Ethiopia','Gabon','Gambia','Ghana','Guinea','Guinea-Bissau','Ivory Coast','Kenya','Lesotho','Liberia','Libya','Madagascar','Malawi','Mali','Mauritania','Mauritius','Morocco','Mozambique','Namibia','Niger','Nigeria','Rwanda','São Tomé and Príncipe','Senegal','Seychelles','Sierra Leone','Somalia','South Africa','South Sudan','Sudan','Tanzania','Togo','Tunisia','Uganda','Zambia','Zimbabwe'];const oth=['United Kingdom','France','Germany','Spain','Italy','Portugal','Netherlands','Belgium','United States','Canada','Brazil','Sweden','Australia','Other'];let h='<option value="" disabled selected>Select country</option><optgroup label="Africa">';af.forEach(c=>h+=`<option>${c}</option>`);h+='</optgroup><optgroup label="Other">';oth.forEach(c=>h+=`<option>${c}</option>`);h+='</optgroup>';return h;}
+let role = null;
+let data = {};
+let curStep = 1;
 
-function buildS2(){
-  const t=state.type;
-  let title='YOUR<br><em>IDENTITY</em>',sub='This is how the world will know you.',html='';
-  if(t==='athlete'){
-    html=`<div class="field-row"><div class="field"><label class="field-label">First Name</label><input class="field-input" id="f_firstName" type="text" placeholder="e.g. Kwame" autocomplete="given-name"/></div><div class="field"><label class="field-label">Last Name</label><input class="field-input" id="f_lastName" type="text" placeholder="e.g. Mensah" autocomplete="family-name"/></div></div><div class="field-row"><div class="field"><label class="field-label">Age</label><input class="field-input" id="f_age" type="number" min="14" max="40" placeholder="e.g. 19"/></div><div class="field"><label class="field-label">Country</label><select class="field-select" id="f_country">${countries()}</select></div></div><div class="field"><label class="field-label">Email</label><input class="field-input" id="f_email" type="email" placeholder="your@email.com"/></div><div class="field"><label class="field-label">WhatsApp / Phone</label><input class="field-input" id="f_phone" type="tel" placeholder="+234 800 000 0000"/><div class="field-hint">Include country code. We use WhatsApp for direct communication.</div></div>`;
-  } else if(t==='scout'){
-    title='YOUR<br><em>PROFILE</em>';sub='Building a network of trusted scouts across Africa and beyond.';
-    html=`<div class="field-row"><div class="field"><label class="field-label">First Name</label><input class="field-input" id="f_firstName" type="text" placeholder="First name"/></div><div class="field"><label class="field-label">Last Name</label><input class="field-input" id="f_lastName" type="text" placeholder="Last name"/></div></div><div class="field"><label class="field-label">Email</label><input class="field-input" id="f_email" type="email" placeholder="professional@email.com"/></div><div class="field"><label class="field-label">Organisation / Club</label><input class="field-input" id="f_org" type="text" placeholder="e.g. Independent Scout, Club Name"/></div><div class="field-row"><div class="field"><label class="field-label">Country Based</label><select class="field-select" id="f_country">${countries()}</select></div><div class="field"><label class="field-label">Years Experience</label><select class="field-select" id="f_experience"><option value="" disabled selected>Select</option><option>Under 1 year</option><option>1–3 years</option><option>3–5 years</option><option>5–10 years</option><option>10+ years</option></select></div></div>`;
-  } else if(t==='club'){
-    title='YOUR<br><em>CLUB</em>';sub='Tell us about your club or academy.';
-    html=`<div class="field"><label class="field-label">Club / Academy Name</label><input class="field-input" id="f_org" type="text" placeholder="e.g. Lagos FC Academy"/></div><div class="field-row"><div class="field"><label class="field-label">Contact Name</label><input class="field-input" id="f_firstName" type="text" placeholder="Your name"/></div><div class="field"><label class="field-label">Your Role</label><input class="field-input" id="f_lastName" type="text" placeholder="e.g. Director, Head Coach"/></div></div><div class="field"><label class="field-label">Email</label><input class="field-input" id="f_email" type="email" placeholder="contact@club.com"/></div><div class="field"><label class="field-label">Country</label><select class="field-select" id="f_country">${countries()}</select></div>`;
-  } else {
-    title='YOUR<br><em>DETAILS</em>';sub='Your support is the foundation your athlete builds on.';
-    html=`<div class="field-row"><div class="field"><label class="field-label">Your First Name</label><input class="field-input" id="f_firstName" type="text" placeholder="First name"/></div><div class="field"><label class="field-label">Your Last Name</label><input class="field-input" id="f_lastName" type="text" placeholder="Last name"/></div></div><div class="field"><label class="field-label">Email</label><input class="field-input" id="f_email" type="email" placeholder="your@email.com"/></div><div class="field"><label class="field-label">WhatsApp / Phone</label><input class="field-input" id="f_phone" type="tel" placeholder="+234 800 000 0000"/></div><div class="field"><label class="field-label">Country</label><select class="field-select" id="f_country">${countries()}</select></div>`;
-  }
-  document.getElementById('s2Title').innerHTML=title;
-  document.getElementById('s2Sub').textContent=sub;
-  document.getElementById('s2Fields').innerHTML=html;
+// Country list
+function countryOpts() {
+  const af = ['Algeria','Angola','Benin','Botswana','Burkina Faso','Burundi','Cameroon','Cape Verde','Chad','Comoros','Congo','DR Congo','Djibouti','Egypt','Equatorial Guinea','Eritrea','Eswatini','Ethiopia','Gabon','Gambia','Ghana','Guinea','Guinea-Bissau','Ivory Coast','Kenya','Lesotho','Liberia','Libya','Madagascar','Malawi','Mali','Mauritania','Mauritius','Morocco','Mozambique','Namibia','Niger','Nigeria','Rwanda','Senegal','Seychelles','Sierra Leone','Somalia','South Africa','South Sudan','Sudan','Tanzania','Togo','Tunisia','Uganda','Zambia','Zimbabwe'];
+  const oth = ['United Kingdom','France','Germany','Spain','Italy','Portugal','Netherlands','Belgium','United States','Canada','Brazil','Australia','Other'];
+  let h = '<option value="" disabled selected>Select country</option><optgroup label="Africa">';
+  af.forEach(c => h += `<option>${c}</option>`);
+  h += '</optgroup><optgroup label="Other">';
+  oth.forEach(c => h += `<option>${c}</option>`);
+  return h + '</optgroup>';
 }
 
-function buildS3(){
-  const t=state.type;let html='',title='YOUR<br><em>GAME</em>',sub='Tell us about your football experience.';
-  if(t==='athlete'){
-    html=`<div class="field-row"><div class="field"><label class="field-label">Position</label><select class="field-select" id="f_position"><option value="" disabled selected>Select position</option><optgroup label="Goalkeeper"><option>Goalkeeper (GK)</option></optgroup><optgroup label="Defenders"><option>Centre-Back (CB)</option><option>Right-Back (RB)</option><option>Left-Back (LB)</option><option>Wing-Back (WB)</option></optgroup><optgroup label="Midfielders"><option>Defensive Midfielder (DM)</option><option>Central Midfielder (CM)</option><option>Attacking Midfielder (AM)</option><option>Wide Midfielder</option></optgroup><optgroup label="Forwards"><option>Right Winger (RW)</option><option>Left Winger (LW)</option><option>Striker / Centre-Forward (CF)</option><option>Second Striker</option></optgroup></select></div><div class="field"><label class="field-label">Dominant Foot</label><select class="field-select" id="f_foot"><option value="" disabled selected>Select</option><option>Right</option><option>Left</option><option>Both</option></select></div></div><div class="field"><label class="field-label">Current Club / Team</label><input class="field-input" id="f_club" type="text" placeholder="e.g. Local FC, School team, Free agent"/></div><div class="field"><label class="field-label">Highlight Clip Link</label><input class="field-input" id="f_clip" type="url" placeholder="YouTube or Google Drive link"/><div class="field-hint">Share your best 2–5 minute clip. Ensure the link is publicly accessible.</div></div><div class="field"><label class="field-label">Instagram / TikTok Handle</label><input class="field-input" id="f_social" type="text" placeholder="@yourhandle (optional)"/></div>`;
-  } else if(t==='scout'){
-    title='YOUR<br><em>NETWORK</em>';sub='Tell us about your coverage and how we partner.';
-    html=`<div class="field"><label class="field-label">Countries You Cover</label><input class="field-input" id="f_coverage" type="text" placeholder="e.g. Nigeria, Ghana, Senegal"/></div><div class="field"><label class="field-label">Sports You Scout</label><input class="field-input" id="f_sports" type="text" placeholder="e.g. Football, Basketball, Athletics"/></div><div class="field"><label class="field-label">LinkedIn or Reference</label><input class="field-input" id="f_linkedin" type="url" placeholder="https://linkedin.com/in/yourprofile"/></div><div class="field"><label class="field-label">WhatsApp / Phone</label><input class="field-input" id="f_phone" type="tel" placeholder="+234 800 000 0000"/></div>`;
-  } else if(t==='club'){
-    title='YOUR<br><em>NEEDS</em>';sub='Help us understand what talent you are looking for.';
-    html=`<div class="field"><label class="field-label">Sports You Recruit For</label><input class="field-input" id="f_sports" type="text" placeholder="e.g. Football, Basketball"/></div><div class="field"><label class="field-label">Age Groups You Target</label><input class="field-input" id="f_ageGroups" type="text" placeholder="e.g. U17, U21, Senior"/></div><div class="field"><label class="field-label">WhatsApp / Phone</label><input class="field-input" id="f_phone" type="tel" placeholder="+234 800 000 0000"/></div><div class="field"><label class="field-label">Club Website or Social</label><input class="field-input" id="f_linkedin" type="url" placeholder="https://yourclub.com"/></div>`;
-  } else {
-    title='YOUR<br><em>ATHLETE</em>';sub="Tell us about the player you're supporting.";
-    html=`<div class="field-row"><div class="field"><label class="field-label">Athlete's First Name</label><input class="field-input" id="f_athleteName" type="text" placeholder="First name"/></div><div class="field"><label class="field-label">Athlete's Age</label><input class="field-input" id="f_age" type="number" min="8" max="22" placeholder="Age"/></div></div><div class="field"><label class="field-label">Position</label><select class="field-select" id="f_position"><option value="" disabled selected>Select position</option><option>Goalkeeper</option><option>Defender</option><option>Midfielder</option><option>Forward / Striker</option><option>Winger</option><option>Not sure yet</option></select></div><div class="field"><label class="field-label">Country</label><select class="field-select" id="f_country2">${countries()}</select></div><div class="field"><label class="field-label">Highlight Clip (if available)</label><input class="field-input" id="f_clip" type="url" placeholder="YouTube or Google Drive — optional"/></div>`;
+// Step 2 fields per role
+const s2config = {
+  athlete: {
+    title: 'YOUR <em>IDENTITY</em>',
+    sub: 'This is how the world will know you.',
+    html: `
+      <div class="field-row">
+        <div class="field"><label class="fl">First Name</label><input class="fi" id="firstName" type="text" placeholder="e.g. Kwame"/></div>
+        <div class="field"><label class="fl">Last Name</label><input class="fi" id="lastName" type="text" placeholder="e.g. Mensah"/></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label class="fl">Age</label><input class="fi" id="age" type="number" min="13" max="40" placeholder="e.g. 19"/></div>
+        <div class="field"><label class="fl">Country</label><select class="fs" id="country">COUNTRIES</select></div>
+      </div>
+      <div class="field"><label class="fl">Email</label><input class="fi" id="email" type="email" placeholder="your@email.com"/></div>
+      <div class="field"><label class="fl">WhatsApp / Phone</label><input class="fi" id="phone" type="tel" placeholder="+234 800 000 0000"/></div>`
+  },
+  scout: {
+    title: 'YOUR <em>PROFILE</em>',
+    sub: 'Tell us about your scouting and coaching background.',
+    html: `
+      <div class="field-row">
+        <div class="field"><label class="fl">First Name</label><input class="fi" id="firstName" type="text" placeholder="First name"/></div>
+        <div class="field"><label class="fl">Last Name</label><input class="fi" id="lastName" type="text" placeholder="Last name"/></div>
+      </div>
+      <div class="field"><label class="fl">Email</label><input class="fi" id="email" type="email" placeholder="professional@email.com"/></div>
+      <div class="field"><label class="fl">Organisation / Club</label><input class="fi" id="org" type="text" placeholder="e.g. Independent, Club Name"/></div>
+      <div class="field-row">
+        <div class="field"><label class="fl">Country Based</label><select class="fs" id="country">COUNTRIES</select></div>
+        <div class="field"><label class="fl">Years Experience</label><select class="fs" id="experience"><option value="" disabled selected>Select</option><option>Under 1 year</option><option>1–3 years</option><option>3–5 years</option><option>5–10 years</option><option>10+ years</option></select></div>
+      </div>`
+  },
+  club: {
+    title: 'YOUR <em>CLUB</em>',
+    sub: 'Tell us about your club or academy.',
+    html: `
+      <div class="field"><label class="fl">Club / Academy Name</label><input class="fi" id="org" type="text" placeholder="e.g. Lagos FC Academy"/></div>
+      <div class="field-row">
+        <div class="field"><label class="fl">Contact Name</label><input class="fi" id="firstName" type="text" placeholder="Your name"/></div>
+        <div class="field"><label class="fl">Your Role</label><input class="fi" id="lastName" type="text" placeholder="e.g. Director, Head Coach"/></div>
+      </div>
+      <div class="field"><label class="fl">Email</label><input class="fi" id="email" type="email" placeholder="contact@club.com"/></div>
+      <div class="field"><label class="fl">Country</label><select class="fs" id="country">COUNTRIES</select></div>`
+  },
+  parent: {
+    title: 'YOUR <em>DETAILS</em>',
+    sub: "Your support is the foundation your athlete builds on.",
+    html: `
+      <div class="field-row">
+        <div class="field"><label class="fl">First Name</label><input class="fi" id="firstName" type="text" placeholder="Your first name"/></div>
+        <div class="field"><label class="fl">Last Name</label><input class="fi" id="lastName" type="text" placeholder="Your last name"/></div>
+      </div>
+      <div class="field"><label class="fl">Email</label><input class="fi" id="email" type="email" placeholder="your@email.com"/></div>
+      <div class="field"><label class="fl">WhatsApp / Phone</label><input class="fi" id="phone" type="tel" placeholder="+234 800 000 0000"/></div>
+      <div class="field"><label class="fl">Country</label><select class="fs" id="country">COUNTRIES</select></div>`
   }
-  document.getElementById('s3Title').innerHTML=title;
-  document.getElementById('s3Sub').textContent=sub;
-  document.getElementById('s3Fields').innerHTML=html;
-}
+};
 
-function pickType(el,val){
-  document.querySelectorAll('.type-card').forEach(c=>c.classList.remove('selected'));
+// Step 3 fields per role
+const s3config = {
+  athlete: {
+    title: 'YOUR <em>GAME</em>',
+    sub: 'Tell us about your football career.',
+    html: `
+      <div class="field-row">
+        <div class="field"><label class="fl">Position</label><select class="fs" id="position"><option value="" disabled selected>Select position</option><optgroup label="Goalkeeper"><option>Goalkeeper (GK)</option></optgroup><optgroup label="Defenders"><option>Centre-Back (CB)</option><option>Right-Back (RB)</option><option>Left-Back (LB)</option><option>Wing-Back (WB)</option></optgroup><optgroup label="Midfielders"><option>Defensive Midfielder (DM)</option><option>Central Midfielder (CM)</option><option>Attacking Midfielder (AM)</option><option>Wide Midfielder</option></optgroup><optgroup label="Forwards"><option>Right Winger (RW)</option><option>Left Winger (LW)</option><option>Striker / Centre-Forward (CF)</option><option>Second Striker</option></optgroup></select></div>
+        <div class="field"><label class="fl">Dominant Foot</label><select class="fs" id="foot"><option value="" disabled selected>Select</option><option>Right</option><option>Left</option><option>Both</option></select></div>
+      </div>
+      <div class="field"><label class="fl">Current Club / Team</label><input class="fi" id="club" type="text" placeholder="e.g. Local FC, School team, Free agent"/></div>
+      <div class="field"><label class="fl">Highlight Clip Link</label><input class="fi" id="clip" type="url" placeholder="YouTube or Google Drive link"/><div class="fhint" style="margin-top:5px;">Share your best 2–5 minute clip. Make sure the link is publicly accessible.</div></div>
+      <div class="field"><label class="fl">Instagram / TikTok Handle</label><input class="fi" id="social" type="text" placeholder="@yourhandle (optional)"/></div>`
+  },
+  scout: {
+    title: 'YOUR <em>NETWORK</em>',
+    sub: 'Tell us about your coverage and expertise.',
+    html: `
+      <div class="field"><label class="fl">Countries You Cover</label><input class="fi" id="coverage" type="text" placeholder="e.g. Nigeria, Ghana, Senegal"/></div>
+      <div class="field"><label class="fl">Sports You Scout</label><input class="fi" id="sports" type="text" placeholder="e.g. Football, Basketball, Athletics"/></div>
+      <div class="field"><label class="fl">LinkedIn or Reference URL</label><input class="fi" id="linkedin" type="url" placeholder="https://linkedin.com/in/yourprofile"/></div>
+      <div class="field"><label class="fl">WhatsApp / Phone</label><input class="fi" id="phone" type="tel" placeholder="+44 7700 000000"/></div>`
+  },
+  club: {
+    title: 'YOUR <em>NEEDS</em>',
+    sub: 'Help us understand what talent you are looking for.',
+    html: `
+      <div class="field"><label class="fl">Sports You Recruit For</label><input class="fi" id="sports" type="text" placeholder="e.g. Football, Basketball"/></div>
+      <div class="field"><label class="fl">Age Groups You Target</label><input class="fi" id="ageGroups" type="text" placeholder="e.g. U17, U21, Senior"/></div>
+      <div class="field"><label class="fl">WhatsApp / Phone</label><input class="fi" id="phone" type="tel" placeholder="+234 800 000 0000"/></div>
+      <div class="field"><label class="fl">Club Website or Social</label><input class="fi" id="linkedin" type="url" placeholder="https://yourclub.com (optional)"/></div>`
+  },
+  parent: {
+    title: "YOUR <em>ATHLETE</em>",
+    sub: "Tell us about the player you're supporting.",
+    html: `
+      <div class="field-row">
+        <div class="field"><label class="fl">Athlete's First Name</label><input class="fi" id="athleteName" type="text" placeholder="First name"/></div>
+        <div class="field"><label class="fl">Athlete's Age</label><input class="fi" id="age" type="number" min="8" max="22" placeholder="Age"/></div>
+      </div>
+      <div class="field"><label class="fl">Position</label><select class="fs" id="position"><option value="" disabled selected>Select position</option><option>Goalkeeper</option><option>Defender</option><option>Midfielder</option><option>Forward / Striker</option><option>Winger</option><option>Not sure yet</option></select></div>
+      <div class="field"><label class="fl">Highlight Clip (if available)</label><input class="fi" id="clip" type="url" placeholder="YouTube or Google Drive — optional"/></div>`
+  }
+};
+
+function pickRole(el, r) {
+  document.querySelectorAll('.type-card').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
-  state.type=val;
-  document.getElementById('n1').classList.add('ready');
-  buildS2();buildS3();
+  role = r;
+  document.getElementById('n1').classList.add('on');
+  // Pre-build step 2 now
+  buildStep2();
+  buildStep3();
 }
 
-function goStep(n,back=false){
-  if(n>1)collectData(state.step);
-  const cur=document.getElementById('s'+state.step);
-  const next=document.getElementById('s'+n);
-  cur.classList.remove('active','back');
-  next.classList.remove('active','back');
-  if(back)next.classList.add('back');
-  next.classList.add('active');
-  state.step=n;
-  const pct=(n/4)*100;
-  document.getElementById('progressFill').style.width=pct+'%';
-  document.getElementById('progressLabel').textContent='Step '+n+' of 4';
-  document.getElementById('progressWrap').style.display='flex';
-  if(n===4)buildReview();
-  window.scrollTo({top:0,behavior:'smooth'});
+function buildStep2() {
+  const cfg = s2config[role];
+  document.getElementById('s2title').innerHTML = cfg.title;
+  document.getElementById('s2sub').textContent = cfg.sub;
+  document.getElementById('s2fields').innerHTML = cfg.html.replace(/COUNTRIES/g, countryOpts());
 }
 
-function validateStep(from){
-  const req={2:{athlete:['f_firstName','f_lastName','f_age','f_country','f_email'],scout:['f_firstName','f_lastName','f_email','f_country'],club:['f_org','f_firstName','f_email','f_country'],parent:['f_firstName','f_lastName','f_email']},3:{athlete:['f_position','f_foot'],scout:['f_coverage'],club:['f_sports'],parent:['f_athleteName']}};
-  const fields=req[from][state.type]||[];
-  let valid=true;
-  document.querySelectorAll('.field-input,.field-select').forEach(el=>el.classList.remove('err'));
-  fields.forEach(id=>{const el=document.getElementById(id);if(!el||!el.value){if(el)el.classList.add('err');valid=false;}});
-  const em=document.getElementById('f_email');
-  if(em&&em.value&&!/\S+@\S+\.\S+/.test(em.value)){em.classList.add('err');valid=false;}
-  if(valid){collectData(from);goStep(from+1);}
-  else{const first=document.querySelector('.field-input.err,.field-select.err');if(first)first.focus();}
+function buildStep3() {
+  const cfg = s3config[role];
+  document.getElementById('s3title').innerHTML = cfg.title;
+  document.getElementById('s3sub').textContent = cfg.sub;
+  document.getElementById('s3fields').innerHTML = cfg.html;
 }
 
-function collectData(step){
-  const map={2:{athlete:['firstName','lastName','age','country','email','phone'],scout:['firstName','lastName','email','org','country','experience'],club:['org','firstName','lastName','email','country'],parent:['firstName','lastName','email','phone','country']},3:{athlete:['position','foot','club','clip','social'],scout:['coverage','sports','linkedin','phone'],club:['sports','ageGroups','phone','linkedin'],parent:['athleteName','age','position','clip']}};
-  (map[step][state.type]||[]).forEach(k=>{const el=document.getElementById('f_'+k);if(el)state.data[k]=el.value;});
+function goTo(n) {
+  document.getElementById('s' + curStep).classList.remove('active');
+  document.getElementById('s' + n).classList.add('active');
+  curStep = n;
+  const pct = (n / 4) * 100;
+  document.getElementById('progFill').style.width = pct + '%';
+  document.getElementById('progLabel').textContent = 'Step ' + n + ' of 4';
+  document.getElementById('progWrap').style.display = 'flex';
+  if (n === 4) buildReview();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function buildReview(){
-  const labels={type:'Role',firstName:'First Name',lastName:'Last Name',age:'Age',country:'Country',email:'Email',phone:'WhatsApp',org:'Organisation',experience:'Experience',position:'Position',foot:'Dominant Foot',club:'Current Club',clip:'Clip Link',social:'Social Handle',coverage:'Countries Covered',sports:'Sports',linkedin:'LinkedIn',ageGroups:'Age Groups',athleteName:'Athlete Name'};
-  const typeLabels={athlete:'Athlete',scout:'Scout / Coach',club:'Club / Academy',parent:'Parent / Guardian'};
-  const all={type:typeLabels[state.type],...state.data};
-  let html='';
-  Object.entries(all).forEach(([k,v])=>{if(v&&labels[k])html+=`<div class="review-item"><div class="review-key">${labels[k]}</div><div class="review-val">${v}</div></div>`;});
-  document.getElementById('reviewList').innerHTML=html;
+function validateAndGo(next) {
+  const required = { athlete: ['firstName','lastName','email'], scout: ['firstName','lastName','email'], club: ['org','firstName','email'], parent: ['firstName','lastName','email'] };
+  let ok = true;
+  (required[role] || []).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.classList.remove('err'); if (!el.value.trim()) { el.classList.add('err'); ok = false; } }
+  });
+  const em = document.getElementById('email');
+  if (em && em.value && !/\S+@\S+\.\S+/.test(em.value)) { em.classList.add('err'); ok = false; }
+  if (!ok) { document.querySelector('.fi.err, .fs.err')?.focus(); return; }
+  collectStep2();
+  goTo(next);
 }
 
-async function submitForm(){
+function collectStep2() {
+  const ids = ['firstName','lastName','age','country','email','phone','org','experience'];
+  ids.forEach(id => { const el = document.getElementById(id); if (el) data[id] = el.value; });
+}
+
+function collectAndGo(next) {
+  const ids = ['position','foot','club','clip','social','coverage','sports','linkedin','phone','ageGroups','athleteName','age'];
+  ids.forEach(id => { const el = document.getElementById(id); if (el) data[id] = el.value; });
+  goTo(next);
+}
+
+function buildReview() {
+  const labels = { firstName:'First Name', lastName:'Last Name', age:'Age', country:'Country', email:'Email', phone:'WhatsApp', org:'Organisation', experience:'Experience', position:'Position', foot:'Dominant Foot', club:'Current Club', clip:'Clip Link', social:'Social Handle', coverage:'Countries Covered', sports:'Sports', linkedin:'LinkedIn', ageGroups:'Age Groups', athleteName:"Athlete's Name" };
+  const roleLabel = { athlete:'Athlete', scout:'Scout / Coach', club:'Club / Academy', parent:'Parent / Guardian' };
+  let html = `<div class="rv"><div class="rv-key">Role</div><div class="rv-val">${roleLabel[role]}</div></div>`;
+  Object.entries(data).forEach(([k, v]) => { if (v && labels[k]) html += `<div class="rv"><div class="rv-key">${labels[k]}</div><div class="rv-val">${v}</div></div>`; });
+  document.getElementById('reviewList').innerHTML = html;
+}
+
+async function submitForm() {
   document.getElementById('loading').classList.add('on');
-  const payload={user_type:state.type,first_name:state.data.firstName||null,last_name:state.data.lastName||null,email:state.data.email||null,phone:state.data.phone||null,country:state.data.country||null,age:state.data.age?parseInt(state.data.age):null,organisation:state.data.org||null,position:state.data.position||null,dominant_foot:state.data.foot||null,current_club:state.data.club||null,clip_link:state.data.clip||null,social_handle:state.data.social||null,countries_covered:state.data.coverage||null,sports:state.data.sports||null,linkedin_url:state.data.linkedin||null,experience:state.data.experience||null,age_groups:state.data.ageGroups||null,athlete_name:state.data.athleteName||null,source:'join',registered_at:new Date().toISOString()};
-  try{await fetch(`${SUPABASE_URL}/rest/v1/registrations`,{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Prefer':'return=minimal'},body:JSON.stringify(payload)});}catch(e){console.error(e);}
+  const payload = {
+    user_type: role,
+    first_name: data.firstName || null,
+    last_name: data.lastName || null,
+    email: data.email || null,
+    phone: data.phone || null,
+    country: data.country || null,
+    age: data.age ? parseInt(data.age) : null,
+    organisation: data.org || null,
+    position: data.position || null,
+    dominant_foot: data.foot || null,
+    current_club: data.club || null,
+    clip_link: data.clip || null,
+    social_handle: data.social || null,
+    countries_covered: data.coverage || null,
+    sports: data.sports || null,
+    linkedin_url: data.linkedin || null,
+    experience: data.experience || null,
+    age_groups: data.ageGroups || null,
+    athlete_name: data.athleteName || null,
+    source: 'join',
+    registered_at: new Date().toISOString()
+  };
+  try {
+    await fetch(`${SB_URL}/rest/v1/registrations`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}`, 'Prefer': 'return=minimal' },
+      body: JSON.stringify(payload)
+    });
+  } catch(e) { console.error(e); }
   document.getElementById('loading').classList.remove('on');
-  triggerPhoenix();
+  showPhoenix();
 }
 
-function triggerPhoenix(){
-  const name=(state.data.firstName||'CHAMPION').toUpperCase();
-  const msgs={athlete:`You've taken the most important step of your football career. Your profile is now in our system — our scouting team will be in touch. The world doesn't know your name yet. GUNDUA does.`,scout:`Welcome to the GUNDUA scout network. You're now part of the infrastructure that changes how African talent gets discovered. We'll be in touch about partnership opportunities in your region.`,club:`Your club is now connected to the GUNDUA ecosystem. We'll reach out to discuss how we source verified African talent that matches exactly what you're looking for.`,parent:`Your support is the foundation your athlete builds on. Welcome to GUNDUA SPORTS — we'll be in touch with everything you need to help their journey forward.`};
-  const ids={athlete:'ATH',scout:'SCT',club:'CLB',parent:'PAR'};
-  document.getElementById('phName').textContent=name;
-  document.getElementById('phMsg').textContent=msgs[state.type];
-  document.getElementById('phId').textContent=`GUNDUA ID: ${ids[state.type]}-${Date.now().toString(36).toUpperCase()}`;
-  const bg=document.getElementById('phoenixBg');
-  const cols=[['#FCD116','#FFE040'],['#CE1126','#E8172D'],['#009A44','#00C057'],['#FCD116','#C9A400']];
-  for(let i=0;i<45;i++){
-    setTimeout(()=>{
-      const e=document.createElement('div');
-      e.className='ember';
-      const c=cols[Math.floor(Math.random()*cols.length)];
-      const h=Math.random()*60+15;
-      e.style.cssText=`left:${Math.random()*100}%;height:${h}px;width:${Math.random()*3+1}px;background:linear-gradient(to top,${c[0]},${c[1]});animation-duration:${Math.random()*3+2}s;animation-delay:${Math.random()*1.5}s;`;
-      bg.appendChild(e);setTimeout(()=>e.remove(),6000);
-    },i*70);
+function showPhoenix() {
+  const name = (data.firstName || 'CHAMPION').toUpperCase();
+  const msgs = {
+    athlete: "You've taken the most important step of your football career. Your profile is now in our system — our scouting team will be in touch. The world doesn't know your name yet. GUNDUA does.",
+    scout: "Welcome to the GUNDUA scout network. You're now part of the infrastructure changing how African talent gets discovered.",
+    club: "Your club is now connected to the GUNDUA ecosystem. We'll reach out about sourcing verified African talent.",
+    parent: "Your support is the foundation your athlete builds on. Welcome to GUNDUA SPORTS — we'll be in touch with everything you need."
+  };
+  const ids = { athlete:'ATH', scout:'SCT', club:'CLB', parent:'PAR' };
+  document.getElementById('phName').textContent = name;
+  document.getElementById('phMsg').textContent = msgs[role];
+  document.getElementById('phId').textContent = `GUNDUA ID: ${ids[role]}-${Date.now().toString(36).toUpperCase()}`;
+  // Embers
+  const eb = document.getElementById('embers');
+  const cols = ['#FCD116','#CE1126','#009A44','#FFE040'];
+  for (let i = 0; i < 40; i++) {
+    setTimeout(() => {
+      const e = document.createElement('div');
+      e.className = 'ember';
+      e.style.cssText = `left:${Math.random()*100}%;height:${Math.random()*50+15}px;width:${Math.random()*3+1}px;background:${cols[Math.floor(Math.random()*cols.length)]};animation-duration:${Math.random()*3+2}s;animation-delay:${Math.random()}s;`;
+      eb.appendChild(e);
+      setTimeout(() => e.remove(), 5000);
+    }, i * 80);
   }
   document.getElementById('phoenix').classList.add('on');
 }
 
-function shareJourney(){
-  const text=`I just joined GUNDUA SPORTS — Africa's talent discovery platform. Discovered, not overlooked. gunduasports.com`;
-  if(navigator.share)navigator.share({title:'GUNDUA SPORTS',text,url:'https://gunduasports.com'});
-  else navigator.clipboard.writeText(text).then(()=>alert('Link copied! Share your journey.'));
+function shareIt() {
+  const txt = `I just joined GUNDUA SPORTS — Africa's talent discovery platform. gunduasports.com`;
+  if (navigator.share) navigator.share({ title: 'GUNDUA SPORTS', text: txt, url: 'https://gunduasports.com' });
+  else navigator.clipboard.writeText(txt).then(() => alert('Link copied!'));
 }
 </script>
 </body>
