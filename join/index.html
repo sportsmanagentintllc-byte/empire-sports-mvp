@@ -111,6 +111,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
   .type-grid{grid-template-columns:1fr;}
   .field-row{grid-template-columns:1fr;}
 }
+.consent-box{margin:18px 0 4px;display:flex;flex-direction:column;gap:12px;}
+.consent-row{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.55;color:var(--muted,#A8A09A);cursor:pointer;}
+.consent-row input{margin-top:3px;width:16px;height:16px;accent-color:var(--gold,#FCD116);flex-shrink:0;cursor:pointer;}
+.consent-row a{color:var(--gold,#FCD116);text-decoration:underline;}
+.submit-error{display:none;margin:10px 0 0;padding:12px 14px;border:1px solid rgba(206,17,38,.45);background:rgba(206,17,38,.08);color:#ff8f9b;font-size:13px;line-height:1.5;}
 </style>
 </head>
 <body>
@@ -218,9 +223,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
       <h2 class="step-title">READY TO <em>RISE?</em></h2>
       <p class="step-sub">Review your details then submit to enter the GUNDUA ecosystem.</p>
       <div class="review-list" id="reviewList"></div>
+      <div class="consent-box">
+        <label class="consent-row"><input type="checkbox" id="consentTerms"/><span>I agree to the <a href="/terms/" target="_blank">Terms of Use</a> and <a href="/privacy/" target="_blank">Privacy Policy</a>.</span></label>
+        <label class="consent-row" id="parentConsentRow" style="display:none;"><input type="checkbox" id="consentParent"/><span>I confirm that my parent or guardian consents to this registration and to GUNDUA SPORTS processing my details. <em>(Required for athletes under 18.)</em></span></label>
+      </div>
+      <div class="submit-error" id="submitError"></div>
       <div class="step-nav">
         <button class="btn-back" onclick="goTo(3)">← Back</button>
-        <button class="btn-submit" onclick="submitForm()">Submit & Be Discovered →</button>
+        <button class="btn-submit" id="submitBtn" onclick="submitForm()">Submit & Be Discovered →</button>
       </div>
     </div>
 
@@ -419,6 +429,22 @@ function buildReview() {
 }
 
 async function submitForm() {
+  const err = document.getElementById('submitError');
+  err.style.display = 'none';
+  const ageNum = data.age ? parseInt(data.age) : null;
+  if (role === 'athlete' && ageNum && ageNum < 13) {
+    err.textContent = 'GUNDUA SPORTS is open to athletes aged 13 and over. If you are under 13, a parent or guardian can register on your behalf using the Parent option.';
+    err.style.display = 'block'; return;
+  }
+  if (!document.getElementById('consentTerms').checked) {
+    err.textContent = 'Please accept the Terms of Use and Privacy Policy to continue.';
+    err.style.display = 'block'; return;
+  }
+  const isMinor = role === 'athlete' && ageNum && ageNum < 18;
+  if (isMinor && !document.getElementById('consentParent').checked) {
+    err.textContent = 'Registrations for athletes under 18 require parent or guardian consent. Please tick the consent box to continue.';
+    err.style.display = 'block'; return;
+  }
   document.getElementById('loading').classList.add('on');
   const payload = {
     user_type: role,
@@ -441,17 +467,26 @@ async function submitForm() {
     age_groups: data.ageGroups || null,
     athlete_name: data.athleteName || null,
     source: 'join',
+    terms_accepted: true,
+    parental_consent: (role === 'athlete' && data.age && parseInt(data.age) < 18) ? true : null,
     registered_at: new Date().toISOString()
   };
   try {
-    await fetch(`${SB_URL}/rest/v1/registrations`, {
+    const res = await fetch(`${SB_URL}/rest/v1/registrations`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}`, 'Prefer': 'return=minimal' },
       body: JSON.stringify(payload)
     });
-  } catch(e) { console.error(e); }
-  document.getElementById('loading').classList.remove('on');
-  showPhoenix();
+    if (!res.ok) throw new Error('Registration failed: HTTP ' + res.status);
+    document.getElementById('loading').classList.remove('on');
+    showPhoenix();
+  } catch(e) {
+    console.error(e);
+    document.getElementById('loading').classList.remove('on');
+    const err = document.getElementById('submitError');
+    err.textContent = 'Something went wrong saving your registration — nothing was lost, please press Submit again. If it keeps failing, email info@gunduasports.com and we will register you manually.';
+    err.style.display = 'block';
+  }
 }
 
 function showPhoenix() {
@@ -486,6 +521,17 @@ function shareIt() {
   if (navigator.share) navigator.share({ title: 'GUNDUA SPORTS', text: txt, url: 'https://gunduasports.com' });
   else navigator.clipboard.writeText(txt).then(() => alert('Link copied!'));
 }
+
+const _gsCollect = collectAndGo;
+collectAndGo = function(next) {
+  _gsCollect(next);
+  if (next === 4) {
+    const minor = role === 'athlete' && data.age && parseInt(data.age) < 18;
+    const row = document.getElementById('parentConsentRow');
+    if (row) row.style.display = minor ? 'flex' : 'none';
+    if (!minor) { const cp = document.getElementById('consentParent'); if (cp) cp.checked = false; }
+  }
+};
 </script>
 </body>
 </html>
