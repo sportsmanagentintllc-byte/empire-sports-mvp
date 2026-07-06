@@ -187,7 +187,7 @@ footer{background:var(--black);border-top:1px solid rgba(252,209,22,0.06);paddin
   <a href="/" class="nav-logo"><span>GUNDUA</span> SPORTS</a>
   <div class="nav-right">
     <a href="/" class="nav-back">← Platform</a>
-    <button class="theme-btn" id="tb" onclick="toggleTheme()">☀</button>
+    <button class="theme-btn" id="tb" onclick="toggleTheme()"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></button>
     <a href="/join" class="nav-cta">Enrol Free</a>
   </div>
 </nav>
@@ -389,13 +389,14 @@ footer{background:var(--black);border-top:1px solid rgba(252,209,22,0.06);paddin
 
 <footer>
   <div class="fl"><span>GUNDUA</span> SPORTS ACADEMY</div>
-  <p class="fc">© 2025 GUNDUA SPORTS · In partnership with A.F.C.A.S. (UK)</p>
+  <p class="fc">© 2026 GUNDUA SPORTS · In partnership with A.F.C.A.S. (UK)</p>
   <a href="/" class="fback">← Platform</a>
   <div class="ps"><span class="p pr"></span><span class="p pg"></span><span class="p pgr"></span></div>
 </footer>
 
 <script>
-function toggleTheme(){document.body.classList.toggle('light');document.getElementById('tb').textContent=document.body.classList.contains('light')?'☾':'☀';localStorage.setItem('gs-theme',document.body.classList.contains('light')?'light':'dark');}
+const GS_SUN=`<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>`;const GS_MOON=`<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>`;
+function toggleTheme(){document.body.classList.toggle('light');document.getElementById('tb').innerHTML=document.body.classList.contains('light')?GS_MOON:GS_SUN;localStorage.setItem('gs-theme',document.body.classList.contains('light')?'light':'dark');}
 (function(){if(localStorage.getItem('gs-theme')==='light'){document.body.classList.add('light');document.getElementById('tb').textContent='☾';}})();
 </script>
 </body>
