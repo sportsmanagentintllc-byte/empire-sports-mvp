@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>GUNDUA SPORTS — Command</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --red:#CE1126; --gold:#FCD116; --green:#009A44; --black:#060606; --panel:#0D0D0D; --muted:#A8A09A; --border:rgba(255,255,255,0.08); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--black); color:#EDEDED; font-family:'Barlow',sans-serif; min-height:100vh; }
+  .stripe { height:4px; background:linear-gradient(90deg,var(--green) 0 33%,var(--gold) 33% 66%,var(--red) 66% 100%); }
+
+  /* ---- Gate ---- */
+  .gate { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:var(--black); z-index:100; }
+  .gate-box { width:min(400px,90vw); border:1px solid var(--border); background:var(--panel); padding:40px 36px; }
+  .gate-logo { font-family:'Bebas Neue',sans-serif; font-size:34px; letter-spacing:2px; }
+  .gate-logo span { color:var(--gold); }
+  .gate-sub { font-family:'Barlow Condensed',sans-serif; letter-spacing:3px; text-transform:uppercase; font-size:12px; color:var(--muted); margin:4px 0 28px; }
+  .gate input { width:100%; background:#060606; border:1px solid var(--border); color:#fff; padding:13px 14px; font-size:15px; font-family:'Barlow',sans-serif; outline:none; }
+  .gate input:focus { border-color:var(--gold); }
+  .gate button { width:100%; margin-top:14px; background:var(--gold); color:var(--black); border:none; padding:13px; font-weight:700; font-size:14px; letter-spacing:1px; text-transform:uppercase; cursor:pointer; font-family:'Barlow',sans-serif; }
+  .gate button:disabled { opacity:.6; cursor:wait; }
+  .gate-err { display:none; margin-top:12px; font-size:13px; color:#ff8f9b; }
+
+  /* ---- Shell ---- */
+  .shell { display:none; }
+  header { display:flex; align-items:center; justify-content:space-between; padding:16px 4%; border-bottom:1px solid var(--border); }
+  .h-logo { font-family:'Bebas Neue',sans-serif; font-size:24px; letter-spacing:2px; }
+  .h-logo span { color:var(--gold); }
+  .h-logo em { font-style:normal; color:var(--muted); font-size:14px; font-family:'Barlow Condensed',sans-serif; letter-spacing:3px; margin-left:10px; }
+  .h-actions { display:flex; gap:10px; }
+  .h-btn { background:none; border:1px solid var(--border); color:var(--muted); padding:8px 16px; font-size:13px; cursor:pointer; font-family:'Barlow',sans-serif; display:flex; gap:7px; align-items:center; }
+  .h-btn:hover { color:#fff; border-color:var(--gold); }
+  .h-btn svg { width:14px; height:14px; }
+
+  main { padding:30px 4% 60px; max-width:1500px; margin:0 auto; }
+
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; margin-bottom:28px; }
+  .stat { border:1px solid var(--border); background:var(--panel); padding:18px 20px; }
+  .stat-label { font-family:'Barlow Condensed',sans-serif; letter-spacing:2px; text-transform:uppercase; font-size:12px; color:var(--muted); }
+  .stat-val { font-family:'Bebas Neue',sans-serif; font-size:40px; color:var(--gold); line-height:1.1; margin-top:4px; }
+  .stat-val.white { color:#fff; }
+
+  .tabs { display:flex; gap:0; border-bottom:1px solid var(--border); margin-bottom:20px; }
+  .tab { background:none; border:none; color:var(--muted); font-family:'Barlow Condensed',sans-serif; letter-spacing:2px; text-transform:uppercase; font-size:15px; padding:12px 22px; cursor:pointer; border-bottom:2px solid transparent; }
+  .tab.on { color:var(--gold); border-bottom-color:var(--gold); }
+
+  .toolbar { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+  .toolbar input, .toolbar select { background:var(--panel); border:1px solid var(--border); color:#fff; padding:10px 13px; font-size:14px; font-family:'Barlow',sans-serif; outline:none; }
+  .toolbar input { flex:1; min-width:220px; }
+  .toolbar input:focus, .toolbar select:focus { border-color:var(--gold); }
+
+  .tbl-wrap { overflow-x:auto; border:1px solid var(--border); }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; min-width:900px; }
+  th { font-family:'Barlow Condensed',sans-serif; letter-spacing:1.5px; text-transform:uppercase; font-size:12px; color:var(--gold); text-align:left; padding:12px 14px; background:#0A0A0A; border-bottom:1px solid var(--border); white-space:nowrap; }
+  td { padding:11px 14px; border-bottom:1px solid rgba(255,255,255,0.04); color:#C9C9C9; vertical-align:top; }
+  tr:hover td { background:rgba(252,209,22,0.03); }
+  .role-b { display:inline-block; padding:3px 10px; font-family:'Barlow Condensed',sans-serif; letter-spacing:1px; text-transform:uppercase; font-size:11.5px; border:1px solid; }
+  .r-athlete { color:var(--gold); border-color:rgba(252,209,22,.4); }
+  .r-scout { color:#7EC8FF; border-color:rgba(126,200,255,.4); }
+  .r-club { color:#B7FFB0; border-color:rgba(0,154,68,.5); }
+  .r-parent { color:#FFB0BA; border-color:rgba(206,17,38,.5); }
+  .gid { font-family:'Barlow Condensed',sans-serif; letter-spacing:1px; color:var(--gold); white-space:nowrap; }
+  .minor-flag { display:inline-block; margin-left:6px; padding:2px 7px; font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:#FFB0BA; border:1px solid rgba(206,17,38,.5); font-family:'Barlow Condensed',sans-serif; }
+  .msg-cell { max-width:420px; white-space:pre-wrap; }
+  .empty { padding:50px; text-align:center; color:var(--muted); font-size:14px; }
+  a { color:var(--gold); }
+</style>
+</head>
+<body>
+<div class="stripe"></div>
+
+<div class="gate" id="gate">
+  <div class="gate-box">
+    <div class="gate-logo">GUNDUA<span>.</span></div>
+    <div class="gate-sub">Command — Authorised Access Only</div>
+    <input type="password" id="pw" placeholder="Password" onkeydown="if(event.key==='Enter')unlock()"/>
+    <button id="unlockBtn" onclick="unlock()">Enter</button>
+    <div class="gate-err" id="gateErr"></div>
+  </div>
+</div>
+
+<div class="shell" id="shell">
+  <header>
+    <div class="h-logo">GUNDUA<span>.</span><em>COMMAND</em></div>
+    <div class="h-actions">
+      <button class="h-btn" onclick="load(sessionPw)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 3v6h-6"/></svg>Refresh</button>
+      <button class="h-btn" onclick="exportCsv()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>Export CSV</button>
+      <button class="h-btn" onclick="signOut()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>Sign out</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="stats" id="stats"></div>
+
+    <div class="tabs">
+      <button class="tab on" id="tabR" onclick="setTab('r')">Registrations</button>
+      <button class="tab" id="tabM" onclick="setTab('m')">Contact Messages</button>
+    </div>
+
+    <div class="toolbar" id="toolbarR">
+      <input id="q" placeholder="Search name, email, country, GUNDUA ID..." oninput="renderRegs()"/>
+      <select id="roleF" onchange="renderRegs()">
+        <option value="">All roles</option>
+        <option value="athlete">Athletes</option>
+        <option value="scout">Scouts</option>
+        <option value="club">Clubs</option>
+        <option value="parent">Parents</option>
+      </select>
+    </div>
+
+    <div class="tbl-wrap" id="tableBox"></div>
+  </main>
+</div>
+
+<script>
+const FN_URL = 'https://iniwfkjifuguaqtxkios.supabase.co/functions/v1/admin-data';
+let sessionPw = null, DATA = { registrations: [], contact_messages: [] }, tab = 'r';
+
+async function unlock() {
+  const pw = document.getElementById('pw').value;
+  const btn = document.getElementById('unlockBtn');
+  const err = document.getElementById('gateErr');
+  err.style.display = 'none';
+  if (!pw) return;
+  btn.disabled = true; btn.textContent = 'Verifying...';
+  const ok = await load(pw);
+  btn.disabled = false; btn.textContent = 'Enter';
+  if (ok) {
+    sessionPw = pw;
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('shell').style.display = 'block';
+  }
+}
+
+async function load(pw) {
+  const err = document.getElementById('gateErr');
+  try {
+    const res = await fetch(FN_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: pw })
+    });
+    const j = await res.json();
+    if (!res.ok) { err.textContent = j.error || 'Access denied.'; err.style.display = 'block'; return false; }
+    DATA = j;
+    renderStats(); renderTab();
+    return true;
+  } catch (e) {
+    err.textContent = 'Could not reach the server. Check the Edge Function is deployed.';
+    err.style.display = 'block';
+    return false;
+  }
+}
+
+function renderStats() {
+  const r = DATA.registrations, now = Date.now(), wk = 7 * 864e5;
+  const c = (t) => r.filter(x => x.user_type === t).length;
+  const recent = r.filter(x => x.registered_at && (now - new Date(x.registered_at).getTime()) < wk).length;
+  document.getElementById('stats').innerHTML = [
+    ['Total registrations', r.length, true],
+    ['Athletes', c('athlete'), false],
+    ['Scouts', c('scout'), false],
+    ['Clubs', c('club'), false],
+    ['Parents', c('parent'), false],
+    ['Last 7 days', recent, true],
+    ['Messages', DATA.contact_messages.length, false],
+  ].map(([l, v, gold]) => `<div class="stat"><div class="stat-label">${l}</div><div class="stat-val ${gold ? '' : 'white'}">${v}</div></div>`).join('');
+}
+
+function setTab(t) {
+  tab = t;
+  document.getElementById('tabR').classList.toggle('on', t === 'r');
+  document.getElementById('tabM').classList.toggle('on', t === 'm');
+  document.getElementById('toolbarR').style.display = t === 'r' ? 'flex' : 'none';
+  renderTab();
+}
+function renderTab() { tab === 'r' ? renderRegs() : renderMsgs(); }
+
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmtD = (d) => d ? new Date(d).toLocaleString('en-GB', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' }) : '';
+
+function filteredRegs() {
+  const q = document.getElementById('q').value.toLowerCase();
+  const rf = document.getElementById('roleF').value;
+  return DATA.registrations.filter(r => {
+    if (rf && r.user_type !== rf) return false;
+    if (!q) return true;
+    return ['first_name','last_name','email','country','gundua_id','organisation','current_club','athlete_name']
+      .some(k => (r[k] || '').toString().toLowerCase().includes(q));
+  });
+}
+
+function renderRegs() {
+  const rows = filteredRegs();
+  if (!rows.length) { document.getElementById('tableBox').innerHTML = '<div class="empty">No registrations match.</div>'; return; }
+  const body = rows.map(r => {
+    const minor = r.user_type === 'athlete' && r.age && r.age < 18;
+    return `<tr>
+      <td class="gid">${esc(r.gundua_id) || '&mdash;'}</td>
+      <td><span class="role-b r-${esc(r.user_type)}">${esc(r.user_type)}</span></td>
+      <td>${esc(r.first_name)} ${esc(r.last_name)}${minor ? '<span class="minor-flag">Minor</span>' : ''}${r.athlete_name ? '<br><span style="color:var(--muted);font-size:12px;">Athlete: ' + esc(r.athlete_name) + '</span>' : ''}</td>
+      <td><a href="mailto:${esc(r.email)}">${esc(r.email)}</a>${r.phone ? '<br><span style="color:var(--muted)">' + esc(r.phone) + '</span>' : ''}</td>
+      <td>${esc(r.country)}</td>
+      <td>${r.age ?? ''}</td>
+      <td>${esc(r.position || r.organisation || r.sports || '')}${r.current_club ? '<br><span style="color:var(--muted)">' + esc(r.current_club) + '</span>' : ''}</td>
+      <td>${r.clip_link ? `<a href="${esc(r.clip_link)}" target="_blank" rel="noopener">Clip</a>` : ''}</td>
+      <td>${r.parental_consent === true ? 'Yes' : (r.user_type === 'athlete' && r.age < 18 ? '<span style="color:#ff8f9b">Check</span>' : '')}</td>
+      <td style="white-space:nowrap;color:var(--muted)">${fmtD(r.registered_at)}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('tableBox').innerHTML = `<table>
+    <thead><tr><th>GUNDUA ID</th><th>Role</th><th>Name</th><th>Contact</th><th>Country</th><th>Age</th><th>Detail</th><th>Video</th><th>Consent</th><th>Registered</th></tr></thead>
+    <tbody>${body}</tbody></table>`;
+}
+
+function renderMsgs() {
+  const rows = DATA.contact_messages;
+  if (!rows.length) { document.getElementById('tableBox').innerHTML = '<div class="empty">No contact messages yet.</div>'; return; }
+  const body = rows.map(m => `<tr>
+    <td>${esc(m.name)}</td>
+    <td><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></td>
+    <td>${esc(m.enquiry_type)}</td>
+    <td class="msg-cell">${esc(m.message)}</td>
+    <td style="white-space:nowrap;color:var(--muted)">${fmtD(m.created_at)}</td>
+  </tr>`).join('');
+  document.getElementById('tableBox').innerHTML = `<table>
+    <thead><tr><th>Name</th><th>Email</th><th>Type</th><th>Message</th><th>Received</th></tr></thead>
+    <tbody>${body}</tbody></table>`;
+}
+
+function exportCsv() {
+  const rows = tab === 'r' ? filteredRegs() : DATA.contact_messages;
+  if (!rows.length) return;
+  const cols = Object.keys(rows[0]);
+  const csv = [cols.join(',')].concat(rows.map(r =>
+    cols.map(c => `"${String(r[c] ?? '').replace(/"/g, '""')}"`).join(',')
+  )).join('\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+  a.download = (tab === 'r' ? 'gundua-registrations-' : 'gundua-messages-') + new Date().toISOString().slice(0, 10) + '.csv';
+  a.click();
+}
+
+function signOut() { sessionPw = null; location.reload(); }
+</script>
+</body>
+</html>
