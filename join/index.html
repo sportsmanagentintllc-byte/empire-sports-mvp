@@ -116,6 +116,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .consent-row input{margin-top:3px;width:16px;height:16px;accent-color:var(--gold,#FCD116);flex-shrink:0;cursor:pointer;}
 .consent-row a{color:var(--gold,#FCD116);text-decoration:underline;}
 .submit-error{display:none;margin:10px 0 0;padding:12px 14px;border:1px solid rgba(206,17,38,.45);background:rgba(206,17,38,.08);color:#ff8f9b;font-size:13px;line-height:1.5;}
+.ph-next{margin:22px auto 6px;max-width:520px;text-align:left;display:flex;flex-direction:column;gap:10px;}
+.ph-next-item{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.55;color:var(--muted,#A8A09A);}
+.ph-next-dot{width:6px;height:6px;background:var(--gold,#FCD116);flex-shrink:0;margin-top:7px;}
 </style>
 </head>
 <body>
@@ -136,6 +139,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
     <div class="ph-name" id="phName"></div>
     <p class="ph-msg" id="phMsg"></p>
     <div class="ph-id" id="phId"></div>
+    <div class="ph-next" id="phNext"></div>
     <div class="ph-btns">
       <a href="/" class="ph-btn-p">Explore the Platform</a>
       <button class="ph-btn-s" onclick="shareIt()">Share Your Journey</button>
@@ -445,6 +449,9 @@ async function submitForm() {
     err.textContent = 'Registrations for athletes under 18 require parent or guardian consent. Please tick the consent box to continue.';
     err.style.display = 'block'; return;
   }
+  // Generate the GUNDUA ID before submission so it is stored, not decorative
+  const idPrefixes = { athlete:'ATH', scout:'SCT', club:'CLB', parent:'PAR' };
+  window.gunduaId = `${idPrefixes[role] || 'GEN'}-${Date.now().toString(36).toUpperCase()}${Math.random().toString(36).slice(2,4).toUpperCase()}`;
   document.getElementById('loading').classList.add('on');
   const payload = {
     user_type: role,
@@ -467,6 +474,7 @@ async function submitForm() {
     age_groups: data.ageGroups || null,
     athlete_name: data.athleteName || null,
     source: 'join',
+    gundua_id: window.gunduaId,
     terms_accepted: true,
     parental_consent: (role === 'athlete' && data.age && parseInt(data.age) < 18) ? true : null,
     registered_at: new Date().toISOString()
@@ -497,10 +505,16 @@ function showPhoenix() {
     club: "Your club is now connected to the GUNDUA ecosystem. We'll reach out about sourcing verified African talent.",
     parent: "Your support is the foundation your athlete builds on. Welcome to GUNDUA SPORTS — we'll be in touch with everything you need."
   };
-  const ids = { athlete:'ATH', scout:'SCT', club:'CLB', parent:'PAR' };
   document.getElementById('phName').textContent = name;
   document.getElementById('phMsg').textContent = msgs[role];
-  document.getElementById('phId').textContent = `GUNDUA ID: ${ids[role]}-${Date.now().toString(36).toUpperCase()}`;
+  document.getElementById('phId').textContent = `GUNDUA ID: ${window.gunduaId}`;
+  const nextSteps = {
+    athlete: ['A confirmation email is on its way — save your GUNDUA ID.','Our team reviews every profile. Strong, clear highlight clips move fastest.','You will hear from us about verification and events in your region.'],
+    scout: ['A confirmation email is on its way — save your GUNDUA ID.','Your account is pending verification. Our team will contact you within 72 hours to confirm your identity and organisation.','Once verified, you will receive access details for the talent network.'],
+    club: ['A confirmation email is on its way — save your GUNDUA ID.','Our team will contact you about the club pilot programme and verified talent access.','You will be invited to upcoming GUNDUA showcase events.'],
+    parent: ['A confirmation email is on its way — save your GUNDUA ID.','Our team reviews every athlete profile. You remain in control of your athlete&#39;s information at all times.','You will hear from us about verification and events in your region.']
+  };
+  document.getElementById('phNext').innerHTML = (nextSteps[role]||nextSteps.athlete).map(t => `<div class="ph-next-item"><span class="ph-next-dot"></span><span>${t}</span></div>`).join('');
   // Embers
   const eb = document.getElementById('embers');
   const cols = ['#FCD116','#CE1126','#009A44','#FFE040'];
