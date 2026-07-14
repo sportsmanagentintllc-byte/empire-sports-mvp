@@ -68,6 +68,10 @@
   .msg-cell { max-width:420px; white-space:pre-wrap; }
   .empty { padding:50px; text-align:center; color:var(--muted); font-size:14px; }
   a { color:var(--gold); }
+  .tier-sel { background:var(--panel); border:1px solid var(--border); color:var(--muted); font-family:'Barlow Condensed',sans-serif; letter-spacing:1px; text-transform:uppercase; font-size:11.5px; padding:4px 6px; cursor:pointer; }
+  .tier-sel.t-registered { color:var(--muted); }
+  .tier-sel.t-documents_checked { color:#7EC8FF; border-color:rgba(126,200,255,.4); }
+  .tier-sel.t-verified { color:var(--gold); border-color:rgba(252,209,22,.5); }
 </style>
 </head>
 <body>
@@ -167,6 +171,7 @@ function renderStats() {
     ['Clubs', c('club'), false],
     ['Parents', c('parent'), false],
     ['Last 7 days', recent, true],
+    ['Verified', r.filter(x => x.verification_level === 'verified').length, true],
     ['Messages', DATA.contact_messages.length, false],
   ].map(([l, v, gold]) => `<div class="stat"><div class="stat-label">${l}</div><div class="stat-val ${gold ? '' : 'white'}">${v}</div></div>`).join('');
 }
@@ -209,11 +214,16 @@ function renderRegs() {
       <td>${esc(r.position || r.organisation || r.sports || '')}${r.current_club ? '<br><span style="color:var(--muted)">' + esc(r.current_club) + '</span>' : ''}</td>
       <td>${r.clip_link ? `<a href="${esc(r.clip_link)}" target="_blank" rel="noopener">Clip</a>` : ''}</td>
       <td>${r.parental_consent === true ? 'Yes' : (r.user_type === 'athlete' && r.age < 18 ? '<span style="color:#ff8f9b">Check</span>' : '')}</td>
+      <td><select class="tier-sel t-${esc(r.verification_level || 'registered')}" onchange="setTier('${r.id}', this)">
+        <option value="registered" ${(r.verification_level||'registered')==='registered'?'selected':''}>Registered</option>
+        <option value="documents_checked" ${r.verification_level==='documents_checked'?'selected':''}>Docs Checked</option>
+        <option value="verified" ${r.verification_level==='verified'?'selected':''}>Verified</option>
+      </select></td>
       <td style="white-space:nowrap;color:var(--muted)">${fmtD(r.registered_at)}</td>
     </tr>`;
   }).join('');
   document.getElementById('tableBox').innerHTML = `<table>
-    <thead><tr><th>GUNDUA ID</th><th>Role</th><th>Name</th><th>Contact</th><th>Country</th><th>Age</th><th>Detail</th><th>Video</th><th>Consent</th><th>Registered</th></tr></thead>
+    <thead><tr><th>GUNDUA ID</th><th>Role</th><th>Name</th><th>Contact</th><th>Country</th><th>Age</th><th>Detail</th><th>Video</th><th>Consent</th><th>Tier</th><th>Registered</th></tr></thead>
     <tbody>${body}</tbody></table>`;
 }
 
@@ -243,6 +253,28 @@ function exportCsv() {
   a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
   a.download = (tab === 'r' ? 'gundua-registrations-' : 'gundua-messages-') + new Date().toISOString().slice(0, 10) + '.csv';
   a.click();
+}
+
+async function setTier(id, sel) {
+  const tier = sel.value;
+  const note = prompt('Verification note for the log (what was checked / why):');
+  if (note === null) { renderRegs(); return; }  // cancelled — revert display
+  sel.disabled = true;
+  try {
+    const res = await fetch(FN_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: sessionPw, action: 'set_tier', id, tier, note })
+    });
+    const j = await res.json();
+    if (!res.ok) throw new Error(j.error || 'Failed');
+    const row = DATA.registrations.find(r => r.id === id);
+    if (row) row.verification_level = tier;
+    renderStats(); renderRegs();
+  } catch (e) {
+    alert('Tier change failed: ' + e.message);
+    renderRegs();
+  }
 }
 
 function signOut() { sessionPw = null; location.reload(); }
