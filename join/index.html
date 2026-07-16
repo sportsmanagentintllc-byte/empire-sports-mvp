@@ -485,6 +485,13 @@ async function submitForm() {
       headers: { 'Content-Type': 'application/json', 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}`, 'Prefer': 'return=minimal' },
       body: JSON.stringify(payload)
     });
+    if (res.status === 409) {
+      document.getElementById('loading').classList.remove('on');
+      const err = document.getElementById('submitError');
+      err.textContent = 'Good news: you are already registered with this email or phone number. Check your inbox and spam folder for your GUNDUA ID. If you cannot find it, email info@gunduasports.com and we will resend it.';
+      err.style.display = 'block';
+      return;
+    }
     if (!res.ok) throw new Error('Registration failed: HTTP ' + res.status);
     document.getElementById('loading').classList.remove('on');
     showPhoenix();
