@@ -66,6 +66,11 @@
   .gid { font-family:'Barlow Condensed',sans-serif; letter-spacing:1px; color:var(--gold); white-space:nowrap; }
   .minor-flag { display:inline-block; margin-left:6px; padding:2px 7px; font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:#FFB0BA; border:1px solid rgba(206,17,38,.5); font-family:'Barlow Condensed',sans-serif; }
   .msg-cell { max-width:420px; white-space:pre-wrap; }
+  .msg-row-minor td { background:rgba(206,17,38,0.06); }
+  .handled-btn { background:none; border:1px solid var(--border); color:var(--muted); font-family:'Barlow Condensed',sans-serif; letter-spacing:1px; text-transform:uppercase; font-size:11.5px; padding:5px 11px; cursor:pointer; white-space:nowrap; }
+  .handled-btn:hover { border-color:var(--gold); color:#fff; }
+  .handled-btn.done { color:var(--green); border-color:rgba(0,154,68,.5); }
+  .reply-link { color:var(--gold); text-decoration:none; font-size:12px; white-space:nowrap; }
   .empty { padding:50px; text-align:center; color:var(--muted); font-size:14px; }
   a { color:var(--gold); }
   .tier-sel { background:var(--panel); border:1px solid var(--border); color:var(--muted); font-family:'Barlow Condensed',sans-serif; letter-spacing:1px; text-transform:uppercase; font-size:11.5px; padding:4px 6px; cursor:pointer; }
@@ -173,6 +178,7 @@ function renderStats() {
     ['Last 7 days', recent, true],
     ['Verified', r.filter(x => x.verification_level === 'verified').length, true],
     ['Messages', DATA.contact_messages.length, false],
+    ['Unanswered', DATA.contact_messages.filter(m => m.handled !== true).length, true],
   ].map(([l, v, gold]) => `<div class="stat"><div class="stat-label">${l}</div><div class="stat-val ${gold ? '' : 'white'}">${v}</div></div>`).join('');
 }
 
@@ -227,19 +233,49 @@ function renderRegs() {
     <tbody>${body}</tbody></table>`;
 }
 
+const MINOR_HINTS = /\b(grade\s*\d{1,2}|secondary school|high school|primary school|form\s*[1-6]\b|jss\d?|sss\d?|\b1[0-7]\s*(years|yrs|year)\s*old|i am 1[0-7]\b|under\s*1[0-8])\b/i;
+
+function looksMinor(m) {
+  if (m.age_group === 'minor') return true;
+  return MINOR_HINTS.test(m.message || '');
+}
+
 function renderMsgs() {
   const rows = DATA.contact_messages;
   if (!rows.length) { document.getElementById('tableBox').innerHTML = '<div class="empty">No contact messages yet.</div>'; return; }
-  const body = rows.map(m => `<tr>
-    <td>${esc(m.name)}</td>
-    <td><a href="mailto:${esc(m.email)}">${esc(m.email)}</a></td>
-    <td>${esc(m.enquiry_type)}</td>
+  const body = rows.map(m => {
+    const minor = looksMinor(m);
+    const done = m.handled === true;
+    const subject = encodeURIComponent('Re: your message to GUNDUA SPORTS');
+    return `<tr class="${minor ? 'msg-row-minor' : ''}">
+    <td>${esc(m.name)}${minor ? '<span class="minor-flag">Possible minor</span>' : ''}</td>
+    <td><a href="mailto:${esc(m.email)}?subject=${subject}" class="reply-link">${esc(m.email)}</a></td>
+    <td>${esc(m.enquiry_type)}${m.age_group ? '<br><span style="color:var(--muted);font-size:12px;">' + esc(m.age_group) + '</span>' : ''}</td>
     <td class="msg-cell">${esc(m.message)}</td>
+    <td><button class="handled-btn ${done ? 'done' : ''}" onclick="toggleHandled('${m.id}', ${done})">${done ? 'Handled' : 'Mark handled'}</button></td>
     <td style="white-space:nowrap;color:var(--muted)">${fmtD(m.created_at)}</td>
-  </tr>`).join('');
+  </tr>`;
+  }).join('');
   document.getElementById('tableBox').innerHTML = `<table>
-    <thead><tr><th>Name</th><th>Email</th><th>Type</th><th>Message</th><th>Received</th></tr></thead>
+    <thead><tr><th>Name</th><th>Email</th><th>Type</th><th>Message</th><th>Status</th><th>Received</th></tr></thead>
     <tbody>${body}</tbody></table>`;
+}
+
+async function toggleHandled(id, currentlyDone) {
+  try {
+    const res = await fetch(FN_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: sessionPw, action: 'set_handled', id, handled: !currentlyDone })
+    });
+    const j = await res.json();
+    if (!res.ok) throw new Error(j.error || 'Failed');
+    const row = DATA.contact_messages.find(m => m.id === id);
+    if (row) row.handled = !currentlyDone;
+    renderStats(); renderMsgs();
+  } catch (e) {
+    alert('Could not update: ' + e.message);
+  }
 }
 
 function exportCsv() {
