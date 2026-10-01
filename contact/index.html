@@ -93,6 +93,23 @@
   .footer-stripe{height:4px;background:linear-gradient(to right,var(--green) 33%,var(--gold) 33% 66%,var(--red) 66%);}
   .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
   .reveal.visible{opacity:1;transform:translateY(0);}
+  .athlete-notice{display:none;border:1px solid rgba(252,209,22,.3);background:rgba(252,209,22,.05);padding:18px 20px;margin:4px 0 2px;}
+  .athlete-notice.on{display:block;}
+  .an-title{font-family:'Barlow Condensed',sans-serif;letter-spacing:2.5px;text-transform:uppercase;font-size:13px;color:var(--gold);margin-bottom:8px;}
+  .athlete-notice p{font-size:13.5px;line-height:1.6;color:var(--muted);margin-bottom:14px;}
+  .an-btn{display:inline-block;background:var(--gold);color:var(--black);text-decoration:none;font-weight:700;font-size:12.5px;letter-spacing:1px;text-transform:uppercase;padding:10px 18px;}
+  .age-gate{display:none;border:1px solid var(--border);padding:18px 20px;margin:4px 0 2px;}
+  .age-gate.on{display:block;}
+  .ag-title{font-family:'Barlow Condensed',sans-serif;letter-spacing:2.5px;text-transform:uppercase;font-size:13px;color:var(--gold);margin-bottom:6px;}
+  .ag-title span{color:var(--red);}
+  .ag-sub{font-size:13px;line-height:1.55;color:var(--muted);margin-bottom:14px;}
+  .ag-opts{display:flex;flex-direction:column;gap:10px;}
+  .ag-opt{display:flex;gap:10px;align-items:center;font-size:14px;color:#D5D5D5;cursor:pointer;}
+  .ag-opt input{width:16px;height:16px;accent-color:var(--gold);cursor:pointer;}
+  .minor-notice{display:none;margin-top:16px;padding:16px 18px;border:1px solid rgba(206,17,38,.45);background:rgba(206,17,38,.07);}
+  .minor-notice.on{display:block;}
+  .minor-notice strong{display:block;color:#fff;font-size:14px;margin-bottom:10px;}
+  .minor-notice p{font-size:13.5px;line-height:1.65;color:#C9C9C9;margin-bottom:12px;}
 </style>
 </head>
 <body>
@@ -143,7 +160,7 @@
       </div>
       <div class="field">
         <label>I am a <span>*</span></label>
-        <select id="c-type">
+        <select id="c-type" onchange="handleTypeChange()">
           <option value="">Select...</option>
           <option>Athlete</option>
           <option>Scout / Coach</option>
@@ -154,6 +171,30 @@
         </select>
         <div class="field-error" id="e-type">Please select who you are.</div>
       </div>
+
+      <div class="athlete-notice" id="athleteNotice">
+        <div class="an-title">ATHLETES: REGISTER INSTEAD</div>
+        <p>This form is for enquiries. To be seen by scouts and clubs you need a full profile, which takes about five minutes and is free, always.</p>
+        <a href="/join/" class="an-btn">Create your free profile</a>
+      </div>
+
+      <div class="age-gate" id="ageGate">
+        <div class="ag-title">YOUR AGE <span>*</span></div>
+        <p class="ag-sub">We ask because anyone under 18 is protected differently on this platform.</p>
+        <div class="ag-opts">
+          <label class="ag-opt"><input type="radio" name="agegroup" value="adult" onchange="handleAgeChange()"><span>I am 18 or older</span></label>
+          <label class="ag-opt"><input type="radio" name="agegroup" value="minor" onchange="handleAgeChange()"><span>I am under 18</span></label>
+        </div>
+        <div class="field-error" id="e-age">Please tell us your age group.</div>
+        <div class="minor-notice" id="minorNotice">
+          <strong>Important, and we do not bend this rule.</strong>
+          <p>If you are under 18 we cannot take your details, your video or your profile any further until a parent or guardian is involved. Please ask them to contact us themselves from their own email address, or choose Parent or Guardian when you register.</p>
+          <p>Never send photos, videos or personal details to anybody in football without a parent knowing. Anyone who asks you to keep contact secret from your family is not someone to trust.</p>
+          <p>GUNDUA never charges athletes anything, at any stage, for any reason.</p>
+          <a href="/join/" class="an-btn">Register with a parent or guardian</a>
+        </div>
+      </div>
+
       <div class="field">
         <label>Message <span>*</span></label>
         <textarea id="c-message" placeholder="Tell us what you're looking for..."></textarea>
@@ -218,6 +259,39 @@
 <script>
   const SB_URL='https://iniwfkjifuguaqtxkios.supabase.co';
   const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImluaXdma2ppZnVndWFxdHhraW9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwNDY1MTgsImV4cCI6MjA4OTYyMjUxOH0.hqY2GUG1EXWJAjE5EjS8K_VoJIS-Qs3gRrvUuRzT-UU';
+  function handleTypeChange() {
+    const t = document.getElementById('c-type').value;
+    const isAthlete = (t === 'Athlete');
+    document.getElementById('athleteNotice').classList.toggle('on', isAthlete);
+    document.getElementById('ageGate').classList.toggle('on', isAthlete);
+    if (!isAthlete) {
+      document.querySelectorAll('input[name="agegroup"]').forEach(r => r.checked = false);
+      document.getElementById('minorNotice').classList.remove('on');
+    }
+    updateSubmitState();
+  }
+
+  function selectedAgeGroup() {
+    const r = document.querySelector('input[name="agegroup"]:checked');
+    return r ? r.value : '';
+  }
+
+  function handleAgeChange() {
+    const isMinor = selectedAgeGroup() === 'minor';
+    document.getElementById('minorNotice').classList.toggle('on', isMinor);
+    document.getElementById('e-age').style.display = 'none';
+    updateSubmitState();
+  }
+
+  function updateSubmitState() {
+    const btn = document.querySelector('.btn-submit');
+    const blocked = document.getElementById('c-type').value === 'Athlete' && selectedAgeGroup() === 'minor';
+    btn.disabled = blocked;
+    btn.style.opacity = blocked ? '0.45' : '1';
+    btn.style.cursor = blocked ? 'not-allowed' : 'pointer';
+    btn.textContent = blocked ? 'A parent or guardian must contact us' : 'Send Message \u2197';
+  }
+
   async function submitContact() {
     const name=document.getElementById('c-name'),email=document.getElementById('c-email'),type=document.getElementById('c-type'),message=document.getElementById('c-message');
     ['name','email','type','message'].forEach(f=>{document.getElementById('c-'+f).classList.remove('invalid');document.getElementById('e-'+f).style.display='none';});
@@ -228,13 +302,22 @@
     if(!type.value){type.classList.add('invalid');document.getElementById('e-type').style.display='block';valid=false;}
     if(!message.value.trim()){message.classList.add('invalid');document.getElementById('e-message').style.display='block';valid=false;}
     const gerr=document.getElementById('c-global-error');
+    const ageGroup = selectedAgeGroup();
+    if(type.value==='Athlete' && !ageGroup){
+      document.getElementById('e-age').style.display='block'; valid=false;
+    }
     if(!valid){gerr.textContent='Please fill in all required fields.';gerr.style.display='block';return;}
+    if(type.value==='Athlete' && ageGroup==='minor'){
+      gerr.textContent='We cannot accept this message from a player under 18. Please ask a parent or guardian to contact us from their own email address, or register at gunduasports.com/join choosing Parent or Guardian.';
+      gerr.style.display='block';
+      return;
+    }
     const btn=document.querySelector('.btn-submit');btn.disabled=true;btn.textContent='Sending…';
     try {
       const res = await fetch(`${SB_URL}/rest/v1/contact_messages`, {
         method:'POST',
         headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Prefer':'return=minimal'},
-        body: JSON.stringify({ name:name.value.trim(), email:email.value.trim(), enquiry_type:type.value, message:message.value.trim(), source:'contact' })
+        body: JSON.stringify({ name:name.value.trim(), email:email.value.trim(), enquiry_type:type.value, message:message.value.trim(), source:'contact', age_group: ageGroup || null })
       });
       if(!res.ok) throw new Error('HTTP '+res.status);
       document.getElementById('contactForm').classList.add('hidden');
