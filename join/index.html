@@ -119,6 +119,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .ph-next{margin:22px auto 6px;max-width:520px;text-align:left;display:flex;flex-direction:column;gap:10px;}
 .ph-next-item{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.55;color:var(--muted,#A8A09A);}
 .ph-next-dot{width:6px;height:6px;background:var(--gold,#FCD116);flex-shrink:0;margin-top:7px;}
+.fh{font-size:12px;line-height:1.5;color:var(--muted,#A8A09A);margin-top:6px;}
 </style>
 </head>
 <body>
@@ -175,18 +176,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
         <div class="type-card" onclick="pickRole(this,'scout')">
           <div class="tc-check">✓</div>
           <div class="tc-num">02</div>
-          <div class="tc-label">Scout / Coach</div>
-          <div class="tc-desc">I evaluate talent and want a global platform</div>
+          <div class="tc-label">Scout</div>
+          <div class="tc-desc">I identify and assess players for clubs or agencies</div>
+        </div>
+        <div class="type-card" onclick="pickRole(this,'coach')">
+          <div class="tc-check">✓</div>
+          <div class="tc-num">03</div>
+          <div class="tc-label">Coach</div>
+          <div class="tc-desc">I develop players at a club, academy or school</div>
         </div>
         <div class="type-card" onclick="pickRole(this,'club')">
           <div class="tc-check">✓</div>
-          <div class="tc-num">03</div>
+          <div class="tc-num">04</div>
           <div class="tc-label">Club / Academy</div>
           <div class="tc-desc">We recruit and develop players</div>
         </div>
         <div class="type-card" onclick="pickRole(this,'parent')">
           <div class="tc-check">✓</div>
-          <div class="tc-num">04</div>
+          <div class="tc-num">05</div>
           <div class="tc-label">Parent / Guardian</div>
           <div class="tc-desc">I support an athlete's career</div>
         </div>
@@ -279,14 +286,31 @@ const s2config = {
   },
   scout: {
     title: 'YOUR <em>PROFILE</em>',
-    sub: 'Tell us about your scouting and coaching background.',
+    sub: 'Every scout on this platform is verified before activation, so we need to be able to reach you.',
     html: `
       <div class="field-row">
         <div class="field"><label class="fl">First Name</label><input class="fi" id="firstName" type="text" placeholder="First name"/></div>
         <div class="field"><label class="fl">Last Name</label><input class="fi" id="lastName" type="text" placeholder="Last name"/></div>
       </div>
       <div class="field"><label class="fl">Email</label><input class="fi" id="email" type="email" placeholder="professional@email.com"/></div>
-      <div class="field"><label class="fl">Organisation / Club</label><input class="fi" id="org" type="text" placeholder="e.g. Independent, Club Name"/></div>
+      <div class="field"><label class="fl">WhatsApp / Phone</label><input class="fi" id="phone" type="tel" placeholder="+44 7700 000000 (include country code)"/></div>
+      <div class="field"><label class="fl">Organisation / Club</label><input class="fi" id="org" type="text" placeholder="e.g. Independent, or club name"/></div>
+      <div class="field-row">
+        <div class="field"><label class="fl">Country Based</label><select class="fs" id="country">COUNTRIES</select></div>
+        <div class="field"><label class="fl">Years Experience</label><select class="fs" id="experience"><option value="" disabled selected>Select</option><option>Under 1 year</option><option>1–3 years</option><option>3–5 years</option><option>5–10 years</option><option>10+ years</option></select></div>
+      </div>`
+  },
+  coach: {
+    title: 'YOUR <em>PROFILE</em>',
+    sub: 'Every coach on this platform is verified before activation, so we need to be able to reach you.',
+    html: `
+      <div class="field-row">
+        <div class="field"><label class="fl">First Name</label><input class="fi" id="firstName" type="text" placeholder="First name"/></div>
+        <div class="field"><label class="fl">Last Name</label><input class="fi" id="lastName" type="text" placeholder="Last name"/></div>
+      </div>
+      <div class="field"><label class="fl">Email</label><input class="fi" id="email" type="email" placeholder="professional@email.com"/></div>
+      <div class="field"><label class="fl">WhatsApp / Phone</label><input class="fi" id="phone" type="tel" placeholder="+234 800 000 0000 (include country code)"/></div>
+      <div class="field"><label class="fl">Club, Academy or School</label><input class="fi" id="org" type="text" placeholder="Where you currently coach"/></div>
       <div class="field-row">
         <div class="field"><label class="fl">Country Based</label><select class="fs" id="country">COUNTRIES</select></div>
         <div class="field"><label class="fl">Years Experience</label><select class="fs" id="experience"><option value="" disabled selected>Select</option><option>Under 1 year</option><option>1–3 years</option><option>3–5 years</option><option>5–10 years</option><option>10+ years</option></select></div>
@@ -334,12 +358,20 @@ const s3config = {
   },
   scout: {
     title: 'YOUR <em>NETWORK</em>',
-    sub: 'Tell us about your coverage and expertise.',
+    sub: 'This is what our team checks during verification.',
     html: `
       <div class="field"><label class="fl">Countries You Cover</label><input class="fi" id="coverage" type="text" placeholder="e.g. Nigeria, Ghana, Senegal"/></div>
       <div class="field"><label class="fl">Sports You Scout</label><input class="fi" id="sports" type="text" placeholder="e.g. Football, Basketball, Athletics"/></div>
-      <div class="field"><label class="fl">LinkedIn or Reference URL</label><input class="fi" id="linkedin" type="url" placeholder="https://linkedin.com/in/yourprofile"/></div>
-      <div class="field"><label class="fl">WhatsApp / Phone</label><input class="fi" id="phone" type="tel" placeholder="+44 7700 000000"/></div>`
+      <div class="field"><label class="fl">LinkedIn or Professional Reference URL</label><input class="fi" id="linkedin" type="url" placeholder="https://linkedin.com/in/yourprofile"/><div class="fh">Required. This is the fastest way for us to verify you.</div></div>`
+  },
+  coach: {
+    title: 'YOUR <em>WORK</em>',
+    sub: 'This is what our team checks during verification.',
+    html: `
+      <div class="field"><label class="fl">Age Groups You Coach</label><input class="fi" id="ageGroups" type="text" placeholder="e.g. U15, U17, Senior"/></div>
+      <div class="field"><label class="fl">Sports You Coach</label><input class="fi" id="sports" type="text" placeholder="e.g. Football"/></div>
+      <div class="field"><label class="fl">Countries You Work In</label><input class="fi" id="coverage" type="text" placeholder="e.g. Kenya"/></div>
+      <div class="field"><label class="fl">LinkedIn or Professional Reference URL</label><input class="fi" id="linkedin" type="url" placeholder="https://linkedin.com/in/yourprofile"/><div class="fh">Required. This is the fastest way for us to verify you.</div></div>`
   },
   club: {
     title: 'YOUR <em>NEEDS</em>',
@@ -400,7 +432,7 @@ function goTo(n) {
 }
 
 function validateAndGo(next) {
-  const required = { athlete: ['firstName','lastName','email'], scout: ['firstName','lastName','email'], club: ['org','firstName','email'], parent: ['firstName','lastName','email'] };
+  const required = { athlete: ['firstName','lastName','email'], scout: ['firstName','lastName','email','phone','org'], coach: ['firstName','lastName','email','phone','org'], club: ['org','firstName','email','phone'], parent: ['firstName','lastName','email'] };
   let ok = true;
   (required[role] || []).forEach(id => {
     const el = document.getElementById(id);
@@ -419,6 +451,13 @@ function collectStep2() {
 }
 
 function collectAndGo(next) {
+  if (role === 'scout' || role === 'coach') {
+    const li = document.getElementById('linkedin');
+    if (li) {
+      li.classList.remove('err');
+      if (!li.value.trim()) { li.classList.add('err'); li.focus(); return; }
+    }
+  }
   const ids = ['position','foot','club','clip','social','coverage','sports','linkedin','phone','ageGroups','athleteName','age'];
   ids.forEach(id => { const el = document.getElementById(id); if (el) data[id] = el.value; });
   goTo(next);
@@ -426,7 +465,7 @@ function collectAndGo(next) {
 
 function buildReview() {
   const labels = { firstName:'First Name', lastName:'Last Name', age:'Age', country:'Country', email:'Email', phone:'WhatsApp', org:'Organisation', experience:'Experience', position:'Position', foot:'Dominant Foot', club:'Current Club', clip:'Clip Link', social:'Social Handle', coverage:'Countries Covered', sports:'Sports', linkedin:'LinkedIn', ageGroups:'Age Groups', athleteName:"Athlete's Name" };
-  const roleLabel = { athlete:'Athlete', scout:'Scout / Coach', club:'Club / Academy', parent:'Parent / Guardian' };
+  const roleLabel = { athlete:'Athlete', scout:'Scout', coach:'Coach', club:'Club / Academy', parent:'Parent / Guardian' };
   let html = `<div class="rv"><div class="rv-key">Role</div><div class="rv-val">${roleLabel[role]}</div></div>`;
   Object.entries(data).forEach(([k, v]) => { if (v && labels[k]) html += `<div class="rv"><div class="rv-key">${labels[k]}</div><div class="rv-val">${v}</div></div>`; });
   document.getElementById('reviewList').innerHTML = html;
@@ -450,7 +489,7 @@ async function submitForm() {
     err.style.display = 'block'; return;
   }
   // Generate the GUNDUA ID before submission so it is stored, not decorative
-  const idPrefixes = { athlete:'ATH', scout:'SCT', club:'CLB', parent:'PAR' };
+  const idPrefixes = { athlete:'ATH', scout:'SCT', coach:'CCH', club:'CLB', parent:'PAR' };
   window.gunduaId = `${idPrefixes[role] || 'GEN'}-${Date.now().toString(36).toUpperCase()}${Math.random().toString(36).slice(2,4).toUpperCase()}`;
   document.getElementById('loading').classList.add('on');
   const payload = {
@@ -509,6 +548,7 @@ function showPhoenix() {
   const msgs = {
     athlete: "You've taken the most important step of your football career. Your profile is now in our system — our scouting team will be in touch. The world doesn't know your name yet. GUNDUA does.",
     scout: "Welcome to the GUNDUA scout network. You're now part of the infrastructure changing how African talent gets discovered.",
+    coach: "Welcome. Coaches are where every career on this platform actually begins, and this one is built with you in the room.",
     club: "Your club is now connected to the GUNDUA ecosystem. We'll reach out about sourcing verified African talent.",
     parent: "Your support is the foundation your athlete builds on. Welcome to GUNDUA SPORTS — we'll be in touch with everything you need."
   };
@@ -517,7 +557,8 @@ function showPhoenix() {
   document.getElementById('phId').textContent = `GUNDUA ID: ${window.gunduaId}`;
   const nextSteps = {
     athlete: ['A confirmation email is on its way — save your GUNDUA ID.','Our team reviews every profile. Strong, clear highlight clips move fastest.','You will hear from us about verification and events in your region.'],
-    scout: ['A confirmation email is on its way — save your GUNDUA ID.','Your account is pending verification. Our team will contact you within 72 hours to confirm your identity and organisation.','Once verified, you will receive access details for the talent network.'],
+    scout: ['A confirmation email is on its way, save your GUNDUA ID.','Your account is pending verification. Our team will be in touch to confirm your identity and organisation.','Once verified, you will receive access details for the talent network.'],
+    coach: ['A confirmation email is on its way, save your GUNDUA ID.','Your account is pending verification. Our team will be in touch to confirm your identity and your club or academy.','Once verified, you can register the players you develop and be credited on their profiles.'],
     club: ['A confirmation email is on its way — save your GUNDUA ID.','Our team will contact you about the club pilot programme and verified talent access.','You will be invited to upcoming GUNDUA showcase events.'],
     parent: ['A confirmation email is on its way — save your GUNDUA ID.','Our team reviews every athlete profile. You remain in control of your athlete&#39;s information at all times.','You will hear from us about verification and events in your region.']
   };
