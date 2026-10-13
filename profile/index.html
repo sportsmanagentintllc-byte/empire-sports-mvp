@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Complete Your Profile — GUNDUA SPORTS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000'/><text x='50' y='76' font-family='serif' font-weight='900' font-size='68' fill='%23FCD116' text-anchor='middle'>G</text></svg>">
+<style>
+  :root { --red:#CE1126; --gold:#FCD116; --green:#009A44; --black:#060606; --panel:#0D0D0D; --muted:#A8A09A; --border:rgba(255,255,255,0.08); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--black); color:#EDEDED; font-family:'Barlow',sans-serif; -webkit-font-smoothing:antialiased; }
+  .stripe { height:4px; background:linear-gradient(90deg,var(--green) 0 33%,var(--gold) 33% 66%,var(--red) 66% 100%); }
+  .amb { position:fixed; left:-10%; top:-16%; width:70vmax; height:56vmax; background:radial-gradient(ellipse at 38% 40%, rgba(252,209,22,0.05), transparent 66%); filter:blur(34px); pointer-events:none; z-index:0; }
+  .wrap { position:relative; z-index:1; max-width:860px; margin:0 auto; padding:42px 5% 90px; }
+
+  header { display:flex; align-items:center; justify-content:space-between; padding:18px 5%; border-bottom:1px solid var(--border); position:relative; z-index:1; }
+  .logo { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:2px; color:#fff; text-decoration:none; }
+  .logo span { color:var(--gold); }
+  .gid { font-family:'Barlow Condensed',sans-serif; letter-spacing:2px; font-size:14px; color:var(--gold); }
+
+  .state { padding:70px 5%; text-align:center; color:var(--muted); font-size:15px; }
+  .state.err { color:#ff8f9b; }
+
+  h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(38px,6vw,58px); line-height:1; letter-spacing:1px; margin-bottom:12px; }
+  h1 span { color:var(--gold); }
+  .lede { color:var(--muted); font-size:15.5px; line-height:1.7; max-width:620px; margin-bottom:34px; }
+
+  .tierbar { display:flex; gap:10px; align-items:center; border:1px solid var(--border); background:var(--panel); padding:14px 18px; margin-bottom:34px; flex-wrap:wrap; }
+  .tier-dot { width:9px; height:9px; background:var(--muted); }
+  .tier-dot.t2 { background:#7EC8FF; } .tier-dot.t3 { background:var(--gold); }
+  .tier-txt { font-size:13.5px; color:#C9C9C9; }
+
+  fieldset { border:1px solid var(--border); background:var(--panel); padding:24px 22px; margin-bottom:18px; }
+  legend { font-family:'Barlow Condensed',sans-serif; letter-spacing:2.5px; text-transform:uppercase; font-size:13px; color:var(--gold); padding:0 10px; }
+  .fnote { font-size:13px; color:var(--muted); line-height:1.6; margin-bottom:18px; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media(max-width:620px){ .row { grid-template-columns:1fr; } }
+  .f { margin-bottom:14px; }
+  label { display:block; font-family:'Barlow Condensed',sans-serif; letter-spacing:1.5px; text-transform:uppercase; font-size:12px; color:var(--muted); margin-bottom:6px; }
+  input, select, textarea { width:100%; background:#060606; border:1px solid var(--border); color:#fff; padding:11px 13px; font-size:15px; font-family:'Barlow',sans-serif; outline:none; }
+  input:focus, select:focus, textarea:focus { border-color:var(--gold); }
+  textarea { min-height:78px; resize:vertical; }
+  .hint { font-size:12px; color:var(--muted); margin-top:5px; line-height:1.5; }
+  .locked { opacity:.55; }
+
+  .save { position:sticky; bottom:0; background:rgba(6,6,6,.95); border-top:1px solid var(--border); padding:16px 0; display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+  button { background:var(--gold); color:var(--black); border:none; padding:14px 30px; font-weight:700; font-size:14px; letter-spacing:1px; text-transform:uppercase; cursor:pointer; font-family:'Barlow',sans-serif; }
+  button:disabled { opacity:.5; cursor:wait; }
+  .msg { font-size:13.5px; }
+  .msg.ok { color:#B7FFB0; } .msg.bad { color:#ff8f9b; }
+  .promise { border:1px solid rgba(252,209,22,.28); background:rgba(252,209,22,.04); padding:16px 18px; margin:26px 0 0; font-size:13.5px; line-height:1.65; color:#C9C9C9; }
+</style>
+</head>
+<body>
+<div class="stripe"></div>
+<div class="amb"></div>
+<header>
+  <a href="/" class="logo">GUNDUA<span>.</span></a>
+  <div class="gid" id="gidTop"></div>
+</header>
+
+<div class="state" id="loading">Loading your profile...</div>
+<div class="state err" id="failed" style="display:none;"></div>
+
+<div class="wrap" id="app" style="display:none;">
+  <h1>COMPLETE YOUR <span>PROFILE</span></h1>
+  <p class="lede">The more of this a club can see, the more seriously your profile gets taken. Nothing here is compulsory, and nothing here is ever charged for. Save as often as you like.</p>
+
+  <div class="tierbar">
+    <div class="tier-dot" id="tierDot"></div>
+    <div class="tier-txt" id="tierTxt"></div>
+  </div>
+
+  <fieldset>
+    <legend>Identity</legend>
+    <p class="fnote">Your name and date of birth are checked against a document during verification, so enter them exactly as they appear on it.</p>
+    <div class="f"><label>Full legal name</label><input id="full_legal_name" placeholder="As written on your ID or passport"/></div>
+    <div class="row">
+      <div class="f"><label>Known as</label><input id="known_as" placeholder="Playing name, if different"/></div>
+      <div class="f"><label>Date of birth</label><input id="date_of_birth" type="date"/><div class="hint" id="dobHint"></div></div>
+    </div>
+    <div class="row">
+      <div class="f"><label>Nationality</label><input id="nationality" placeholder="Passport nationality"/></div>
+      <div class="f"><label>Country you live in</label><input id="country" placeholder="Where you currently play"/></div>
+    </div>
+    <div class="row">
+      <div class="f"><label>City or region</label><input id="city_region" placeholder="e.g. Kumasi"/></div>
+      <div class="f"><label>Gender</label><select id="gender"><option value="">Select</option><option>Male</option><option>Female</option></select></div>
+    </div>
+    <div class="f"><label>Phone or WhatsApp</label><input id="phone" placeholder="Include country code, e.g. +233..."/></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Your Game</legend>
+    <div class="row">
+      <div class="f"><label>Primary position</label><input id="position" placeholder="e.g. Centre Forward"/></div>
+      <div class="f"><label>Secondary position</label><input id="secondary_position" placeholder="Optional"/></div>
+    </div>
+    <div class="row">
+      <div class="f"><label>Dominant foot</label><select id="dominant_foot"><option value="">Select</option><option>Left</option><option>Right</option><option>Both</option></select></div>
+      <div class="f"><label>Height in cm</label><input id="height_cm" type="number" placeholder="e.g. 178"/></div>
+    </div>
+    <div class="row">
+      <div class="f"><label>Weight in kg</label><input id="weight_kg" type="number" placeholder="e.g. 72"/></div>
+      <div class="f"><label>Current club or academy</label><input id="current_club" placeholder="Full name, not initials"/></div>
+    </div>
+    <div class="f">
+      <label>Level you play at</label>
+      <select id="competition_level">
+        <option value="">Select</option>
+        <option value="L1">L1, national first division, professional</option>
+        <option value="L2">L2, second division or professional reserve side</option>
+        <option value="L3">L3, regional or provincial senior league</option>
+        <option value="L4">L4, academy attached to an L1 or L2 club</option>
+        <option value="L5">L5, independent academy, school or university</option>
+        <option value="L6">L6, local, amateur or unaffiliated</option>
+      </select>
+      <div class="hint">This is the most useful single field on the page. A lower level is not a lower prospect, it tells a scout what they are actually looking at.</div>
+    </div>
+    <div class="f"><label>Month and year you joined</label><input id="club_joined_date" type="date"/></div>
+    <div class="row">
+      <div class="f"><label>Appearances last season</label><input id="appearances_last_season" type="number"/></div>
+      <div class="f"><label>Minutes last season</label><input id="minutes_last_season" type="number"/><div class="hint">More honest than appearances. Leave blank if unsure.</div></div>
+    </div>
+    <div class="row">
+      <div class="f"><label>Goals last season</label><input id="goals_last_season" type="number"/></div>
+      <div class="f"><label>Assists last season</label><input id="assists_last_season" type="number"/></div>
+    </div>
+    <div class="f"><label>Honours or representative selection</label><textarea id="honours" placeholder="National youth call ups, league titles, player of the season"></textarea></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Video</legend>
+    <p class="fnote">Ninety seconds. Full passages of play rather than cut highlights. Daylight, steady phone, no music. Phone footage is completely fine, nobody is expecting a production.</p>
+    <div class="f"><label>Link to your video</label><input id="clip_link" placeholder="YouTube, Google Drive, Dropbox, anything that opens"/></div>
+    <div class="row">
+      <div class="f"><label>When was it filmed</label><input id="video_recorded_month" placeholder="e.g. September 2026"/><div class="hint">Footage of unknown age is close to useless to a scout.</div></div>
+      <div class="f"><label>What is it</label><input id="video_context" placeholder="League match, training, trial"/></div>
+    </div>
+    <div class="f"><label>Instagram or social handle</label><input id="social_handle" placeholder="Optional"/></div>
+  </fieldset>
+
+  <fieldset id="guardianSet" style="display:none;">
+    <legend>Parent or Guardian</legend>
+    <p class="fnote">Required for every player under eighteen. Your profile does not move forward until we have spoken to them directly, and no scout or club ever receives your contact details.</p>
+    <div class="row">
+      <div class="f"><label>Their full name</label><input id="guardian_name"/></div>
+      <div class="f"><label>Relationship to you</label><select id="guardian_relationship"><option value="">Select</option><option>Mother</option><option>Father</option><option>Legal guardian</option><option>Other relative</option></select></div>
+    </div>
+    <div class="row">
+      <div class="f"><label>Their phone</label><input id="guardian_phone" placeholder="Must be different from your own"/></div>
+      <div class="f"><label>Their email</label><input id="guardian_email" placeholder="Optional"/></div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Who found you</legend>
+    <p class="fnote">If a coach, scout or teacher helped you get this far, name them. They are credited permanently on your profile, and it costs them nothing.</p>
+    <div class="row">
+      <div class="f"><label>Their name</label><input id="finder_name"/></div>
+      <div class="f"><label>Their phone or email</label><input id="finder_contact"/></div>
+    </div>
+  </fieldset>
+
+  <div class="save">
+    <button id="saveBtn" onclick="save()">Save my profile</button>
+    <span class="msg" id="msg"></span>
+  </div>
+
+  <div class="promise">
+    GUNDUA never charges athletes anything, at any stage, for any reason. If anyone asks you or your family for money using our name, it is a fraud. Tell us at info@gunduasports.com or on +1 613 515 1754.
+  </div>
+</div>
+
+<script>
+const FN = 'https://iniwfkjifuguaqtxkios.supabase.co/functions/v1/profile';
+const TOKEN = new URLSearchParams(location.search).get('t') || '';
+const FIELDS = ['full_legal_name','known_as','date_of_birth','nationality','country','city_region','gender','phone','position','secondary_position','dominant_foot','height_cm','weight_kg','current_club','competition_level','club_joined_date','appearances_last_season','minutes_last_season','goals_last_season','assists_last_season','honours','clip_link','video_recorded_month','video_context','social_handle','guardian_name','guardian_relationship','guardian_phone','guardian_email','finder_name','finder_contact'];
+
+function fail(m) {
+  document.getElementById('loading').style.display = 'none';
+  const f = document.getElementById('failed');
+  f.textContent = m; f.style.display = 'block';
+}
+
+function ageFrom(dob) {
+  if (!dob) return null;
+  const d = new Date(dob); if (isNaN(d)) return null;
+  const t = new Date();
+  let a = t.getFullYear() - d.getFullYear();
+  const m = t.getMonth() - d.getMonth();
+  if (m < 0 || (m === 0 && t.getDate() < d.getDate())) a--;
+  return a;
+}
+
+function paintTier(level) {
+  const dot = document.getElementById('tierDot'), txt = document.getElementById('tierTxt');
+  if (level === 'verified') { dot.className = 'tier-dot t3'; txt.textContent = 'GUNDUA Verified. Your identity and football history have been corroborated.'; }
+  else if (level === 'documents_checked') { dot.className = 'tier-dot t2'; txt.textContent = 'Documents checked. Your identity evidence has been reviewed. Club confirmation and footage review come next.'; }
+  else { dot.className = 'tier-dot'; txt.textContent = 'Registered. Nothing has been checked yet, and your profile says so openly. Completing this page is what moves it forward.'; }
+}
+
+function toggleGuardian() {
+  const a = ageFrom(document.getElementById('date_of_birth').value);
+  document.getElementById('guardianSet').style.display = (a !== null && a < 18) ? 'block' : 'none';
+}
+
+async function load() {
+  if (!TOKEN) { fail('This link is incomplete. Please use the full link from your email, or contact info@gunduasports.com'); return; }
+  try {
+    const res = await fetch(FN, { method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ token: TOKEN, action: 'get' }) });
+    const j = await res.json();
+    if (!res.ok) { fail(j.error || 'Could not open your profile.'); return; }
+    const p = j.profile;
+    FIELDS.forEach(f => { const el = document.getElementById(f); if (el && p[f] != null) el.value = p[f]; });
+    document.getElementById('gidTop').textContent = p.gundua_id || '';
+    paintTier(p.verification_level);
+    if (p.dob_is_approximate) document.getElementById('dobHint').textContent = 'We estimated this from the age you gave. Please correct it to your real date of birth.';
+    document.getElementById('date_of_birth').addEventListener('change', toggleGuardian);
+    toggleGuardian();
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+  } catch (e) { fail('Could not reach the server. Please try again shortly.'); }
+}
+
+async function save() {
+  const btn = document.getElementById('saveBtn'), msg = document.getElementById('msg');
+  const profile = {};
+  FIELDS.forEach(f => { const el = document.getElementById(f); if (el) profile[f] = el.value; });
+  btn.disabled = true; msg.className = 'msg'; msg.textContent = 'Saving...';
+  try {
+    const res = await fetch(FN, { method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ token: TOKEN, action: 'save', profile }) });
+    const j = await res.json();
+    if (!res.ok) throw new Error(j.error || 'Save failed');
+    msg.className = 'msg ok'; msg.textContent = 'Saved. You can come back to this link any time.';
+  } catch (e) {
+    msg.className = 'msg bad'; msg.textContent = 'Could not save. Please try again, or email info@gunduasports.com';
+  }
+  btn.disabled = false;
+}
+
+load();
+</script>
+</body>
+</html>
