@@ -68,7 +68,7 @@
   body.light nav { background: rgba(244,241,235,0.96); border-bottom-color: rgba(0,0,0,0.08); }
   body.light .nav-links a { color: #555; }
   body.light .nav-links a:hover { color: #000; }
-  body.light .hero-grid { background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px); }
+
   body.light .hero-sub { color: #444; }
   body.light .hero-stat-label { color: #666; }
   body.light .what-card { background: #fff; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
@@ -103,7 +103,20 @@
   /* HERO */
   .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 120px 40px 80px; }
   .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(252,209,22,0.04) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 20% 80%, rgba(206,17,38,0.06) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 80% 20%, rgba(0,154,68,0.04) 0%, transparent 60%); }
-  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(252,209,22,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(252,209,22,0.03) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%); }
+  /* Pitch geometry, floodlight and sweep. Nothing loaded, all drawn. */
+  .hero-grid { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .hero-pitch { position: absolute; top: 50%; left: -26%; width: 96vmax; height: 96vmax; transform: translateY(-50%); animation: pitchDrift 72s ease-in-out infinite alternate; }
+  .hero-pitch circle, .hero-pitch line, .hero-pitch path, .hero-pitch rect { fill: none; stroke: var(--gold); vector-effect: non-scaling-stroke; }
+  .hero-flood { position: absolute; left: 2%; bottom: 8%; width: 62vmax; height: 46vmax; background: radial-gradient(ellipse at 34% 46%, rgba(252,209,22,0.10), rgba(252,209,22,0.032) 36%, transparent 66%); filter: blur(30px); animation: floodBreathe 21s ease-in-out infinite alternate; }
+  .hero-sweep { position: absolute; top: -40%; left: -60%; width: 46%; height: 190%; background: linear-gradient(100deg, transparent, rgba(252,209,22,0.032), transparent); transform: rotate(14deg); animation: sweepPass 28s linear infinite; }
+  @keyframes pitchDrift { from { transform: translateY(-50%) translateX(0) scale(1); } to { transform: translateY(-50%) translateX(2%) scale(1.03); } }
+  @keyframes floodBreathe { from { opacity: 0.6; } to { opacity: 1; } }
+  @keyframes sweepPass { 0% { left: -60%; } 55%, 100% { left: 150%; } }
+  @media (prefers-reduced-motion: reduce) { .hero-pitch, .hero-flood, .hero-sweep { animation: none; } .hero-sweep { display: none; } }
+  @media (max-width: 860px) { .hero-pitch { left: -48%; opacity: 0.7; } .hero-flood { width: 92vmax; height: 56vmax; left: -14%; } }
+  body.light .hero-pitch circle, body.light .hero-pitch line, body.light .hero-pitch path, body.light .hero-pitch rect { stroke: rgba(0,0,0,0.55); }
+  body.light .hero-flood { background: radial-gradient(ellipse at 34% 46%, rgba(0,0,0,0.045), transparent 66%); }
+  body.light .hero-sweep { display: none; }
   .hero-content { position: relative; max-width: 1200px; margin: 0 auto; width: 100%; }
   .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--green); margin-bottom: 24px; }
   .hero-eyebrow::before { content: ''; display: block; width: 30px; height: 2px; background: var(--green); }
@@ -290,7 +303,23 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
+  <div class="hero-grid">
+    <svg class="hero-pitch" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <circle cx="500" cy="500" r="300" stroke-width="1.5" stroke-opacity="0.075"/>
+      <circle cx="500" cy="500" r="4.5" stroke-width="1.5" stroke-opacity="0.10" fill="#FCD116" fill-opacity="0.06"/>
+      <line x1="500" y1="40" x2="500" y2="960" stroke-width="1.5" stroke-opacity="0.06"/>
+      <path d="M200 160 H 800" stroke-width="1.5" stroke-opacity="0.04"/>
+      <path d="M200 840 H 800" stroke-width="1.5" stroke-opacity="0.04"/>
+      <rect x="310" y="40" width="380" height="140" stroke-width="1.5" stroke-opacity="0.045"/>
+      <rect x="310" y="820" width="380" height="140" stroke-width="1.5" stroke-opacity="0.045"/>
+      <path d="M40 92 A 52 52 0 0 1 92 40" stroke-width="1.5" stroke-opacity="0.045"/>
+      <path d="M908 40 A 52 52 0 0 1 960 92" stroke-width="1.5" stroke-opacity="0.045"/>
+      <path d="M40 908 A 52 52 0 0 0 92 960" stroke-width="1.5" stroke-opacity="0.045"/>
+      <path d="M908 960 A 52 52 0 0 0 960 908" stroke-width="1.5" stroke-opacity="0.045"/>
+    </svg>
+    <div class="hero-flood"></div>
+    <div class="hero-sweep"></div>
+  </div>
   <div class="hero-content">
     <div class="hero-eyebrow">Swahili · To Discover · To Uncover · To Reveal</div>
     <h1 class="hero-headline">
