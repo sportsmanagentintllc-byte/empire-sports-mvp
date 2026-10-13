@@ -100,9 +100,19 @@
   .footer-col a:hover { color:#fff; }
   .footer-bottom { display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:22px 0; border-top:1px solid var(--border); color:var(--muted); font-size:13px; }
   .footer-stripe { height:4px; background:linear-gradient(90deg, var(--green) 0 33%, var(--gold) 33% 66%, var(--red) 66% 100%); }
+  /* Ambient floodlight. Drawn, not loaded. */
+  .amb-flood { position: fixed; left: -8%; top: -14%; width: 72vmax; height: 58vmax; background: radial-gradient(ellipse at 38% 40%, rgba(252,209,22,0.055), rgba(252,209,22,0.018) 38%, transparent 68%); filter: blur(34px); pointer-events: none; z-index: 0; animation: ambBreathe 24s ease-in-out infinite alternate; }
+  .amb-flood-b { position: fixed; right: -16%; bottom: -22%; width: 64vmax; height: 52vmax; background: radial-gradient(ellipse at 56% 52%, rgba(252,209,22,0.035), transparent 62%); filter: blur(40px); pointer-events: none; z-index: 0; animation: ambBreathe 31s ease-in-out infinite alternate-reverse; }
+  @keyframes ambBreathe { from { opacity: 0.55; } to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .amb-flood, .amb-flood-b { animation: none; } }
+  body.light .amb-flood, body.light .amb-flood-b { display: none; }
+  nav, section, footer, main, .legal-wrap, .hero { position: relative; z-index: 1; }
 </style>
 </head>
 <body>
+<div class="amb-flood"></div>
+<div class="amb-flood-b"></div>
+
 <nav>
   <a href="/" class="nav-logo">GUNDUA<span>.</span></a>
   <div class="nav-links">
